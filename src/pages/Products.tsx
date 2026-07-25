@@ -300,7 +300,7 @@ const Products = () => {
           <p className="text-muted-foreground mb-6">{filteredProducts.length} products found</p>
 
           {/* Products grid */}
-          <div className={viewMode === "grid" ? "grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" : "space-y-4"}>
+          <div className={viewMode === "grid" ? "grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" : "space-y-4"}>
             {filteredProducts.map((product) => (
               <Link
                 key={product.id}
@@ -311,7 +311,7 @@ const Products = () => {
               >
                 <div
                   className={`${
-                    viewMode === "list" ? "w-32 h-32" : "aspect-square"
+                    viewMode === "list" ? "w-32 h-32 aspect-square" : "aspect-[3/4]"
                   } overflow-hidden bg-secondary relative`}
                 >
                   <img

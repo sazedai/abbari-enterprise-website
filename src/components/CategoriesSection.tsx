@@ -55,7 +55,7 @@ const CategoriesSection = () => {
         </div>
 
         {/* Categories grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {categories.map((category, index) => (
             <Link
               key={category.id}
@@ -64,7 +64,7 @@ const CategoriesSection = () => {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Image */}
-              <div className="aspect-square overflow-hidden">
+              <div className="aspect-[3/4] overflow-hidden">
                 <img
                   src={category.image}
                   alt={category.name}
