@@ -1,0 +1,16 @@
+# A BBARI Enterprise
+
+> B2B supplier of premium industrial hardware: V-belts, bearings, conveyor systems and power-transmission parts. Sales are quotation-based.
+
+## Pages
+
+- [Home](/): Company overview and featured industrial hardware.
+- [Products](/products): Full catalog of belts, bearings and components.
+- [Categories](/categories): Browse hardware by category.
+- [About](/about): Company background and value proposition.
+- [Contact](/contact): Address, phones, emails and business hours.
+- [Request a Quotation](/quotation): Submit cart for a price quote.
+
+## Guides
+
+- [V-Belt Selection and Maintenance Guide](/guides/v-belt-selection-and-maintenance): Technical guide to industrial V-belt types, sizing and wear identification.
