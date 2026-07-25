@@ -28,7 +28,6 @@ function HomePage() {
             className="h-full w-full object-cover"
             width={1920}
             height={1088}
-            priority={true}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/40" />
         </div>
