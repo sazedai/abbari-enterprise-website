@@ -60,7 +60,7 @@ export const useAdminAuth = () => {
 
   const checkAdminRole = async (userId: string) => {
     try {
-      const { data, error } = await supabase.rpc('has_role' as never, {
+      const { data, error } = await (supabase.rpc as any)('has_role', {
         _user_id: userId,
         _role: 'admin'
       });
