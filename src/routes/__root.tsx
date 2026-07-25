@@ -79,14 +79,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Abbari Enterprise" },
+      { name: "description", content: "Abbari Enterprise partners with ambitious organizations to build strategy, operations, and technology for lasting advantage." },
+      { name: "author", content: "Abbari Enterprise" },
+      { property: "og:title", content: "Abbari Enterprise" },
+      { property: "og:description", content: "Abbari Enterprise partners with ambitious organizations to build strategy, operations, and technology for lasting advantage." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@AbbariEnterprise" },
     ],
     links: [
       {
