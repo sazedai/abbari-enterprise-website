@@ -23,7 +23,8 @@ import siliconeSheetAsset from "@/assets/products/silicone-sheet.png.asset.json"
 const siliconeSheetImg = siliconeSheetAsset.url;
 import clearPvcSheetAsset from "@/assets/products/clear-pvc-sheet.png.asset.json";
 const clearPvcSheetImg = clearPvcSheetAsset.url;
-import teflonSheetImg from "@/assets/products/teflon-sheet.png";
+import teflonSheetAsset from "@/assets/products/teflon-sheet.png.asset.json";
+const teflonSheetImg = teflonSheetAsset.url;
 import corkSheetAsset from "@/assets/products/cork-sheet.png.asset.json";
 const corkSheetImg = corkSheetAsset.url;
 import bearingBmcAsset from "@/assets/products/thrust-bearing.png.asset.json";
