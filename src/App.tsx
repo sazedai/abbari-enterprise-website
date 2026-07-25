@@ -38,7 +38,6 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/quotation" element={<Quotation />} />
-            <Route path="/quotation" element={<Quotation />} />
             <Route path="/guides/v-belt-selection-and-maintenance" element={<VBeltGuide />} />
             <Route path="/login" element={<Login />} />
             <Route path="/admin" element={<Admin />} />
