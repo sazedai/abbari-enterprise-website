@@ -107,14 +107,14 @@ const FeaturedProducts = () => {
         </div>
 
         {/* Products grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product) => (
             <div
               key={product.id}
               className="group bg-card rounded-2xl border border-border overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-card"
             >
               {/* Image */}
-              <Link to={`/products/${product.id}`} className="block relative aspect-square overflow-hidden bg-secondary">
+              <Link to={`/products/${product.id}`} className="block relative aspect-[3/4] overflow-hidden bg-secondary">
                 <img
                   src={product.image}
                   alt={product.name}

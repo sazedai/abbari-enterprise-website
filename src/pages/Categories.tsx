@@ -144,7 +144,7 @@ const Categories = () => {
           </div>
 
           {/* Categories grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {allCategories.map((category, index) => (
               <Link
                 key={category.name}
@@ -152,7 +152,7 @@ const Categories = () => {
                 className="group relative overflow-hidden rounded-xl bg-card border border-border hover:border-primary/50 transition-all duration-300"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
-                <div className="aspect-video overflow-hidden relative">
+                <div className="aspect-[3/4] overflow-hidden relative">
                   <img
                     src={category.image}
                     alt={category.name}
