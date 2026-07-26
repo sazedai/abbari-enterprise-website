@@ -112,6 +112,7 @@ const productImages: Record<number, string> = {
   32: adjustableLinkVBeltImg,
   33: cuttingDiskImg,
   34: ssPipeRodImg,
+  35: fencingBarbwireImg,
 };
 
 interface Product {
