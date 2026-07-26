@@ -93,6 +93,8 @@ import pneumaticHosesTubingSolutionAsset from "@/assets/products/pneumatic-hoses
 const pneumaticHosesTubingSolutionImg = pneumaticHosesTubingSolutionAsset.url;
 import pneumaticComponentSolutionAsset from "@/assets/products/pneumatic-component-solution.png.asset.json";
 const pneumaticComponentSolutionImg = pneumaticComponentSolutionAsset.url;
+import pneumaticSparePartsSolutionAsset from "@/assets/products/pneumatic-spare-parts-solution.png.asset.json";
+const pneumaticSparePartsSolutionImg = pneumaticSparePartsSolutionAsset.url;
 
 
 
@@ -148,6 +150,7 @@ const productImages: Record<number, string> = {
   42: pneumaticPipeSolutionImg,
   43: pneumaticHosesTubingSolutionImg,
   44: pneumaticComponentSolutionImg,
+  45: pneumaticSparePartsSolutionImg,
 };
 
 
@@ -915,6 +918,37 @@ const allProducts: Product[] = [
       "Operating Pressure": "Up to 10 bar",
       "Temperature Range": "-10°C to +60°C",
       "Applications": "Automation, packaging, textile, automotive, CNC, general machinery",
+      "Compliance": "ISO 6432 / ISO 15552 cylinder standards; industry-standard pneumatic interfaces",
+    },
+  },
+  {
+    id: 45,
+    name: "Pneumatic Spare Parts Solution",
+    category: "Tools",
+    rating: 4.9,
+    description: "Complete pneumatic spare parts solution for maintaining, repairing and extending the life of industrial compressed-air systems and automation equipment. Includes replacement cylinders, piston seals, FRL service kits, solenoid valve coils and manifolds, filter elements, pressure regulators, lubricators, brass and nickel-plated threaded fittings, quick couplers and push-to-connect connectors. Engineered for fast turnaround, reliable interchangeability and leak-free performance across packaging, automotive, textile, CNC, material handling and general machinery applications.",
+    features: [
+      "Replacement air cylinders and repair kits for ISO and compact actuators",
+      "Piston seals, rod seals, O-rings and wear bands in NBR, Viton and polyurethane",
+      "Solenoid valve coils and replacement manifolds for 5/2-way and 3/2-way valves",
+      "FRL service kits: filter elements, diaphragms, regulator springs and lubricator bowls",
+      "Brass and nickel-plated threaded fittings, couplers, elbows, tees and reducers",
+      "Push-to-connect and quick-release fittings for flexible, tool-free maintenance",
+      "Pre-packaged maintenance kits for common pneumatic sub-systems",
+      "Compatible with major industrial pneumatic brands and standards",
+    ],
+    specifications: {
+      "Cylinder Bore Range": "16mm – 200mm",
+      "Cylinder Materials": "Anodised aluminium barrel, chrome-plated steel piston rod",
+      "Seal Materials": "NBR, Viton, Polyurethane, PTFE",
+      "Valve Functions": "5/2-way, 3/2-way solenoid / pilot-operated",
+      "Valve Voltages": "12V DC, 24V DC, 110V AC, 220V AC",
+      "FRL Filter Ratings": "5µm / 40µm replacement elements",
+      "FRL Pressure Range": "0.5 – 10 bar",
+      "Fitting Sizes": "4mm, 6mm, 8mm, 10mm, 12mm OD",
+      "Operating Pressure": "Up to 10 bar",
+      "Temperature Range": "-10°C to +60°C",
+      "Applications": "Maintenance, repair, automation, packaging, automotive, textile, CNC",
       "Compliance": "ISO 6432 / ISO 15552 cylinder standards; industry-standard pneumatic interfaces",
     },
   },

@@ -103,6 +103,8 @@ import pneumaticHosesTubingSolutionAsset from "@/assets/products/pneumatic-hoses
 const pneumaticHosesTubingSolutionImg = pneumaticHosesTubingSolutionAsset.url;
 import pneumaticComponentSolutionAsset from "@/assets/products/pneumatic-component-solution.png.asset.json";
 const pneumaticComponentSolutionImg = pneumaticComponentSolutionAsset.url;
+import pneumaticSparePartsSolutionAsset from "@/assets/products/pneumatic-spare-parts-solution.png.asset.json";
+const pneumaticSparePartsSolutionImg = pneumaticSparePartsSolutionAsset.url;
 
 
 
@@ -167,6 +169,7 @@ const productImages: Record<number, string> = {
   42: pneumaticPipeSolutionImg,
   43: pneumaticHosesTubingSolutionImg,
   44: pneumaticComponentSolutionImg,
+  45: pneumaticSparePartsSolutionImg,
 };
 
 
@@ -228,6 +231,7 @@ const allProducts: Product[] = [
   { id: 42, name: "Pneumatic Pipe Solution", category: "Tools", rating: 4.9, description: "Precision-engineered pneumatic pipe and tubing solution for industrial compressed-air distribution. Features high-grade polyurethane construction with braided reinforcement, a wide range of diameters from 4x2.5mm to 16x12mm, and colour-coded spools for easy circuit identification. Ideal for automation, packaging, CNC, robotics and general pneumatic systems requiring flexibility, pressure resistance and long service life." },
   { id: 43, name: "Pneumatic Hoses and Tubing", category: "Tools", rating: 4.9, description: "Comprehensive pneumatic hoses and tubing solution for industrial, agricultural and automation air-power systems. The range includes high-flexibility polyurethane (PU) hoses, lightweight polyethylene (PE) tubes, durable PVC hoses and high-performance Nylon / PTFE options — available in straight, coiled and braided-reinforced configurations with matching brass, steel and quick-connect fittings. Engineered for compressed air, pneumatic tools, spray systems, packaging lines and mobile machinery, with colour-coded circuits and clearly labelled diameter ratings for fast, leak-free installation." },
   { id: 44, name: "Pneumatic Component Solution", category: "Tools", rating: 4.9, description: "Complete pneumatic component solution for industrial automation and compressed-air systems. Includes solenoid valve manifolds, modular FRL (filter-regulator-lubricator) units, ISO-standard double-acting and compact air cylinders, plus a full push-to-connect fittings grid. Engineered for reliable directional control, clean dry air preparation, precise linear motion and leak-free distribution across packaging, automotive, textile, CNC and general machinery applications." },
+  { id: 45, name: "Pneumatic Spare Parts Solution", category: "Tools", rating: 4.9, description: "Complete pneumatic spare parts solution for maintaining, repairing and extending the life of industrial compressed-air systems and automation equipment. Includes replacement cylinders, piston seals, FRL service kits, solenoid valve coils and manifolds, filter elements, pressure regulators, lubricators, brass and nickel-plated threaded fittings, quick couplers and push-to-connect connectors. Engineered for fast turnaround, reliable interchangeability and leak-free performance across packaging, automotive, textile, CNC, material handling and general machinery applications." },
 ];
 
 
