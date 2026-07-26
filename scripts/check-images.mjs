@@ -2,52 +2,19 @@
 /**
  * Build-time image reference checker.
  *
- * Scans project source for image references and verifies each one resolves to:
+ * Scans project source for image references and verifies each resolves to:
  *   - an existing local file (relative import, alias @/…, or /public path), or
- *   - a reachable remote URL (HEAD/GET < 400) with an image Content-Type, or
+ *   - a reachable remote URL (HEAD/GET < 400, redirects followed) whose FINAL
+ *     response has an image Content-Type, or
  *   - a Lovable Assets .asset.json pointer with a reachable, image-typed `url`.
  *
- * Features:
- *   - Allowlist/ignore patterns via `.imagecheckrc.json` or `--ignore` CLI flag
- *     (match by path glob, extension, domain glob, or full-URL regex).
- *   - Per-domain (or per-rule) severity: "warn" vs "error".
- *   - Content-Type / MIME validation on remote URLs.
- *   - Incremental mode (`--changed` / `--since=<ref>`) that only checks files
- *     changed in the current PR/commit range.
- *   - JSON + HTML report artifacts (`--report-json`, `--report-html`).
- *   - On-disk cache of URL check results (TTL configurable) to speed up repeat runs.
- *   - Automatic retries with exponential backoff.
- *   - Basic host-level rate limiting (concurrency + min interval per host).
- *   - Exits non-zero on any unresolved error-severity reference so CI fails.
+ * Sources scanned:
+ *   - .ts / .tsx / .js / .jsx  (imports, JSX src/poster/href, template strings)
+ *   - .css / .scss / .sass / .less (url(...) in rules, including CSS modules)
+ *   - .html
+ *   - .asset.json pointers under src/
  *
- * Usage:
- *   node scripts/check-images.mjs                    # local + remote (cached)
- *   node scripts/check-images.mjs --offline          # skip network checks
- *   node scripts/check-images.mjs --no-cache         # bypass URL cache
- *   node scripts/check-images.mjs --changed          # only files changed vs origin/main
- *   node scripts/check-images.mjs --since=HEAD~5     # only files changed since a git ref
- *   node scripts/check-images.mjs --report-json=report.json --report-html=report.html
- *   node scripts/check-images.mjs --ignore="**\/analytics/*,*.gif,tracking.example.com"
- *   node scripts/check-images.mjs --ci               # machine-friendly output + strict exit
- *
- * Config file (`.imagecheckrc.json` at repo root, optional):
- *   {
- *     "ignore": {
- *       "paths":      ["src/legacy/**"],
- *       "extensions": [".gif"],
- *       "domains":    ["analytics.example.com", "*.tracking.net"],
- *       "urlPatterns": ["^https://cdn\\.example\\.com/dynamic/.*\\?token="]
- *     },
- *     "warn": {
- *       "domains":    ["flaky.example.com"],
- *       "urlPatterns": ["^https://experimental\\..*"]
- *     },
- *     "cacheTtlHours": 24,
- *     "retries": 2,
- *     "concurrencyPerHost": 4,
- *     "minIntervalMsPerHost": 50,
- *     "validateContentType": true
- *   }
+ * Run `node scripts/check-images.mjs --help` for the full CLI reference.
  */
 import { promises as fs } from "node:fs";
 import path from "node:path";
@@ -68,6 +35,61 @@ const getFlagVal = (name) => {
   return p ? p.slice(name.length + 1) : null;
 };
 
+if (hasFlag("--help") || hasFlag("-h")) {
+  console.log(`
+image-check — verify every image reference in the project resolves.
+
+USAGE
+  node scripts/check-images.mjs [options]
+
+NETWORK & CACHING
+  --offline              Skip all network checks (local files + pointer JSON validity only).
+  --no-cache             Bypass the on-disk URL cache for this run.
+
+INCREMENTAL MODE
+  --changed              Only scan files changed vs origin/main (or $GITHUB_BASE_REF).
+  --since=<git-ref>      Only scan files changed since <git-ref> (e.g. HEAD~5, origin/dev).
+
+IGNORE / ALLOWLIST (comma-separated)
+  --ignore="<pattern>,..."
+      Each pattern is auto-classified:
+        .ext          → ignore by extension            (e.g. .gif)
+        glob or path/ → ignore by source-file path     (e.g. src/legacy/**)
+        re:<regex>    → ignore by full-URL regex       (e.g. re:^https://cdn\\.x\\.com/dyn/.*\\?t=)
+        anything else → ignore by hostname glob        (e.g. tracking.example.com, *.ads.net)
+
+THRESHOLDS (fail policy)
+  --max-errors=<N>       Fail only if error count > N       (default: 0 → any error fails).
+  --max-error-pct=<P>    Fail only if errors/total*100 > P  (default: 100 → disabled).
+                         When both are set, EITHER exceeding triggers failure.
+
+REPORTS
+  --report-json=<path>   Write a machine-readable JSON report.
+  --report-html=<path>   Write a human-readable HTML report.
+  --pr-comment=<path>    Write a GitHub-flavored Markdown PR summary
+                         (counts + top failures + artifact link if REPORT_ARTIFACT_URL is set).
+
+CI
+  --ci                   Emit ::warning:: / ::error:: annotations; obey thresholds strictly.
+                         Also implied when \$CI=true.
+
+MISC
+  -h, --help             Show this help.
+
+CONFIG FILE
+  .imagecheckrc.json at the repo root — see the shipped example for every field.
+
+EXAMPLES
+  node scripts/check-images.mjs
+  node scripts/check-images.mjs --offline
+  node scripts/check-images.mjs --changed --report-html=reports/img.html
+  node scripts/check-images.mjs --ci --max-errors=3 --max-error-pct=5 \\
+    --report-json=reports/img.json --pr-comment=reports/pr.md
+  node scripts/check-images.mjs --ignore=".gif,src/legacy/**,tracking.example.com,re:\\\\?token="
+`);
+  process.exit(0);
+}
+
 const OFFLINE = hasFlag("--offline");
 const NO_CACHE = hasFlag("--no-cache");
 const CI = hasFlag("--ci") || process.env.CI === "true";
@@ -75,17 +97,16 @@ const CHANGED = hasFlag("--changed");
 const SINCE = getFlagVal("--since");
 const REPORT_JSON = getFlagVal("--report-json");
 const REPORT_HTML = getFlagVal("--report-html");
+const PR_COMMENT = getFlagVal("--pr-comment");
+const CLI_MAX_ERRORS = getFlagVal("--max-errors");
+const CLI_MAX_ERROR_PCT = getFlagVal("--max-error-pct");
 
 const IMG_EXT = /\.(png|jpe?g|gif|webp|avif|svg|ico|bmp|tiff?)$/i;
 const IMAGE_MIME = /^image\//i;
 
 // ---------- config + ignore rules ----------
 async function loadConfig() {
-  try {
-    return JSON.parse(await fs.readFile(CONFIG_FILE, "utf8"));
-  } catch {
-    return {};
-  }
+  try { return JSON.parse(await fs.readFile(CONFIG_FILE, "utf8")); } catch { return {}; }
 }
 
 function globToRegex(glob) {
@@ -93,11 +114,8 @@ function globToRegex(glob) {
   for (let i = 0; i < glob.length; i++) {
     const c = glob[i];
     if (c === "*") {
-      if (glob[i + 1] === "*") {
-        re += ".*";
-        i++;
-        if (glob[i + 1] === "/") i++;
-      } else re += "[^/]*";
+      if (glob[i + 1] === "*") { re += ".*"; i++; if (glob[i + 1] === "/") i++; }
+      else re += "[^/]*";
     } else if (c === "?") re += ".";
     else if (".+^$(){}|[]\\".includes(c)) re += "\\" + c;
     else re += c;
@@ -127,14 +145,7 @@ function buildMatchers(cfg = {}, cliIgnore) {
       const m = ref.split("?")[0].match(/\.[a-z0-9]+$/i);
       return m ? extSet.has(m[0].toLowerCase()) : false;
     },
-    matchesDomain: (url) => {
-      try {
-        const h = new URL(url).hostname;
-        return domainRes.some((r) => r.test(h));
-      } catch {
-        return false;
-      }
-    },
+    matchesDomain: (url) => { try { return domainRes.some((r) => r.test(new URL(url).hostname)); } catch { return false; } },
     matchesUrl: (url) => urlRes.some((r) => r.test(url)),
     hasAny: pathRes.length + domainRes.length + urlRes.length + extSet.size > 0,
   };
@@ -147,16 +158,11 @@ async function loadCache(ttlHours) {
     const raw = JSON.parse(await fs.readFile(CACHE_FILE, "utf8"));
     const cutoff = Date.now() - ttlHours * 3600_000;
     return new Map(Object.entries(raw).filter(([, v]) => v.ts >= cutoff));
-  } catch {
-    return new Map();
-  }
+  } catch { return new Map(); }
 }
 async function saveCache(cache) {
   if (NO_CACHE) return;
-  try {
-    await fs.mkdir(path.dirname(CACHE_FILE), { recursive: true });
-    await fs.writeFile(CACHE_FILE, JSON.stringify(Object.fromEntries(cache)));
-  } catch {}
+  try { await fs.mkdir(path.dirname(CACHE_FILE), { recursive: true }); await fs.writeFile(CACHE_FILE, JSON.stringify(Object.fromEntries(cache))); } catch {}
 }
 
 // ---------- rate limiter ----------
@@ -168,18 +174,13 @@ function makeHostLimiter({ concurrency, minIntervalMs }) {
     await new Promise((resolve) => {
       const tryRun = () => {
         const wait = Math.max(0, s.lastStart + minIntervalMs - Date.now());
-        if (s.active < concurrency && wait === 0) {
-          s.active++; s.lastStart = Date.now(); resolve();
-        } else setTimeout(tryRun, wait || 5);
+        if (s.active < concurrency && wait === 0) { s.active++; s.lastStart = Date.now(); resolve(); }
+        else setTimeout(tryRun, wait || 5);
       };
-      if (s.active < concurrency) tryRun();
-      else s.waiters.push(tryRun);
+      if (s.active < concurrency) tryRun(); else s.waiters.push(tryRun);
     });
   }
-  function release(host) {
-    const s = hosts.get(host); if (!s) return;
-    s.active--; const next = s.waiters.shift(); if (next) next();
-  }
+  function release(host) { const s = hosts.get(host); if (!s) return; s.active--; const next = s.waiters.shift(); if (next) next(); }
   return { acquire, release };
 }
 
@@ -198,12 +199,22 @@ async function walk(dir) {
   return out;
 }
 
-function extractRefs(text) {
+function extractRefsFromCode(text) {
   const refs = new Set();
   for (const m of text.matchAll(/from\s+["']([^"']+)["']/g)) refs.add(m[1]);
   for (const m of text.matchAll(/import\(\s*["']([^"']+)["']\s*\)/g)) refs.add(m[1]);
   for (const m of text.matchAll(/(?:src|poster|href)\s*=\s*["']([^"']+)["']/g)) refs.add(m[1]);
   for (const m of text.matchAll(/url\(\s*["']?([^"')]+)["']?\s*\)/g)) refs.add(m[1]);
+  return [...refs];
+}
+
+function extractRefsFromCss(text) {
+  const refs = new Set();
+  // background: url(...), background-image: url(...), content: url(...), mask-image, border-image, cursor, list-style-image, @import url(...)
+  for (const m of text.matchAll(/url\(\s*(?:"([^"]+)"|'([^']+)'|([^)\s]+))\s*\)/g)) {
+    const u = (m[1] ?? m[2] ?? m[3] ?? "").trim();
+    if (u && !u.startsWith("data:") && !u.startsWith("#")) refs.add(u);
+  }
   return [...refs];
 }
 
@@ -215,30 +226,51 @@ function resolveLocal(ref, fromFile) {
 }
 async function exists(p) { try { await fs.access(p); return true; } catch { return false; } }
 
-// ---------- url checker ----------
-function makeUrlChecker({ cache, limiter, retries, validateContentType }) {
+// ---------- url checker (redirect-following) ----------
+function makeUrlChecker({ cache, limiter, retries, validateContentType, maxRedirects }) {
   const inflight = new Map();
-  async function attempt(url) {
+
+  async function attemptOnce(url, method) {
     const controller = new AbortController();
     const t = setTimeout(() => controller.abort(), 10_000);
     try {
-      let res = await fetch(url, { method: "HEAD", signal: controller.signal });
-      if (res.status === 405 || res.status === 403)
-        res = await fetch(url, { method: "GET", headers: { Range: "bytes=0-0" }, signal: controller.signal });
-      const ct = res.headers.get("content-type") || "";
-      return { ok: res.status < 400, status: res.status, contentType: ct };
+      const res = await fetch(url, { method, redirect: "manual", signal: controller.signal, headers: method === "GET" ? { Range: "bytes=0-0" } : {} });
+      return { status: res.status, headers: res.headers };
     } catch (e) {
-      return { ok: false, error: String(e?.message ?? e) };
+      return { error: String(e?.message ?? e) };
     } finally { clearTimeout(t); }
   }
+
+  async function attempt(startUrl) {
+    let url = startUrl;
+    const chain = [];
+    for (let i = 0; i <= maxRedirects; i++) {
+      let res = await attemptOnce(url, "HEAD");
+      if (res.error) return { ok: false, error: res.error, finalUrl: url, chain };
+      if (res.status === 405 || res.status === 403 || res.status === 501) {
+        res = await attemptOnce(url, "GET");
+        if (res.error) return { ok: false, error: res.error, finalUrl: url, chain };
+      }
+      chain.push({ url, status: res.status });
+      if (res.status >= 300 && res.status < 400) {
+        const loc = res.headers.get("location");
+        if (!loc) return { ok: false, status: res.status, error: "redirect without location", finalUrl: url, chain };
+        url = new URL(loc, url).toString();
+        continue;
+      }
+      const ct = res.headers.get("content-type") || "";
+      return { ok: res.status < 400, status: res.status, contentType: ct, finalUrl: url, chain };
+    }
+    return { ok: false, error: `too many redirects (>${maxRedirects})`, finalUrl: url, chain };
+  }
+
   async function check(url) {
     if (OFFLINE) return { ok: true, skipped: true };
     const cached = cache.get(url);
     if (cached) return { ...cached.result, cached: true };
     if (inflight.has(url)) return inflight.get(url);
     const p = (async () => {
-      let host;
-      try { host = new URL(url).hostname; } catch { return { ok: false, error: "invalid url" }; }
+      let host; try { host = new URL(url).hostname; } catch { return { ok: false, error: "invalid url" }; }
       await limiter.acquire(host);
       try {
         let result;
@@ -250,7 +282,7 @@ function makeUrlChecker({ cache, limiter, retries, validateContentType }) {
           await new Promise((r) => setTimeout(r, 250 * 2 ** i));
         }
         if (result.ok && validateContentType && result.contentType && !IMAGE_MIME.test(result.contentType)) {
-          result = { ...result, ok: false, error: `non-image content-type: ${result.contentType}` };
+          result = { ...result, ok: false, error: `non-image content-type after ${result.chain.length - 1} redirect(s): ${result.contentType}` };
         }
         cache.set(url, { ts: Date.now(), result });
         return result;
@@ -263,10 +295,7 @@ function makeUrlChecker({ cache, limiter, retries, validateContentType }) {
 }
 
 async function readAssetPointer(absPath) {
-  try {
-    const j = JSON.parse(await fs.readFile(absPath, "utf8"));
-    return typeof j.url === "string" ? j.url : null;
-  } catch { return null; }
+  try { const j = JSON.parse(await fs.readFile(absPath, "utf8")); return typeof j.url === "string" ? j.url : null; } catch { return null; }
 }
 
 // ---------- incremental (git) ----------
@@ -283,11 +312,13 @@ function getChangedFiles(since) {
 }
 
 // ---------- reports ----------
-async function writeReports(records) {
+function esc(s) { return String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]); }
+
+async function writeReports(records, summary) {
   if (REPORT_JSON) {
     const abs = path.resolve(ROOT, REPORT_JSON);
     await fs.mkdir(path.dirname(abs), { recursive: true });
-    await fs.writeFile(abs, JSON.stringify({ generatedAt: new Date().toISOString(), records }, null, 2));
+    await fs.writeFile(abs, JSON.stringify({ generatedAt: new Date().toISOString(), summary, records }, null, 2));
     console.log(`↳ JSON report: ${path.relative(ROOT, abs)}`);
   }
   if (REPORT_HTML) {
@@ -295,13 +326,29 @@ async function writeReports(records) {
     await fs.mkdir(path.dirname(abs), { recursive: true });
     const rows = records.map((r) => {
       const color = r.status === "ok" ? "#10b981" : r.status === "warn" ? "#f59e0b" : "#ef4444";
-      const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
       return `<tr><td style="color:${color};font-weight:600">${r.status}</td><td>${esc(r.source)}</td><td style="word-break:break-all">${esc(r.ref)}</td><td style="word-break:break-all">${esc(r.resolved || "")}</td><td>${esc(r.reason || "")}</td></tr>`;
     }).join("");
-    const summary = records.reduce((a, r) => ((a[r.status] = (a[r.status] || 0) + 1), a), {});
-    const html = `<!doctype html><meta charset="utf-8"><title>Image check report</title><style>body{font:14px system-ui;margin:24px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f5f5f5}</style><h1>Image check report</h1><p>Generated ${new Date().toISOString()} — ok: ${summary.ok||0}, warn: ${summary.warn||0}, error: ${summary.error||0}</p><table><thead><tr><th>Status</th><th>Source</th><th>Reference</th><th>Resolved</th><th>Reason</th></tr></thead><tbody>${rows}</tbody></table>`;
+    const html = `<!doctype html><meta charset="utf-8"><title>Image check report</title><style>body{font:14px system-ui;margin:24px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #ddd;padding:6px 8px;text-align:left;vertical-align:top}th{background:#f5f5f5}</style><h1>Image check report</h1><p>Generated ${new Date().toISOString()} — ok: ${summary.ok}, warn: ${summary.warn}, error: ${summary.error}</p><table><thead><tr><th>Status</th><th>Source</th><th>Reference</th><th>Resolved</th><th>Reason</th></tr></thead><tbody>${rows}</tbody></table>`;
     await fs.writeFile(abs, html);
     console.log(`↳ HTML report: ${path.relative(ROOT, abs)}`);
+  }
+  if (PR_COMMENT) {
+    const abs = path.resolve(ROOT, PR_COMMENT);
+    await fs.mkdir(path.dirname(abs), { recursive: true });
+    const total = summary.ok + summary.warn + summary.error;
+    const errors = records.filter((r) => r.status === "error").slice(0, 10);
+    const artifactUrl = process.env.REPORT_ARTIFACT_URL || process.env.IMAGE_CHECK_ARTIFACT_URL;
+    const badge = summary.error === 0 ? (summary.warn === 0 ? "✅ **All image references OK**" : "⚠️ **Passed with warnings**") : "❌ **Image check failed**";
+    let md = `## 🖼️ Image reference check\n\n${badge}\n\n| Result | Count |\n|---|---:|\n| ✅ Pass | ${summary.ok} |\n| ⚠️ Warn | ${summary.warn} |\n| ❌ Fail | ${summary.error} |\n| **Total** | **${total}** |\n`;
+    if (errors.length) {
+      md += `\n<details open><summary><b>Top ${errors.length} failure(s)</b></summary>\n\n| Source | Reference | Reason |\n|---|---|---|\n`;
+      for (const e of errors) md += `| \`${e.source}\` | \`${(e.ref || "").slice(0, 120)}\` | ${e.reason || ""} |\n`;
+      md += `\n</details>\n`;
+    }
+    if (artifactUrl) md += `\n📎 [Full report artifact](${artifactUrl})\n`;
+    else md += `\n_Full report attached as workflow artifact \`image-check-report\`._\n`;
+    await fs.writeFile(abs, md);
+    console.log(`↳ PR comment: ${path.relative(ROOT, abs)}`);
   }
 }
 
@@ -315,15 +362,18 @@ async function main() {
   const concurrency = config.concurrencyPerHost ?? 4;
   const minIntervalMs = config.minIntervalMsPerHost ?? 50;
   const validateContentType = config.validateContentType !== false;
+  const maxRedirects = config.maxRedirects ?? 5;
+  const maxErrors = Number(CLI_MAX_ERRORS ?? config.maxErrors ?? 0);
+  const maxErrorPct = Number(CLI_MAX_ERROR_PCT ?? config.maxErrorPct ?? 100);
 
   const cache = await loadCache(ttlHours);
   const limiter = makeHostLimiter({ concurrency, minIntervalMs });
-  const checker = makeUrlChecker({ cache, limiter, retries, validateContentType });
+  const checker = makeUrlChecker({ cache, limiter, retries, validateContentType, maxRedirects });
 
   const changedSet = (CHANGED || SINCE) ? getChangedFiles(SINCE) : null;
   const isChanged = (rel) => !changedSet || changedSet.has(rel.replace(/\\/g, "/"));
 
-  const records = []; // {source, ref, resolved, status: 'ok'|'warn'|'error', reason}
+  const records = [];
   const urlPromises = new Map();
 
   const severityForUrl = (url) => {
@@ -332,53 +382,52 @@ async function main() {
     return "error";
   };
 
-  const enqueue = (url) => {
-    if (!urlPromises.has(url)) urlPromises.set(url, checker.check(url));
-    return urlPromises.get(url);
+  const enqueue = (url) => { if (!urlPromises.has(url)) urlPromises.set(url, checker.check(url)); return urlPromises.get(url); };
+
+  const handleUrlRef = async (rel, ref, resolvedForRecord) => {
+    const sev = severityForUrl(ref);
+    if (sev === "skip") { records.push({ source: rel, ref, resolved: resolvedForRecord ?? ref, status: "ok", reason: "ignored" }); return; }
+    const r = await enqueue(ref);
+    if (r.ok || r.skipped) records.push({ source: rel, ref, resolved: r.finalUrl || resolvedForRecord || ref, status: "ok", reason: r.chain && r.chain.length > 1 ? `followed ${r.chain.length - 1} redirect(s)` : undefined });
+    else records.push({ source: rel, ref, resolved: r.finalUrl || resolvedForRecord || ref, status: sev, reason: `unreachable (${r.error || r.status})` });
   };
 
-  const srcFiles = (await walk(SRC)).filter((f) => /\.(t|j)sx?$|\.css$|\.html$/.test(f));
-  srcFiles.push(...(await walk(PUBLIC_DIR)).filter((f) => /\.html$/.test(f)));
+  const allFiles = [...(await walk(SRC)), ...(await walk(PUBLIC_DIR)).filter((f) => /\.html$/.test(f))];
+  const codeFiles = allFiles.filter((f) => /\.(t|j)sx?$|\.html$/.test(f));
+  const cssFiles = allFiles.filter((f) => /\.(css|scss|sass|less)$/.test(f));
 
-  for (const file of srcFiles) {
+  const scanFile = async (file, extractor) => {
     const rel = path.relative(ROOT, file);
-    if (ignore.matchesPath(rel)) continue;
-    if (!isChanged(rel)) continue;
+    if (ignore.matchesPath(rel)) return;
+    if (!isChanged(rel)) return;
     const text = await fs.readFile(file, "utf8");
-    for (const ref of extractRefs(text)) {
+    for (const ref of extractor(text)) {
       if (ignore.matchesExt(ref)) continue;
       if (/^https?:\/\//i.test(ref)) {
         if (!IMG_EXT.test(ref.split("?")[0])) continue;
-        const sev = severityForUrl(ref);
-        if (sev === "skip") { records.push({ source: rel, ref, resolved: ref, status: "ok", reason: "ignored" }); continue; }
-        const r = await enqueue(ref);
-        if (r.ok || r.skipped) records.push({ source: rel, ref, resolved: ref, status: "ok" });
-        else records.push({ source: rel, ref, resolved: ref, status: sev, reason: `unreachable (${r.status ?? r.error})` });
+        await handleUrlRef(rel, ref);
         continue;
       }
       if (ref.startsWith("/__l5e/")) continue;
+      if (ref.startsWith("data:") || ref.startsWith("#")) continue;
       const isAsset = ref.endsWith(".asset.json");
-      if (!isAsset && !IMG_EXT.test(ref)) continue;
+      if (!isAsset && !IMG_EXT.test(ref.split("?")[0])) continue;
       const abs = resolveLocal(ref, file);
       if (!abs) continue;
-      if (!(await exists(abs))) {
-        records.push({ source: rel, ref, resolved: abs, status: "error", reason: "missing local file" });
-        continue;
-      }
+      if (!(await exists(abs))) { records.push({ source: rel, ref, resolved: abs, status: "error", reason: "missing local file" }); continue; }
       if (isAsset) {
         const url = await readAssetPointer(abs);
         if (!url) { records.push({ source: rel, ref, resolved: abs, status: "error", reason: "invalid asset pointer" }); continue; }
         const full = url.startsWith("http") ? url : `https://cdn.lovable.dev${url}`;
-        const sev = severityForUrl(full);
-        if (sev === "skip") { records.push({ source: rel, ref, resolved: full, status: "ok", reason: "ignored" }); continue; }
-        const r = await enqueue(full);
-        if (r.ok || r.skipped) records.push({ source: rel, ref, resolved: full, status: "ok" });
-        else records.push({ source: rel, ref, resolved: full, status: sev, reason: `CDN ${r.status ?? r.error}` });
+        await handleUrlRef(rel, full, full);
       } else {
         records.push({ source: rel, ref, resolved: abs, status: "ok" });
       }
     }
-  }
+  };
+
+  for (const f of codeFiles) await scanFile(f, extractRefsFromCode);
+  for (const f of cssFiles) await scanFile(f, extractRefsFromCss);
 
   const pointers = (await walk(SRC)).filter((f) => f.endsWith(".asset.json"));
   for (const p of pointers) {
@@ -388,32 +437,36 @@ async function main() {
     const url = await readAssetPointer(p);
     if (!url) { records.push({ source: rel, ref: "(pointer)", resolved: p, status: "error", reason: "invalid pointer JSON" }); continue; }
     const full = url.startsWith("http") ? url : `https://cdn.lovable.dev${url}`;
-    const sev = severityForUrl(full);
-    if (sev === "skip") { records.push({ source: rel, ref: url, resolved: full, status: "ok", reason: "ignored" }); continue; }
-    const r = await enqueue(full);
-    if (r.ok || r.skipped) records.push({ source: rel, ref: url, resolved: full, status: "ok" });
-    else records.push({ source: rel, ref: url, resolved: full, status: sev, reason: `CDN ${r.status ?? r.error}` });
+    await handleUrlRef(rel, full, full);
   }
 
+  const summary = records.reduce((a, r) => ((a[r.status] = (a[r.status] || 0) + 1), a), { ok: 0, warn: 0, error: 0 });
   await saveCache(cache);
-  await writeReports(records);
+  await writeReports(records, summary);
 
-  const errors = records.filter((r) => r.status === "error");
   const warnings = records.filter((r) => r.status === "warn");
+  const errors = records.filter((r) => r.status === "error");
+  const total = records.length;
+  const errPct = total ? (errors.length / total) * 100 : 0;
+  const overThreshold = errors.length > maxErrors || errPct > maxErrorPct;
 
   for (const w of warnings) {
     const msg = `${w.source}: ${w.ref} — ${w.reason}`;
     console.warn(CI ? `::warning::${msg}` : `  ⚠ ${msg}`);
   }
-  if (errors.length) {
-    const header = CI ? `::error::Image check failed (${errors.length} issue(s))` : `\n✗ Image check failed (${errors.length} issue(s)):`;
-    console.error(header);
-    for (const p of errors) console.error((CI ? "::error::" : "  - ") + `${p.source}: ${p.ref} — ${p.reason}`);
-    process.exit(1);
+  for (const p of errors) {
+    const msg = `${p.source}: ${p.ref} — ${p.reason}`;
+    console.error(CI ? `::error::${msg}` : `  ✗ ${msg}`);
   }
+
   console.log(
-    `✓ Image check passed. ${records.length} reference(s) checked, ${urlPromises.size} url(s) validated, ${warnings.length} warning(s)${OFFLINE ? " (offline)" : ""}${changedSet ? ` (incremental: ${changedSet.size} changed file(s))` : ""}.`,
+    `\n${overThreshold ? "✗" : "✓"} Image check ${overThreshold ? "failed" : "passed"}. ` +
+    `${total} reference(s), ${urlPromises.size} url(s) validated. ` +
+    `ok=${summary.ok} warn=${summary.warn} error=${summary.error} (${errPct.toFixed(1)}%) ` +
+    `— threshold: max ${maxErrors} error(s) OR ${maxErrorPct}%${OFFLINE ? " (offline)" : ""}${changedSet ? ` (incremental: ${changedSet.size} changed)` : ""}.`,
   );
+
+  if (overThreshold) process.exit(1);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });
