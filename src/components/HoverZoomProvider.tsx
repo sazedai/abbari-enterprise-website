@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState, useCallback, WheelEvent, PointerEvent } from "react";
 
-const HOVER_DELAY = 200;
-const MIN_SIZE = 120; // ignore tiny icons/logos
+const MIN_SIZE = 60; // ignore tiny icons/logos
 
 const HoverZoomProvider = () => {
   const [src, setSrc] = useState<string | null>(null);
@@ -9,16 +8,8 @@ const HoverZoomProvider = () => {
   const [scale, setScale] = useState(1);
   const [tx, setTx] = useState(0);
   const [ty, setTy] = useState(0);
-  const timerRef = useRef<number | null>(null);
   const draggingRef = useRef(false);
   const lastPtRef = useRef<{ x: number; y: number } | null>(null);
-
-  const clearTimer = () => {
-    if (timerRef.current) {
-      window.clearTimeout(timerRef.current);
-      timerRef.current = null;
-    }
-  };
 
   const close = useCallback(() => {
     setSrc(null);
@@ -38,28 +29,21 @@ const HoverZoomProvider = () => {
       return true;
     };
 
-    const onOver = (e: Event) => {
+    const onClick = (e: MouseEvent) => {
       const target = e.target as Element;
       if (!isEligible(target)) return;
-      clearTimer();
+      // Don't hijack clicks inside links/buttons meant to navigate
+      if ((target as HTMLElement).closest("a, button")) return;
+      e.preventDefault();
+      e.stopPropagation();
       const img = target as HTMLImageElement;
-      timerRef.current = window.setTimeout(() => {
-        setSrc(img.currentSrc || img.src);
-        setAlt(img.alt || "");
-      }, HOVER_DELAY);
-    };
-    const onOut = (e: Event) => {
-      const target = e.target as Element;
-      if (!isEligible(target)) return;
-      clearTimer();
+      setSrc(img.currentSrc || img.src);
+      setAlt(img.alt || "");
     };
 
-    document.addEventListener("mouseover", onOver);
-    document.addEventListener("mouseout", onOut);
+    document.addEventListener("click", onClick, true);
     return () => {
-      document.removeEventListener("mouseover", onOver);
-      document.removeEventListener("mouseout", onOut);
-      clearTimer();
+      document.removeEventListener("click", onClick, true);
     };
   }, []);
 
@@ -77,7 +61,7 @@ const HoverZoomProvider = () => {
     };
   }, [src, close]);
 
-  const zoomBy = (delta: number, originX?: number, originY?: number) => {
+  const zoomBy = (delta: number) => {
     setScale((s) => {
       const next = Math.min(6, Math.max(1, +(s + delta).toFixed(2)));
       if (next === 1) {
@@ -119,8 +103,7 @@ const HoverZoomProvider = () => {
 
   return (
     <div
-      className="fixed inset-0 z-[100] bg-background/95 backdrop-blur-md animate-fade-in flex items-center justify-center"
-      onMouseLeave={close}
+      className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md animate-fade-in flex items-center justify-center"
       onClick={(e) => {
         if (e.target === e.currentTarget) close();
       }}
@@ -136,7 +119,7 @@ const HoverZoomProvider = () => {
       </button>
 
       {/* Zoom controls */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-card/90 border border-border rounded-full px-2 py-1 shadow-lg z-10">
+      <div className="absolute bottom-6 right-6 flex items-center gap-2 bg-card/90 border border-border rounded-full px-2 py-1 shadow-lg z-10">
         <button
           onClick={() => zoomBy(-0.25)}
           aria-label="Zoom out"
