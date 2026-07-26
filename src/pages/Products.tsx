@@ -258,10 +258,23 @@ const getProductImage = (product: Product): string => {
 
 const categories = ["All", "Belts", "Sheets", "Bearings", "Tools", "Insulation", "Engineering"];
 
+const VARIANT_KEYWORDS = [
+  "V-Belt", "Timing Belt", "Conveyor Belt", "PU Belt", "Adjustable Link", "Harvester", "Belt Lacing",
+  "PVC", "Rubber Sheet", "Silicone", "Teflon", "Cork", "Nylon", "Gasket",
+  "SKF", "Tapered", "Thrust", "Bearing",
+  "WD-40", "Cutting", "Stainless Steel", "Fencing", "Pneumatic", "Aluminium Tape", "Glane", "Asbestos", "GT",
+  "Rock Wool", "Glass Wool", "Bitumen", "Geotextile",
+];
+
+const matchesVariant = (name: string, variant: string) =>
+  variant === "All" || name.toLowerCase().includes(variant.toLowerCase());
+
 const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedVariant, setSelectedVariant] = useState("All");
+  const [sortBy, setSortBy] = useState<"featured" | "rating" | "name-asc" | "name-desc">("featured");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [quickViewOpen, setQuickViewOpen] = useState(false);
@@ -273,15 +286,28 @@ const Products = () => {
     if (categoryParam && categories.includes(categoryParam)) {
       setSelectedCategory(categoryParam);
     }
-  }, [searchParams]);
+    const variantParam = searchParams.get("variant");
+    if (variantParam) setSelectedVariant(variantParam);
+    const qParam = searchParams.get("q");
+    if (qParam) setSearchQuery(qParam);
+  }, []);
 
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
+    setSelectedVariant("All");
     if (category === "All") {
       searchParams.delete("category");
     } else {
       searchParams.set("category", category);
     }
+    searchParams.delete("variant");
+    setSearchParams(searchParams);
+  };
+
+  const handleVariantChange = (variant: string) => {
+    setSelectedVariant(variant);
+    if (variant === "All") searchParams.delete("variant");
+    else searchParams.set("variant", variant);
     setSearchParams(searchParams);
   };
 
@@ -301,11 +327,31 @@ const Products = () => {
     toast.success(`${product.name} added to quotation cart`);
   };
 
-  const filteredProducts = allProducts.filter((product) => {
-    const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = selectedCategory === "All" || product.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
+  // Variants available for currently selected category
+  const availableVariants = ["All", ...VARIANT_KEYWORDS.filter((kw) => {
+    const scope = selectedCategory === "All"
+      ? allProducts
+      : allProducts.filter((p) => p.category === selectedCategory);
+    return scope.some((p) => p.name.toLowerCase().includes(kw.toLowerCase()));
+  })];
+
+  const filteredProducts = allProducts
+    .filter((product) => {
+      const q = searchQuery.toLowerCase();
+      const matchesSearch =
+        product.name.toLowerCase().includes(q) ||
+        product.category.toLowerCase().includes(q) ||
+        product.description.toLowerCase().includes(q);
+      const matchesCategory = selectedCategory === "All" || product.category === selectedCategory;
+      const matchesVar = matchesVariant(product.name, selectedVariant);
+      return matchesSearch && matchesCategory && matchesVar;
+    })
+    .sort((a, b) => {
+      if (sortBy === "rating") return b.rating - a.rating;
+      if (sortBy === "name-asc") return a.name.localeCompare(b.name);
+      if (sortBy === "name-desc") return b.name.localeCompare(a.name);
+      return 0;
+    });
 
   return (
     <main className="min-h-screen bg-background">
