@@ -90,6 +90,9 @@ import pneumaticsComponentSolutionAsset from "@/assets/products/pneumatics-compo
 const pneumaticsComponentSolutionImg = pneumaticsComponentSolutionAsset.url;
 import pneumaticPipeSolutionAsset from "@/assets/products/pneumatic-pipe-solution.png.asset.json";
 const pneumaticPipeSolutionImg = pneumaticPipeSolutionAsset.url;
+import pneumaticHosesTubingSolutionAsset from "@/assets/products/pneumatic-hoses-and-tubing.png.asset.json";
+const pneumaticHosesTubingSolutionImg = pneumaticHosesTubingSolutionAsset.url;
+
 
 
 
