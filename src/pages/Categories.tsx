@@ -80,6 +80,10 @@ import gasketSealingSheetAsset from "@/assets/products/gasket-sealing-sheet.png.
 const gasketSealingSheetImg = gasketSealingSheetAsset.url;
 import siliconSpongeRubberSheetAsset from "@/assets/products/silicon-sponge-rubber-sheet.png.asset.json";
 const siliconSpongeRubberSheetImg = siliconSpongeRubberSheetAsset.url;
+import nylonShaftSolutionAsset from "@/assets/products/nylon-shaft-solution.png.asset.json";
+const nylonShaftSolutionImg = nylonShaftSolutionAsset.url;
+
+
 
 
 

@@ -79,6 +79,9 @@ import gasketSealingSheetAsset from "@/assets/products/gasket-sealing-sheet.png.
 const gasketSealingSheetImg = gasketSealingSheetAsset.url;
 import siliconSpongeRubberSheetAsset from "@/assets/products/silicon-sponge-rubber-sheet.png.asset.json";
 const siliconSpongeRubberSheetImg = siliconSpongeRubberSheetAsset.url;
+import nylonShaftSolutionAsset from "@/assets/products/nylon-shaft-solution.png.asset.json";
+const nylonShaftSolutionImg = nylonShaftSolutionAsset.url;
+
 
 import productBelts from "@/assets/product-belts.jpg";
 
@@ -120,7 +123,9 @@ const productImages: Record<number, string> = {
   35: fencingBarbwireImg,
   36: gasketSealingSheetImg,
   37: siliconSpongeRubberSheetImg,
+  38: nylonShaftSolutionImg,
 };
+
 
 
 interface Product {
