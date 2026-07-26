@@ -107,6 +107,8 @@ import pneumaticSparePartsSolutionAsset from "@/assets/products/pneumatic-spare-
 const pneumaticSparePartsSolutionImg = pneumaticSparePartsSolutionAsset.url;
 import gtTimingBeltAsset from "@/assets/products/gt-timing-belt.png.asset.json";
 const gtTimingBeltImg = gtTimingBeltAsset.url;
+import asbestosPackingAsset from "@/assets/products/asbestos-packing-solution.png.asset.json";
+const asbestosPackingImg = asbestosPackingAsset.url;
 
 
 
@@ -173,6 +175,7 @@ const productImages: Record<number, string> = {
   44: pneumaticComponentSolutionImg,
   45: pneumaticSparePartsSolutionImg,
   46: gtTimingBeltImg,
+  47: asbestosPackingImg,
 };
 
 
@@ -236,6 +239,7 @@ const allProducts: Product[] = [
   { id: 44, name: "Pneumatic Component Solution", category: "Tools", rating: 4.9, description: "Complete pneumatic component solution for industrial automation and compressed-air systems. Includes solenoid valve manifolds, modular FRL (filter-regulator-lubricator) units, ISO-standard double-acting and compact air cylinders, plus a full push-to-connect fittings grid. Engineered for reliable directional control, clean dry air preparation, precise linear motion and leak-free distribution across packaging, automotive, textile, CNC and general machinery applications." },
   { id: 45, name: "Pneumatic Spare Parts Solution", category: "Tools", rating: 4.9, description: "Complete pneumatic spare parts solution for maintaining, repairing and extending the life of industrial compressed-air systems and automation equipment. Includes replacement cylinders, piston seals, FRL service kits, solenoid valve coils and manifolds, filter elements, pressure regulators, lubricators, brass and nickel-plated threaded fittings, quick couplers and push-to-connect connectors. Engineered for fast turnaround, reliable interchangeability and leak-free performance across packaging, automotive, textile, CNC, material handling and general machinery applications." },
   { id: 46, name: "GT Series Timing Belt Solution", category: "Tools", rating: 4.9, description: "Precision GT-series timing belt range engineered for high-torque, high-precision robotronic and industrial drive systems. Includes GATES POWERGRIP GT2 (black neoprene, classic profile), GATES RACING T251RB (blue reinforced, reduced-stretch high-load), red double-sided belts (aesthetic double-tooth profile), 3GTM olive-tan flexible double-sided belts and full 2GT/3GT/5GT curvilinear tooth profiles. High-tensile aramid/glass reinforcement cord, durable neoprene body, wear-resistant nylon tooth cover and protective fabric backing for CNC, 3D printers, robotics, automation and precision motion control." },
+  { id: 47, name: "Asbestos Packing Solution", category: "Tools", rating: 4.9, description: "Complete Glane asbestos-family gland packing range for high-temperature, high-pressure valve, pump and rotating-shaft sealing. Includes carbon & flexible graphite braided packing (excellent thermal conductivity, high-temperature resistant matrix), chemical-resistant fiberglass packing with reinforced woven braid and colour marker yarns, custom-set die-formed packing ring configurations and matching set installation tools. Engineered for pumps, valves, agitators, refineries, power plants, chemical processing and general industrial sealing where thermal stability, chemical compatibility and long service life are critical." },
 ];
 
 
