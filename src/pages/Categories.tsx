@@ -123,7 +123,9 @@ const allCategories: Category[] = [
   { name: "Stainless Steel Pipes & Rods", count: 30, image: ssPipeRodImg, filterCategory: "Tools" },
   { name: "Fencing & Barb Wire", count: 28, image: fencingBarbwireImg, filterCategory: "Tools" },
   { name: "Gasket Sealing Sheets", count: 22, image: gasketSealingSheetImg, filterCategory: "Tools" },
+  { name: "Silicon Sponge Rubber Sheets", count: 18, image: siliconSpongeRubberSheetImg, filterCategory: "Tools" },
   { name: "Rock Wool", count: 24, image: rockWoolImg, filterCategory: "Insulation" },
+
   { name: "Glass Wool", count: 22, image: glassWoolImg, filterCategory: "Insulation" },
   { name: "Stainless Steel Nets", count: 32, image: stainlessSteelNetImg, filterCategory: "Engineering" },
   { name: "Bitumen Membrane", count: 28, image: bitumenMembraneImg, filterCategory: "Insulation" },
