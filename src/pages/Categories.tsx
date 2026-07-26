@@ -72,6 +72,8 @@ import adjustableLinkVBeltAsset from "@/assets/products/adjustable-link-v-belt.p
 const adjustableLinkVBeltImg = adjustableLinkVBeltAsset.url;
 import cuttingDiskAsset from "@/assets/products/cutting-disk.png.asset.json";
 const cuttingDiskImg = cuttingDiskAsset.url;
+import ssPipeRodAsset from "@/assets/products/stainless-steel-pipe-rod.png.asset.json";
+const ssPipeRodImg = ssPipeRodAsset.url;
 
 
 
@@ -110,6 +112,7 @@ const allCategories: Category[] = [
   { name: "Hardware Tools", count: 156, image: categoryTools, filterCategory: "Tools" },
   { name: "WD-40 Products", count: 18, image: wd40Img, filterCategory: "Tools" },
   { name: "Cutting Disks", count: 20, image: cuttingDiskImg, filterCategory: "Tools" },
+  { name: "Stainless Steel Pipes & Rods", count: 30, image: ssPipeRodImg, filterCategory: "Tools" },
   { name: "Rock Wool", count: 24, image: rockWoolImg, filterCategory: "Insulation" },
   { name: "Glass Wool", count: 22, image: glassWoolImg, filterCategory: "Insulation" },
   { name: "Stainless Steel Nets", count: 32, image: stainlessSteelNetImg, filterCategory: "Engineering" },

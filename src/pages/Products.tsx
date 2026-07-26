@@ -128,6 +128,7 @@ const productImages: Record<number, string> = {
   31: puCordBeltImg,
   32: adjustableLinkVBeltImg,
   33: cuttingDiskImg,
+  34: ssPipeRodImg,
 };
 
 interface Product {
@@ -172,6 +173,7 @@ const allProducts: Product[] = [
   { id: 31, name: "Advanced PU Belting Solution", category: "Belts", rating: 4.9, description: "Advanced polyurethane cord belting engineered for high-elasticity power transmission and easy on-site joining. Available as solid-core PU round cords and reinforced tensile-cord PU jacketed belts with steel or aramid cord reinforcement, inner bonding layer and outer abrasion-resistant PU jacket. Full color range (green, red, black, orange, transparent, teal) for conveying, textile, glass, ceramic and packaging drives." },
   { id: 32, name: "Adjustable Link V-Belt Solution", category: "Belts", rating: 4.9, description: "Adjustable-length link V-belt system supplied on a 20-metre spool — cut-to-length on-site with no tools, no downtime and no need to dismantle drive components. Available in Nu-T Link (orange fabric-reinforced), Studded (blue steel-stud reinforced) and Multi-Rib (red) variants for reduced vibration, industry-standard power ratings and longer belt life across HVAC, pumps, compressors, fans, machine tools and general industrial drives." },
   { id: 33, name: "Cutting Disk Solution", category: "Tools", rating: 4.9, description: "Complete range of professional cutting and grinding discs — Nova (red) for metal/iron/stainless steel, Makita INOX (silver) for precision stainless steel cuts, segmented diamond blades for granite, ceramic and Dekton, plus wood, plastic and glass cutting blades. Fibreglass-reinforced with high-quality abrasive grit and precision hubs for safe, efficient high-speed cutting." },
+  { id: 34, name: "Stainless Steel Pipe and Rod Solution", category: "Tools", rating: 4.9, description: "Comprehensive stainless steel & mild steel pipe, tube and rod range — SS round rods, square/rectangular tubing, MS structural pipes, exploded pipe fittings and matching TIG (Gemini 308L) & stick (316L) welding electrodes. High corrosion resistance, structural strength, wide diameter (2–15mm rods) and length variety (125–500mm) for fabrication, construction, plumbing and welding projects." },
 ];
 
 const getProductImage = (product: Product): string => {
