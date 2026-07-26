@@ -87,6 +87,10 @@ import aluminiumTapeSolutionAsset from "@/assets/products/aluminium-tape-solutio
 const aluminiumTapeSolutionImg = aluminiumTapeSolutionAsset.url;
 import pneumaticsComponentSolutionAsset from "@/assets/products/pneumatics-component-solution.png.asset.json";
 const pneumaticsComponentSolutionImg = pneumaticsComponentSolutionAsset.url;
+import pneumaticPipeSolutionAsset from "@/assets/products/pneumatic-pipe-solution.png.asset.json";
+const pneumaticPipeSolutionImg = pneumaticPipeSolutionAsset.url;
+
+
 
 
 
@@ -135,7 +139,9 @@ const productImages: Record<number, string> = {
   39: glanePackingSolutionImg,
   40: aluminiumTapeSolutionImg,
   41: pneumaticsComponentSolutionImg,
+  42: pneumaticPipeSolutionImg,
 };
+
 
 
 

@@ -97,6 +97,10 @@ import aluminiumTapeSolutionAsset from "@/assets/products/aluminium-tape-solutio
 const aluminiumTapeSolutionImg = aluminiumTapeSolutionAsset.url;
 import pneumaticsComponentSolutionAsset from "@/assets/products/pneumatics-component-solution.png.asset.json";
 const pneumaticsComponentSolutionImg = pneumaticsComponentSolutionAsset.url;
+import pneumaticPipeSolutionAsset from "@/assets/products/pneumatic-pipe-solution.png.asset.json";
+const pneumaticPipeSolutionImg = pneumaticPipeSolutionAsset.url;
+
+
 
 
 
@@ -154,7 +158,9 @@ const productImages: Record<number, string> = {
   39: glanePackingSolutionImg,
   40: aluminiumTapeSolutionImg,
   41: pneumaticsComponentSolutionImg,
+  42: pneumaticPipeSolutionImg,
 };
+
 
 
 
@@ -209,7 +215,9 @@ const allProducts: Product[] = [
   { id: 39, name: "Glane Packing Solution", category: "Tools", rating: 4.9, description: "High-performance gland packing solution for valves, pumps and rotating equipment. Available in PTFE, graphite, ceramic fibre and acrylic composite constructions for high-temperature, high-pressure and chemically aggressive sealing applications." },
   { id: 40, name: "Aluminium Tape Solution", category: "Tools", rating: 4.9, description: "Complete aluminium foil tape range for HVAC, insulation, sealing and ducting. Includes plain dead-soft aluminium foil, reinforced FSK (foil-scrim-kraft), glass-fibre-cloth aluminium and lacquered black aluminium tape options." },
   { id: 41, name: "Pneumatics Component Solution", category: "Tools", rating: 4.9, description: "Complete pneumatic automation component range for industrial air systems: double-acting air cylinders, compact pneumatic cylinders, FRL (filter-regulator-lubricator) units, solenoid valve manifolds, push-to-connect fittings, brass threaded connectors and high-flexibility polyurethane/nylon tubing. Engineered for reliable linear motion, precise directional control, clean dry air preparation and leak-free distribution across packaging, automation, automotive, textile and general machinery applications." },
+  { id: 42, name: "Pneumatic Pipe Solution", category: "Tools", rating: 4.9, description: "Precision-engineered pneumatic pipe and tubing solution for industrial compressed-air distribution. Features high-grade polyurethane construction with braided reinforcement, a wide range of diameters from 4x2.5mm to 16x12mm, and colour-coded spools for easy circuit identification. Ideal for automation, packaging, CNC, robotics and general pneumatic systems requiring flexibility, pressure resistance and long service life." },
 ];
+
 
 
 

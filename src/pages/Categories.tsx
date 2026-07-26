@@ -88,6 +88,10 @@ import aluminiumTapeSolutionAsset from "@/assets/products/aluminium-tape-solutio
 const aluminiumTapeSolutionImg = aluminiumTapeSolutionAsset.url;
 import pneumaticsComponentSolutionAsset from "@/assets/products/pneumatics-component-solution.png.asset.json";
 const pneumaticsComponentSolutionImg = pneumaticsComponentSolutionAsset.url;
+import pneumaticPipeSolutionAsset from "@/assets/products/pneumatic-pipe-solution.png.asset.json";
+const pneumaticPipeSolutionImg = pneumaticPipeSolutionAsset.url;
+
+
 
 
 
@@ -139,6 +143,8 @@ const allCategories: Category[] = [
   { name: "Glane Packing", count: 18, image: glanePackingSolutionImg, filterCategory: "Tools" },
   { name: "Aluminium Tape", count: 18, image: aluminiumTapeSolutionImg, filterCategory: "Tools" },
   { name: "Pneumatics Components", count: 22, image: pneumaticsComponentSolutionImg, filterCategory: "Tools" },
+  { name: "Pneumatic Pipe", count: 20, image: pneumaticPipeSolutionImg, filterCategory: "Tools" },
+
 
   { name: "Rock Wool", count: 24, image: rockWoolImg, filterCategory: "Insulation" },
 
