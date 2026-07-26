@@ -83,6 +83,8 @@ import nylonShaftSolutionAsset from "@/assets/products/nylon-shaft-solution.png.
 const nylonShaftSolutionImg = nylonShaftSolutionAsset.url;
 import glanePackingSolutionAsset from "@/assets/products/glane-packing-solution.png.asset.json";
 const glanePackingSolutionImg = glanePackingSolutionAsset.url;
+import aluminiumTapeSolutionAsset from "@/assets/products/aluminium-tape-solution.png.asset.json";
+const aluminiumTapeSolutionImg = aluminiumTapeSolutionAsset.url;
 
 
 import productBelts from "@/assets/product-belts.jpg";
@@ -127,6 +129,7 @@ const productImages: Record<number, string> = {
   37: siliconSpongeRubberSheetImg,
   38: nylonShaftSolutionImg,
   39: glanePackingSolutionImg,
+  40: aluminiumTapeSolutionImg,
 };
 
 
@@ -733,6 +736,36 @@ const allProducts: Product[] = [
       "Reinforcement": "Inconel wire, glass filament, wire insert or elastic core",
       "Lubrication": "High-temp lubricant / PTFE impregnation / corrosion inhibitor",
       "Compliance": "Industry-standard sealing performance; custom grades available",
+    },
+  },
+  {
+    id: 40,
+    name: "Aluminium Tape Solution",
+    category: "Tools",
+    rating: 4.9,
+    description: "Complete aluminium foil tape range engineered for HVAC sealing, insulation facing, ductwork, refrigeration and high-temperature industrial applications. The range includes plain dead-soft aluminium foil tape with high-temperature acrylic adhesive, reinforced FSK (foil-scrim-kraft) tape for extra tensile strength, glass-fibre-cloth aluminium tape for extreme heat deflection, and lacquered black aluminium tape for camouflage and UV-stable duct finishing. Each variant provides excellent moisture, vapour and chemical barrier performance with strong adhesion and clean, liner-backed application.",
+    features: [
+      "Plain dead-soft aluminium foil tape: 0.03mm foil face, high-temperature acrylic adhesive, release liner paper",
+      "Bagla Premium dead-soft aluminium: 0.05mm foil, service range -30°C to +120°C",
+      "Reinforced FSK tape: aluminium foil/scrim/kraft lamination for high tensile strength",
+      "Glass-fibre-cloth aluminium tape with glass-cloth weave for extreme heat deflection",
+      "Lacquered black aluminium tape with black surface finish for camouflage in ducting",
+      "Excellent moisture and vapour barrier for insulation and HVAC sealing",
+      "High-temperature acrylic adhesive system for long-term bonding",
+      "Easy liner-backed roll format for fast, clean installation",
+    ],
+    specifications: {
+      "Material": "Aluminium Foil / FSK / Glass-Fibre Cloth / Lacquered Black Aluminium",
+      "Foil Thickness": "0.03mm – 0.05mm (plain/premium grades)",
+      "Service Temperature": "-30°C to +120°C (standard), higher for cloth grades",
+      "Adhesive": "High-temperature acrylic with release liner",
+      "Reinforcement": "Plain foil, scrim-kraft, glass-fibre cloth or lacquered coating",
+      "Tensile Strength": "High (reinforced FSK grade)",
+      "Width": "Standard rolls 48mm / 50mm; custom widths available",
+      "Length": "Standard 25m / 45m / 50m rolls",
+      "Applications": "HVAC, duct sealing, insulation facing, refrigeration, vapour barriers, heat shielding",
+      "Finish": "Bright silver, matte black, FSK pattern, glass cloth weave",
+      "Compliance": "Industry HVAC and insulation standards; custom grades available",
     },
   },
 ];
