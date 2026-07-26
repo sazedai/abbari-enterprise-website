@@ -97,6 +97,8 @@ import pneumaticSparePartsSolutionAsset from "@/assets/products/pneumatic-spare-
 const pneumaticSparePartsSolutionImg = pneumaticSparePartsSolutionAsset.url;
 import gtTimingBeltAsset from "@/assets/products/gt-timing-belt.png.asset.json";
 const gtTimingBeltImg = gtTimingBeltAsset.url;
+import asbestosPackingAsset from "@/assets/products/asbestos-packing-solution.png.asset.json";
+const asbestosPackingImg = asbestosPackingAsset.url;
 
 
 
@@ -154,6 +156,7 @@ const productImages: Record<number, string> = {
   44: pneumaticComponentSolutionImg,
   45: pneumaticSparePartsSolutionImg,
   46: gtTimingBeltImg,
+  47: asbestosPackingImg,
 };
 
 const legacyFeaturedProductIds: Record<number, number> = {
@@ -993,6 +996,35 @@ const allProducts: Product[] = [
       "Temperature Range": "-30°C to +100°C",
       "Applications": "CNC, 3D printers, robotics, packaging, automation, precision motion control",
       "Compliance": "GATES POWERGRIP GT2 / industry-standard GT pitch specifications",
+    },
+  },
+  {
+    id: 47,
+    name: "Asbestos Packing Solution",
+    category: "Tools",
+    rating: 4.9,
+    description: "Complete Glane asbestos-family gland packing solution engineered for high-temperature, high-pressure and chemically aggressive sealing of valves, pumps, agitators and rotating-shaft equipment. The range covers carbon & flexible graphite braided packing with excellent thermal conductivity and a high-temperature resistant matrix, chemical-resistant fiberglass packing with reinforced woven braid and colour marker yarns, custom die-formed packing ring sets in tailored configurations, and matching set installation tools. Suitable for refineries, power plants, chemical processing, water treatment, marine and general industrial sealing where thermal stability, chemical compatibility and long service life are critical.",
+    features: [
+      "Carbon & flexible graphite braided packing with excellent thermal conductivity",
+      "High-temperature resistant matrix for demanding sealing duty",
+      "Chemical-resistant fiberglass packing with reinforced woven braid",
+      "Colour marker yarns for easy on-site grade identification",
+      "Custom die-formed packing ring sets in tailored configurations",
+      "Matching set installation tools for clean, damage-free fitting",
+      "Compatible with rotating shafts, reciprocating rods and valve stems",
+      "Low leakage, low friction and long service life",
+    ],
+    specifications: {
+      "Materials": "Carbon fibre, Flexible graphite, Fiberglass, Asbestos-family composites",
+      "Construction": "Interlock braid / square braid with reinforced woven jacket",
+      "Cross-Section Sizes": "3mm, 4mm, 5mm, 6mm, 8mm, 10mm, 12mm, 16mm, 20mm, 25mm",
+      "Temperature Range": "Up to 650°C (graphite) / 550°C (fiberglass)",
+      "Pressure Rating": "Up to 200 bar (static) / 40 bar (rotating)",
+      "Shaft Speed": "Up to 20 m/s",
+      "pH Range": "0 – 14 (chemical-resistant grades)",
+      "Forms": "Continuous coils, pre-formed die-cut ring sets, custom sizes",
+      "Applications": "Pumps, valves, agitators, refineries, power plants, chemical processing, marine",
+      "Includes": "Installation extractor tools, cutting guides and sizing kits",
     },
   },
 ];
