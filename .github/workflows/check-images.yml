@@ -12,6 +12,8 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: oven-sh/setup-bun@v2
       - name: Install dependencies
         run: bun install --frozen-lockfile
@@ -21,5 +23,23 @@ jobs:
           path: node_modules/.cache/check-images
           key: check-images-${{ runner.os }}-${{ hashFiles('src/**/*.asset.json') }}
           restore-keys: check-images-${{ runner.os }}-
-      - name: Run image reference check
-        run: node scripts/check-images.mjs --ci
+      - name: Run image reference check (incremental on PRs)
+        run: |
+          mkdir -p reports
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            SINCE="origin/${{ github.base_ref }}"
+            git fetch origin "${{ github.base_ref }}" --depth=50 || true
+            node scripts/check-images.mjs --ci --since="$SINCE" \
+              --report-json=reports/image-check.json \
+              --report-html=reports/image-check.html
+          else
+            node scripts/check-images.mjs --ci \
+              --report-json=reports/image-check.json \
+              --report-html=reports/image-check.html
+          fi
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: image-check-report
+          path: reports/
