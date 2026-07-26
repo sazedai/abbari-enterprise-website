@@ -106,6 +106,7 @@ const productImages: Record<number, string> = {
   30: puFlatBeltImg,
   31: puCordBeltImg,
   32: adjustableLinkVBeltImg,
+  33: cuttingDiskImg,
 };
 
 interface Product {
@@ -505,6 +506,33 @@ const allProducts: Product[] = [
       "Tensile Strength": "Equal to or greater than solid rubber V-belts",
       "Installation": "Hand-linked — no tools, no drive disassembly",
       "Application": "HVAC, pumps, compressors, fans, machine tools, agriculture, emergency replacement",
+    },
+  },
+  {
+    id: 33,
+    name: "Cutting Disk Solution",
+    category: "Tools",
+    rating: 4.9,
+    description: "A complete, professional range of high-performance cutting and grinding discs engineered for angle grinders and cut-off machines. The line-up covers Nova (red) abrasive discs for metal, iron and stainless steel cutting; Makita INOX (silver) precision discs for clean stainless steel cuts with minimal burr; segmented diamond blades for granite, ceramic and Dekton; universal glass and concrete diamond discs; and dedicated wood & plastic cutting blades. Each disc is built with high-quality abrasive grit, multiple fibreglass reinforcement layers, precision hub & arbour and clear safety and performance markings — delivering fast, clean, chatter-free cuts with excellent disc life and operator safety across construction, fabrication, metalwork, stone and general industrial applications.",
+    features: [
+      "Full range: Nova (Red), Makita INOX (Silver), Diamond Segmented, Wood/Plastic and Glass cutting blades",
+      "High-quality abrasive grit for fast, aggressive cutting",
+      "Multi-layer fibreglass reinforcement for burst resistance and long life",
+      "Precision hub & arbour for balanced, vibration-free rotation",
+      "Clear safety and performance markings (MPa, RPM, expiry)",
+      "Diamond segmented rim for granite, ceramic, Dekton and stone",
+      "INOX-safe formulation — no iron contamination on stainless steel",
+      "Compatible with standard 100mm / 115mm / 125mm angle grinders",
+    ],
+    specifications: {
+      "Variants": "Nova (Red), Makita INOX (Silver), Diamond Segmented, Wood & Plastic, Glass Cutting",
+      "Disc Diameter": "100mm, 115mm, 125mm, 180mm, 230mm (standard)",
+      "Bore / Arbour": "16mm / 22.23mm (standard)",
+      "Thickness": "1.0mm – 3.0mm (cutting), 6.0mm (grinding)",
+      "Reinforcement": "Double fibreglass mesh (Type 41 / Type 42)",
+      "Max Operating Speed": "Up to 13,300 RPM (depending on diameter)",
+      "Applications": "Metal, Stainless Steel (INOX), Stone, Granite, Ceramic, Wood, Plastic, Glass",
+      "Compliance": "EN 12413 / oSa safety standard",
     },
   },
 ];

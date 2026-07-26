@@ -70,6 +70,8 @@ import puCordBeltAsset from "@/assets/products/pu-cord-belt.png.asset.json";
 const puCordBeltImg = puCordBeltAsset.url;
 import adjustableLinkVBeltAsset from "@/assets/products/adjustable-link-v-belt.png.asset.json";
 const adjustableLinkVBeltImg = adjustableLinkVBeltAsset.url;
+import cuttingDiskAsset from "@/assets/products/cutting-disk.png.asset.json";
+const cuttingDiskImg = cuttingDiskAsset.url;
 
 
 
