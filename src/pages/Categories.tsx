@@ -82,7 +82,8 @@ import siliconSpongeRubberSheetAsset from "@/assets/products/silicon-sponge-rubb
 const siliconSpongeRubberSheetImg = siliconSpongeRubberSheetAsset.url;
 import nylonShaftSolutionAsset from "@/assets/products/nylon-shaft-solution.png.asset.json";
 const nylonShaftSolutionImg = nylonShaftSolutionAsset.url;
-
+import glanePackingSolutionAsset from "@/assets/products/glane-packing-solution.png.asset.json";
+const glanePackingSolutionImg = glanePackingSolutionAsset.url;
 
 
 
@@ -129,6 +130,7 @@ const allCategories: Category[] = [
   { name: "Gasket Sealing Sheets", count: 22, image: gasketSealingSheetImg, filterCategory: "Tools" },
   { name: "Silicon Sponge Rubber Sheets", count: 18, image: siliconSpongeRubberSheetImg, filterCategory: "Tools" },
   { name: "Nylon Shaft Solutions", count: 20, image: nylonShaftSolutionImg, filterCategory: "Tools" },
+  { name: "Glane Packing", count: 18, image: glanePackingSolutionImg, filterCategory: "Tools" },
   { name: "Rock Wool", count: 24, image: rockWoolImg, filterCategory: "Insulation" },
 
 

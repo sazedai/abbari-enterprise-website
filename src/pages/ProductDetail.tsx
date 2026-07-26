@@ -81,6 +81,8 @@ import siliconSpongeRubberSheetAsset from "@/assets/products/silicon-sponge-rubb
 const siliconSpongeRubberSheetImg = siliconSpongeRubberSheetAsset.url;
 import nylonShaftSolutionAsset from "@/assets/products/nylon-shaft-solution.png.asset.json";
 const nylonShaftSolutionImg = nylonShaftSolutionAsset.url;
+import glanePackingSolutionAsset from "@/assets/products/glane-packing-solution.png.asset.json";
+const glanePackingSolutionImg = glanePackingSolutionAsset.url;
 
 
 import productBelts from "@/assets/product-belts.jpg";
@@ -124,6 +126,7 @@ const productImages: Record<number, string> = {
   36: gasketSealingSheetImg,
   37: siliconSpongeRubberSheetImg,
   38: nylonShaftSolutionImg,
+  39: glanePackingSolutionImg,
 };
 
 
@@ -700,6 +703,36 @@ const allProducts: Product[] = [
       "Surface Finish": "Smooth extruded / cast surface; ground finish available",
       "Applications": "Bushings, bearings, wear pads, rollers, gears, sprockets, pulleys, spacers, mechanical components",
       "Compliance": "RoHS compliant; FDA-approved grades available for food-contact applications",
+    },
+  },
+  {
+    id: 39,
+    name: "Glane Packing Solution",
+    category: "Tools",
+    rating: 4.9,
+    description: "Advanced gland packing solution for industrial valves, pumps, mixers, agitators and rotating-shaft equipment. The range covers four high-performance constructions: high-temperature PTFE, expanded graphite, ceramic fibre and acrylic composite. Each style is engineered to deliver reliable, low-emission sealing across steam, chemicals, hydrocarbons, abrasive media and high-temperature applications while minimizing shaft wear and extending maintenance intervals.",
+    features: [
+      "High-Temp PTFE packing with virgin PTFE fibres, high-temp lubricant and reinforcing core",
+      "Graphite Superior packing with expanded flexible graphite, Inconel wire reinforcement and corrosion inhibitor",
+      "Ceramic Fibre packing with ceramic fibres, glass filament/wire insert and low burn-off binder",
+      "Acrylic Composite packing with high-grade acrylic yarn, PTFE impregnation and inner elastic core",
+      "Excellent chemical resistance, thermal stability and mechanical strength",
+      "Low-friction, low-shaft-wear construction for longer equipment life",
+      "Suitable for valves, pumps, mixers, agitators and rotating shaft seals",
+      "Wide temperature and pressure range across product variants",
+    ],
+    specifications: {
+      "Material": "PTFE / Graphite / Ceramic Fibre / Acrylic Composite",
+      "PTFE Temperature": "Up to 260°C",
+      "Graphite Temperature": "Up to 450°C (steam), higher in non-oxidizing atmospheres",
+      "Ceramic Temperature": "Up to 1000°C",
+      "Acrylic Temperature": "Up to 150°C",
+      "Pressure Range": "Up to 250 bar (variant dependent)",
+      "pH Range": "0–14 (PTFE and graphite grades)",
+      "Applications": "Valves, pumps, mixers, agitators, reactors, compressors, steam systems",
+      "Reinforcement": "Inconel wire, glass filament, wire insert or elastic core",
+      "Lubrication": "High-temp lubricant / PTFE impregnation / corrosion inhibitor",
+      "Compliance": "Industry-standard sealing performance; custom grades available",
     },
   },
 ];

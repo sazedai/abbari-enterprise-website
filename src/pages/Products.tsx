@@ -91,6 +91,8 @@ import siliconSpongeRubberSheetAsset from "@/assets/products/silicon-sponge-rubb
 const siliconSpongeRubberSheetImg = siliconSpongeRubberSheetAsset.url;
 import nylonShaftSolutionAsset from "@/assets/products/nylon-shaft-solution.png.asset.json";
 const nylonShaftSolutionImg = nylonShaftSolutionAsset.url;
+import glanePackingSolutionAsset from "@/assets/products/glane-packing-solution.png.asset.json";
+const glanePackingSolutionImg = glanePackingSolutionAsset.url;
 
 
 
@@ -143,6 +145,7 @@ const productImages: Record<number, string> = {
   36: gasketSealingSheetImg,
   37: siliconSpongeRubberSheetImg,
   38: nylonShaftSolutionImg,
+  39: glanePackingSolutionImg,
 };
 
 
@@ -194,6 +197,7 @@ const allProducts: Product[] = [
   { id: 36, name: "Gasket Sealing Sheet Solution", category: "Tools", rating: 4.9, description: "Modern gasket sealing sheet range in asbestos and non-asbestos compositions — Klingerit 1000 rolls & sheets, Klinger Universal, Klinger-Oilit, wiremesh-reinforced sheets (galvanized steel mesh + asbestos/non-asbestos compound) and green/red compressed fibre jointing sheets. Engineered with high-performance elastomer binders for thermal resistance, chemical compatibility and sustainability across flanges, pumps, valves, heat exchangers and pressure vessels." },
   { id: 37, name: "Silicon Sponge Rubber Sheets Solution", category: "Tools", rating: 4.9, description: "Premium silicone sponge rubber sheet range engineered for high-performance sealing, gasketing, insulation and cushioning across industrial, automotive, HVAC and food-processing applications. Available in closed-cell and open-cell structures with uniform pore distribution, optional reinforcement fabric ply and pressure-sensitive adhesive backing. Offers excellent temperature stability from -50°C to +200°C, UV/ozone resistance, compression set recovery and easy die-cutting or on-site fabrication." },
   { id: 38, name: "Nylon Shaft Solution", category: "Tools", rating: 4.9, description: "Complete nylon shaft solution offering precision-engineered extruded and cast Nylon 6 / Nylon 6/66 rods in a wide range of diameters, lengths and colors. Ideal for bushings, bearings, wear pads, rollers, gears, sprockets and general mechanical components where low friction, high wear resistance and excellent machinability are required. Available in natural white, pigmented blue (Nylon 6 high stiffness), and customizable colors including green, black, red and yellow for on-site identification and OEM branding." },
+  { id: 39, name: "Glane Packing Solution", category: "Tools", rating: 4.9, description: "High-performance gland packing solution for valves, pumps and rotating equipment. Available in PTFE, graphite, ceramic fibre and acrylic composite constructions for high-temperature, high-pressure and chemically aggressive sealing applications." },
 ];
 
 
