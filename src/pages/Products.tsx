@@ -81,6 +81,8 @@ import adjustableLinkVBeltAsset from "@/assets/products/adjustable-link-v-belt.p
 const adjustableLinkVBeltImg = adjustableLinkVBeltAsset.url;
 import cuttingDiskAsset from "@/assets/products/cutting-disk.png.asset.json";
 const cuttingDiskImg = cuttingDiskAsset.url;
+import ssPipeRodAsset from "@/assets/products/stainless-steel-pipe-rod.png.asset.json";
+const ssPipeRodImg = ssPipeRodAsset.url;
 
 const categoryImages: Record<string, string> = {
   Belts: productBelts,
