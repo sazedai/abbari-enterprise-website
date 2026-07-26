@@ -89,6 +89,9 @@ import gasketSealingSheetAsset from "@/assets/products/gasket-sealing-sheet.png.
 const gasketSealingSheetImg = gasketSealingSheetAsset.url;
 import siliconSpongeRubberSheetAsset from "@/assets/products/silicon-sponge-rubber-sheet.png.asset.json";
 const siliconSpongeRubberSheetImg = siliconSpongeRubberSheetAsset.url;
+import nylonShaftSolutionAsset from "@/assets/products/nylon-shaft-solution.png.asset.json";
+const nylonShaftSolutionImg = nylonShaftSolutionAsset.url;
+
 
 
 const categoryImages: Record<string, string> = {
@@ -139,7 +142,9 @@ const productImages: Record<number, string> = {
   35: fencingBarbwireImg,
   36: gasketSealingSheetImg,
   37: siliconSpongeRubberSheetImg,
+  38: nylonShaftSolutionImg,
 };
+
 
 
 interface Product {
@@ -188,7 +193,9 @@ const allProducts: Product[] = [
   { id: 35, name: "Fencing and Barb Wire Solution", category: "Tools", rating: 4.9, description: "Advanced fencing and barb wire systems — galvanized and green PVC-coated chain-link mesh, welded wire mesh panels, post & top-rail connections, plus a full barb wire range: heavy-zinc coated, PVC-coated (blue), high-tensile galvanized core and copper-time sharp-barb variants. Engineered for corrosion resistance, high security, diverse mesh sizes and custom perimeter, agricultural and industrial protection." },
   { id: 36, name: "Gasket Sealing Sheet Solution", category: "Tools", rating: 4.9, description: "Modern gasket sealing sheet range in asbestos and non-asbestos compositions — Klingerit 1000 rolls & sheets, Klinger Universal, Klinger-Oilit, wiremesh-reinforced sheets (galvanized steel mesh + asbestos/non-asbestos compound) and green/red compressed fibre jointing sheets. Engineered with high-performance elastomer binders for thermal resistance, chemical compatibility and sustainability across flanges, pumps, valves, heat exchangers and pressure vessels." },
   { id: 37, name: "Silicon Sponge Rubber Sheets Solution", category: "Tools", rating: 4.9, description: "Premium silicone sponge rubber sheet range engineered for high-performance sealing, gasketing, insulation and cushioning across industrial, automotive, HVAC and food-processing applications. Available in closed-cell and open-cell structures with uniform pore distribution, optional reinforcement fabric ply and pressure-sensitive adhesive backing. Offers excellent temperature stability from -50°C to +200°C, UV/ozone resistance, compression set recovery and easy die-cutting or on-site fabrication." },
+  { id: 38, name: "Nylon Shaft Solution", category: "Tools", rating: 4.9, description: "Complete nylon shaft solution offering precision-engineered extruded and cast Nylon 6 / Nylon 6/66 rods in a wide range of diameters, lengths and colors. Ideal for bushings, bearings, wear pads, rollers, gears, sprockets and general mechanical components where low friction, high wear resistance and excellent machinability are required. Available in natural white, pigmented blue (Nylon 6 high stiffness), and customizable colors including green, black, red and yellow for on-site identification and OEM branding." },
 ];
+
 
 
 const getProductImage = (product: Product): string => {

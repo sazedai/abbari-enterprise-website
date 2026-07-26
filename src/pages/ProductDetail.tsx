@@ -79,6 +79,9 @@ import gasketSealingSheetAsset from "@/assets/products/gasket-sealing-sheet.png.
 const gasketSealingSheetImg = gasketSealingSheetAsset.url;
 import siliconSpongeRubberSheetAsset from "@/assets/products/silicon-sponge-rubber-sheet.png.asset.json";
 const siliconSpongeRubberSheetImg = siliconSpongeRubberSheetAsset.url;
+import nylonShaftSolutionAsset from "@/assets/products/nylon-shaft-solution.png.asset.json";
+const nylonShaftSolutionImg = nylonShaftSolutionAsset.url;
+
 
 import productBelts from "@/assets/product-belts.jpg";
 
@@ -120,7 +123,9 @@ const productImages: Record<number, string> = {
   35: fencingBarbwireImg,
   36: gasketSealingSheetImg,
   37: siliconSpongeRubberSheetImg,
+  38: nylonShaftSolutionImg,
 };
+
 
 
 interface Product {
@@ -666,7 +671,39 @@ const allProducts: Product[] = [
       "Compliance": "FDA grades available for food-contact applications",
     },
   },
+  {
+    id: 38,
+    name: "Nylon Shaft Solution",
+    category: "Tools",
+    rating: 4.9,
+    description: "Complete precision-engineered nylon shaft solution covering extruded and cast Nylon 6 (PA6) and Nylon 6/66 (PA66) rods in a wide range of diameters, lengths and colours. The range includes natural white rods in standard 160mm, 200mm and 300mm diameters, high-stiffness pigmented blue Nylon 6 shafts, and fully customizable green, black, red and yellow Nylon 6/66 shafts for colour-coded identification and OEM branding. With excellent wear resistance, low coefficient of friction, good fatigue resistance and outstanding machinability, these shafts are ideal for bushings, bearings, wear pads, rollers, gears, sprockets, pulleys and general mechanical components across industrial, automotive, agricultural and food-processing equipment.",
+    features: [
+      "Nylon 6 (PA6) and Nylon 6/66 (PA66) material options for balanced strength and machinability",
+      "Natural white rods in standard diameters: 100mm, 160mm, 200mm and 300mm",
+      "Pigmented blue Nylon 6 shaft variant for high stiffness and wear resistance",
+      "Custom colour options: green, black, red, yellow and other OEM colours on request",
+      "Excellent wear resistance and low friction for bearing and bushing applications",
+      "High stiffness, good fatigue life and superior dimensional stability",
+      "Easy to machine, turn, mill, drill and tap to custom shapes",
+      "Suitable for gears, rollers, sprockets, pulleys, wear pads and structural spacers",
+    ],
+    specifications: {
+      "Material": "Nylon 6 (PA6) / Nylon 6/66 (PA66)",
+      "Standard Diameters": "100mm, 160mm, 200mm, 300mm (custom sizes available)",
+      "Standard Lengths": "1000mm; custom cut-to-length on request",
+      "Color Options": "Natural white, blue (Nylon 6), green, black, red, yellow (customizable)",
+      "Density": "1.13 – 1.15 g/cm³",
+      "Hardness": "80 – 85 Shore D",
+      "Tensile Strength": "Up to 80 MPa (grade dependent)",
+      "Temperature Range": "-40°C to +100°C (short term +120°C)",
+      "Machinability": "Excellent — easy to turn, mill, drill and tap",
+      "Surface Finish": "Smooth extruded / cast surface; ground finish available",
+      "Applications": "Bushings, bearings, wear pads, rollers, gears, sprockets, pulleys, spacers, mechanical components",
+      "Compliance": "RoHS compliant; FDA-approved grades available for food-contact applications",
+    },
+  },
 ];
+
 
 
 const ProductDetail = () => {
