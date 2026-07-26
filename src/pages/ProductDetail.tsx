@@ -85,6 +85,10 @@ import glanePackingSolutionAsset from "@/assets/products/glane-packing-solution.
 const glanePackingSolutionImg = glanePackingSolutionAsset.url;
 import aluminiumTapeSolutionAsset from "@/assets/products/aluminium-tape-solution.png.asset.json";
 const aluminiumTapeSolutionImg = aluminiumTapeSolutionAsset.url;
+import pneumaticsComponentSolutionAsset from "@/assets/products/pneumatics-component-solution.png.asset.json";
+const pneumaticsComponentSolutionImg = pneumaticsComponentSolutionAsset.url;
+
+
 
 
 import productBelts from "@/assets/product-belts.jpg";
