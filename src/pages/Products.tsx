@@ -166,7 +166,9 @@ const productImages: Record<number, string> = {
   41: pneumaticsComponentSolutionImg,
   42: pneumaticPipeSolutionImg,
   43: pneumaticHosesTubingSolutionImg,
+  44: pneumaticComponentSolutionImg,
 };
+
 
 
 
