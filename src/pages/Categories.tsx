@@ -138,6 +138,8 @@ const allCategories: Category[] = [
   { name: "Nylon Shaft Solutions", count: 20, image: nylonShaftSolutionImg, filterCategory: "Tools" },
   { name: "Glane Packing", count: 18, image: glanePackingSolutionImg, filterCategory: "Tools" },
   { name: "Aluminium Tape", count: 18, image: aluminiumTapeSolutionImg, filterCategory: "Tools" },
+  { name: "Pneumatics Components", count: 22, image: pneumaticsComponentSolutionImg, filterCategory: "Tools" },
+
   { name: "Rock Wool", count: 24, image: rockWoolImg, filterCategory: "Insulation" },
 
 
