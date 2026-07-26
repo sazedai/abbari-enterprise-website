@@ -95,6 +95,8 @@ import pneumaticComponentSolutionAsset from "@/assets/products/pneumatic-compone
 const pneumaticComponentSolutionImg = pneumaticComponentSolutionAsset.url;
 import pneumaticSparePartsSolutionAsset from "@/assets/products/pneumatic-spare-parts-solution.png.asset.json";
 const pneumaticSparePartsSolutionImg = pneumaticSparePartsSolutionAsset.url;
+import gtTimingBeltAsset from "@/assets/products/gt-timing-belt.png.asset.json";
+const gtTimingBeltImg = gtTimingBeltAsset.url;
 
 
 
@@ -151,6 +153,7 @@ const productImages: Record<number, string> = {
   43: pneumaticHosesTubingSolutionImg,
   44: pneumaticComponentSolutionImg,
   45: pneumaticSparePartsSolutionImg,
+  46: gtTimingBeltImg,
 };
 
 const legacyFeaturedProductIds: Record<number, number> = {
@@ -959,6 +962,37 @@ const allProducts: Product[] = [
       "Temperature Range": "-10°C to +60°C",
       "Applications": "Maintenance, repair, automation, packaging, automotive, textile, CNC",
       "Compliance": "ISO 6432 / ISO 15552 cylinder standards; industry-standard pneumatic interfaces",
+    },
+  },
+  {
+    id: 46,
+    name: "GT Series Timing Belt Solution",
+    category: "Tools",
+    rating: 4.9,
+    description: "Precision GT-series timing belt solution engineered for high-torque, high-precision robotronic and industrial drive systems. Range includes GATES POWERGRIP GT2 (black neoprene, classic performance profile), GATES RACING T251RB (blue reinforced, reduced-stretch high-load variant), red double-sided belts with aesthetic double-tooth profile, 3GTM olive-tan neoprene belts with flexible double-sided teeth, and the full 2GT / 3GT / 5GT curvilinear tooth profile family. Each belt features a high-tensile aramid or glass reinforcement cord, durable neoprene body, wear-resistant nylon tooth cover and protective fabric backing — delivering precise positioning, zero slippage and quiet operation for CNC machines, 3D printers, robotics, packaging lines, automation and precision motion control applications.",
+    features: [
+      "GT curvilinear tooth profile for high torque and precision",
+      "GATES POWERGRIP GT2 classic-performance black neoprene belt",
+      "GATES RACING T251RB blue reinforced belt — reduced stretch, high load",
+      "Red double-sided belt with aesthetic double-tooth profile",
+      "3GTM olive-tan neoprene belt with flexible double-sided teeth",
+      "Full 2GT / 3GT / 5GT profile range for varied pitch requirements",
+      "High-tensile aramid / glass reinforcement cord for minimal stretch",
+      "Wear-resistant nylon tooth cover and protective fabric backing",
+      "Zero slippage, quiet operation and maintenance-free service",
+    ],
+    specifications: {
+      "Profile Range": "2GT, 3GT, 5GT curvilinear tooth profiles",
+      "Featured Types": "GATES POWERGRIP GT2, GATES RACING T251RB, 3GTM, Red Double-Sided",
+      "Body Material": "Durable neoprene / rubber compound",
+      "Reinforcement Cord": "High-tensile aramid / glass fibre",
+      "Tooth Cover": "Wear-resistant nylon fabric",
+      "Backing": "Protective fabric backing (single or double-sided)",
+      "Colors Available": "Black, Blue, Red, Olive-Tan",
+      "Width Options": "6mm and custom widths on request",
+      "Temperature Range": "-30°C to +100°C",
+      "Applications": "CNC, 3D printers, robotics, packaging, automation, precision motion control",
+      "Compliance": "GATES POWERGRIP GT2 / industry-standard GT pitch specifications",
     },
   },
 ];
