@@ -2,10 +2,16 @@
   "ignore": {
     "paths": [],
     "extensions": [],
-    "domains": []
+    "domains": [],
+    "urlPatterns": []
+  },
+  "warn": {
+    "domains": [],
+    "urlPatterns": []
   },
   "cacheTtlHours": 24,
   "retries": 2,
   "concurrencyPerHost": 4,
-  "minIntervalMsPerHost": 50
+  "minIntervalMsPerHost": 50,
+  "validateContentType": true
 }
