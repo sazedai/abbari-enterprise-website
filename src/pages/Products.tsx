@@ -91,6 +91,8 @@ import siliconSpongeRubberSheetAsset from "@/assets/products/silicon-sponge-rubb
 const siliconSpongeRubberSheetImg = siliconSpongeRubberSheetAsset.url;
 import nylonShaftSolutionAsset from "@/assets/products/nylon-shaft-solution.png.asset.json";
 const nylonShaftSolutionImg = nylonShaftSolutionAsset.url;
+import glanePackingSolutionAsset from "@/assets/products/glane-packing-solution.png.asset.json";
+const glanePackingSolutionImg = glanePackingSolutionAsset.url;
 
 
 
@@ -143,6 +145,7 @@ const productImages: Record<number, string> = {
   36: gasketSealingSheetImg,
   37: siliconSpongeRubberSheetImg,
   38: nylonShaftSolutionImg,
+  39: glanePackingSolutionImg,
 };
 
 
