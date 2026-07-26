@@ -99,6 +99,9 @@ import pneumaticsComponentSolutionAsset from "@/assets/products/pneumatics-compo
 const pneumaticsComponentSolutionImg = pneumaticsComponentSolutionAsset.url;
 import pneumaticPipeSolutionAsset from "@/assets/products/pneumatic-pipe-solution.png.asset.json";
 const pneumaticPipeSolutionImg = pneumaticPipeSolutionAsset.url;
+import pneumaticHosesTubingSolutionAsset from "@/assets/products/pneumatic-hoses-and-tubing.png.asset.json";
+const pneumaticHosesTubingSolutionImg = pneumaticHosesTubingSolutionAsset.url;
+
 
 
 
@@ -159,7 +162,9 @@ const productImages: Record<number, string> = {
   40: aluminiumTapeSolutionImg,
   41: pneumaticsComponentSolutionImg,
   42: pneumaticPipeSolutionImg,
+  43: pneumaticHosesTubingSolutionImg,
 };
+
 
 
 
@@ -216,7 +221,9 @@ const allProducts: Product[] = [
   { id: 40, name: "Aluminium Tape Solution", category: "Tools", rating: 4.9, description: "Complete aluminium foil tape range for HVAC, insulation, sealing and ducting. Includes plain dead-soft aluminium foil, reinforced FSK (foil-scrim-kraft), glass-fibre-cloth aluminium and lacquered black aluminium tape options." },
   { id: 41, name: "Pneumatics Component Solution", category: "Tools", rating: 4.9, description: "Complete pneumatic automation component range for industrial air systems: double-acting air cylinders, compact pneumatic cylinders, FRL (filter-regulator-lubricator) units, solenoid valve manifolds, push-to-connect fittings, brass threaded connectors and high-flexibility polyurethane/nylon tubing. Engineered for reliable linear motion, precise directional control, clean dry air preparation and leak-free distribution across packaging, automation, automotive, textile and general machinery applications." },
   { id: 42, name: "Pneumatic Pipe Solution", category: "Tools", rating: 4.9, description: "Precision-engineered pneumatic pipe and tubing solution for industrial compressed-air distribution. Features high-grade polyurethane construction with braided reinforcement, a wide range of diameters from 4x2.5mm to 16x12mm, and colour-coded spools for easy circuit identification. Ideal for automation, packaging, CNC, robotics and general pneumatic systems requiring flexibility, pressure resistance and long service life." },
+  { id: 43, name: "Pneumatic Hoses and Tubing", category: "Tools", rating: 4.9, description: "Comprehensive pneumatic hoses and tubing solution for industrial, agricultural and automation air-power systems. The range includes high-flexibility polyurethane (PU) hoses, lightweight polyethylene (PE) tubes, durable PVC hoses and high-performance Nylon / PTFE options — available in straight, coiled and braided-reinforced configurations with matching brass, steel and quick-connect fittings. Engineered for compressed air, pneumatic tools, spray systems, packaging lines and mobile machinery, with colour-coded circuits and clearly labelled diameter ratings for fast, leak-free installation." },
 ];
+
 
 
 

@@ -90,6 +90,9 @@ import pneumaticsComponentSolutionAsset from "@/assets/products/pneumatics-compo
 const pneumaticsComponentSolutionImg = pneumaticsComponentSolutionAsset.url;
 import pneumaticPipeSolutionAsset from "@/assets/products/pneumatic-pipe-solution.png.asset.json";
 const pneumaticPipeSolutionImg = pneumaticPipeSolutionAsset.url;
+import pneumaticHosesTubingSolutionAsset from "@/assets/products/pneumatic-hoses-and-tubing.png.asset.json";
+const pneumaticHosesTubingSolutionImg = pneumaticHosesTubingSolutionAsset.url;
+
 
 
 
@@ -144,6 +147,8 @@ const allCategories: Category[] = [
   { name: "Aluminium Tape", count: 18, image: aluminiumTapeSolutionImg, filterCategory: "Tools" },
   { name: "Pneumatics Components", count: 22, image: pneumaticsComponentSolutionImg, filterCategory: "Tools" },
   { name: "Pneumatic Pipe", count: 20, image: pneumaticPipeSolutionImg, filterCategory: "Tools" },
+  { name: "Pneumatic Hoses & Tubing", count: 18, image: pneumaticHosesTubingSolutionImg, filterCategory: "Tools" },
+
 
 
   { name: "Rock Wool", count: 24, image: rockWoolImg, filterCategory: "Insulation" },

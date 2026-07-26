@@ -89,6 +89,9 @@ import pneumaticsComponentSolutionAsset from "@/assets/products/pneumatics-compo
 const pneumaticsComponentSolutionImg = pneumaticsComponentSolutionAsset.url;
 import pneumaticPipeSolutionAsset from "@/assets/products/pneumatic-pipe-solution.png.asset.json";
 const pneumaticPipeSolutionImg = pneumaticPipeSolutionAsset.url;
+import pneumaticHosesTubingSolutionAsset from "@/assets/products/pneumatic-hoses-and-tubing.png.asset.json";
+const pneumaticHosesTubingSolutionImg = pneumaticHosesTubingSolutionAsset.url;
+
 
 
 
@@ -140,7 +143,12 @@ const productImages: Record<number, string> = {
   40: aluminiumTapeSolutionImg,
   41: pneumaticsComponentSolutionImg,
   42: pneumaticPipeSolutionImg,
+  43: pneumaticHosesTubingSolutionImg,
 };
+
+
+
+
 
 
 
@@ -844,7 +852,37 @@ const allProducts: Product[] = [
       "Compliance": "Industry-standard pneumatic tubing and fitting interfaces",
     },
   },
+  {
+    id: 43,
+    name: "Pneumatic Hoses and Tubing",
+    category: "Tools",
+    rating: 4.9,
+    description: "Comprehensive pneumatic hoses and tubing solution for industrial, agricultural and automation air-power systems. The range includes high-flexibility polyurethane (PU) hoses, lightweight polyethylene (PE) tubes, durable PVC hoses and high-performance Nylon / PTFE options — available in straight, coiled and braided-reinforced configurations with matching brass, steel and quick-connect fittings. Engineered for compressed air, pneumatic tools, spray systems, packaging lines and mobile machinery, with colour-coded circuits and clearly labelled diameter ratings for fast, leak-free installation.",
+    features: [
+      "Multi-material hose range: Polyurethane (PU), Polyethylene (PE), PVC, Nylon and PTFE",
+      "Straight, coiled and braided-reinforced constructions for every application",
+      "Colour-coded spools and transparent lines for easy circuit identification",
+      "Agricultural spray hoses with OD fittings and pressure gauges",
+      "Industrial air hoses with male/female threaded connectors",
+      "High-pressure performance with spring reinforcement options",
+      "Quick-connect push-fit, brass, steel and elbow/tee fittings included",
+      "Flexible at low temperatures and abrasion resistant for harsh environments",
+    ],
+    specifications: {
+      "Materials": "Polyurethane (PU), Polyethylene (PE), PVC, Nylon, PTFE",
+      "Hose Types": "Straight, coiled, braided reinforced, twin-line, multi-tube",
+      "Fitting Types": "OD fittings, push-to-connect, brass threaded, quick couplers",
+      "Diameters": "4mm OD to 16mm OD",
+      "Working Pressure": "Up to 12 bar (reinforced variants)",
+      "Temperature Range": "-20°C to +80°C (material dependent)",
+      "Coil Lengths": "5m / 10m / 15m / 30m",
+      "Colors": "Blue, red, yellow, green, black, clear",
+      "Applications": "Compressed air, pneumatics, spray systems, automation, agriculture",
+      "Compliance": "Industry-standard pneumatic tubing and fitting interfaces",
+    },
+  },
 ];
+
 
 
 
