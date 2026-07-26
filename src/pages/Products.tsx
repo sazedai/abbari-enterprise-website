@@ -87,6 +87,9 @@ import fencingBarbwireAsset from "@/assets/products/fencing-barbwire.png.asset.j
 const fencingBarbwireImg = fencingBarbwireAsset.url;
 import gasketSealingSheetAsset from "@/assets/products/gasket-sealing-sheet.png.asset.json";
 const gasketSealingSheetImg = gasketSealingSheetAsset.url;
+import siliconSpongeRubberSheetAsset from "@/assets/products/silicon-sponge-rubber-sheet.png.asset.json";
+const siliconSpongeRubberSheetImg = siliconSpongeRubberSheetAsset.url;
+
 
 const categoryImages: Record<string, string> = {
   Belts: productBelts,
@@ -135,7 +138,9 @@ const productImages: Record<number, string> = {
   34: ssPipeRodImg,
   35: fencingBarbwireImg,
   36: gasketSealingSheetImg,
+  37: siliconSpongeRubberSheetImg,
 };
+
 
 interface Product {
   id: number;
@@ -182,7 +187,9 @@ const allProducts: Product[] = [
   { id: 34, name: "Stainless Steel Pipe and Rod Solution", category: "Tools", rating: 4.9, description: "Comprehensive stainless steel & mild steel pipe, tube and rod range — SS round rods, square/rectangular tubing, MS structural pipes, exploded pipe fittings and matching TIG (Gemini 308L) & stick (316L) welding electrodes. High corrosion resistance, structural strength, wide diameter (2–15mm rods) and length variety (125–500mm) for fabrication, construction, plumbing and welding projects." },
   { id: 35, name: "Fencing and Barb Wire Solution", category: "Tools", rating: 4.9, description: "Advanced fencing and barb wire systems — galvanized and green PVC-coated chain-link mesh, welded wire mesh panels, post & top-rail connections, plus a full barb wire range: heavy-zinc coated, PVC-coated (blue), high-tensile galvanized core and copper-time sharp-barb variants. Engineered for corrosion resistance, high security, diverse mesh sizes and custom perimeter, agricultural and industrial protection." },
   { id: 36, name: "Gasket Sealing Sheet Solution", category: "Tools", rating: 4.9, description: "Modern gasket sealing sheet range in asbestos and non-asbestos compositions — Klingerit 1000 rolls & sheets, Klinger Universal, Klinger-Oilit, wiremesh-reinforced sheets (galvanized steel mesh + asbestos/non-asbestos compound) and green/red compressed fibre jointing sheets. Engineered with high-performance elastomer binders for thermal resistance, chemical compatibility and sustainability across flanges, pumps, valves, heat exchangers and pressure vessels." },
+  { id: 37, name: "Silicon Sponge Rubber Sheets Solution", category: "Tools", rating: 4.9, description: "Premium silicone sponge rubber sheet range engineered for high-performance sealing, gasketing, insulation and cushioning across industrial, automotive, HVAC and food-processing applications. Available in closed-cell and open-cell structures with uniform pore distribution, optional reinforcement fabric ply and pressure-sensitive adhesive backing. Offers excellent temperature stability from -50°C to +200°C, UV/ozone resistance, compression set recovery and easy die-cutting or on-site fabrication." },
 ];
+
 
 const getProductImage = (product: Product): string => {
   return productImages[product.id] || categoryImages[product.category] || productBelts;

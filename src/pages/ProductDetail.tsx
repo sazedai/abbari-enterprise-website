@@ -77,6 +77,9 @@ import fencingBarbwireAsset from "@/assets/products/fencing-barbwire.png.asset.j
 const fencingBarbwireImg = fencingBarbwireAsset.url;
 import gasketSealingSheetAsset from "@/assets/products/gasket-sealing-sheet.png.asset.json";
 const gasketSealingSheetImg = gasketSealingSheetAsset.url;
+import siliconSpongeRubberSheetAsset from "@/assets/products/silicon-sponge-rubber-sheet.png.asset.json";
+const siliconSpongeRubberSheetImg = siliconSpongeRubberSheetAsset.url;
+
 import productBelts from "@/assets/product-belts.jpg";
 
 const productImages: Record<number, string> = {
@@ -116,7 +119,9 @@ const productImages: Record<number, string> = {
   34: ssPipeRodImg,
   35: fencingBarbwireImg,
   36: gasketSealingSheetImg,
+  37: siliconSpongeRubberSheetImg,
 };
+
 
 interface Product {
   id: number;
@@ -630,7 +635,39 @@ const allProducts: Product[] = [
       "Compliance": "DIN 3754, BS 7531, ASTM F104",
     },
   },
+  {
+    id: 37,
+    name: "Silicon Sponge Rubber Sheets Solution",
+    category: "Tools",
+    rating: 4.9,
+    description: "Premium silicone sponge rubber sheet range engineered for high-performance sealing, gasketing, cushioning, thermal insulation and vibration damping across industrial, automotive, HVAC, electrical and food-processing applications. The product architecture combines a heat- and chemical-resistant silicone polymer matrix with a choice of closed-cell or open-cell structures, a uniform pore distribution, optional reinforcement fabric ply and a pressure-sensitive adhesive backing with 3M release liner. Designed to operate from -50°C to +200°C, the sheets deliver excellent sealing, resilience, UV/ozone resistance, compression-set recovery and easy die-cutting or on-site fabrication.",
+    features: [
+      "Silicone polymer matrix — heat and chemical resistant",
+      "Closed-cell and open-cell structure options with uniform pore distribution",
+      "Optional reinforcement fabric ply for added strength and dimensional stability",
+      "Pressure-sensitive adhesive (PSA) backing with 3M release liner for easy mounting",
+      "Wide temperature range: -50°C to +200°C",
+      "Excellent sealing, cushioning, thermal insulation and vibration damping",
+      "UV, ozone and weathering resistant with good compression-set recovery",
+      "Easy to cut, punch, die-cut and install on-site",
+    ],
+    specifications: {
+      "Material": "Silicone Sponge Rubber (VMQ)",
+      "Cell Structure": "Closed-Cell / Open-Cell",
+      "Temperature Range": "-50°C to +200°C",
+      "Density": "Custom densities available (light, medium, firm)",
+      "Thickness": "1mm – 25mm (custom thicknesses on request)",
+      "Width": "Standard rolls up to 1200mm; sheets cut-to-size",
+      "Color": "White, grey, black, red (custom colors available)",
+      "Reinforcement": "Optional fabric ply (polyester/fiberglass)",
+      "Adhesive": "Pressure-sensitive acrylic adhesive with 3M release liner",
+      "Hardness": "10–50 Shore A (grade dependent)",
+      "Applications": "Sealing, gasketing, insulation, cushioning, vibration damping, HVAC, automotive, electrical enclosures",
+      "Compliance": "FDA grades available for food-contact applications",
+    },
+  },
 ];
+
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
