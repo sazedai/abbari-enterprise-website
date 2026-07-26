@@ -85,6 +85,10 @@ import glanePackingSolutionAsset from "@/assets/products/glane-packing-solution.
 const glanePackingSolutionImg = glanePackingSolutionAsset.url;
 import aluminiumTapeSolutionAsset from "@/assets/products/aluminium-tape-solution.png.asset.json";
 const aluminiumTapeSolutionImg = aluminiumTapeSolutionAsset.url;
+import pneumaticsComponentSolutionAsset from "@/assets/products/pneumatics-component-solution.png.asset.json";
+const pneumaticsComponentSolutionImg = pneumaticsComponentSolutionAsset.url;
+
+
 
 
 import productBelts from "@/assets/product-belts.jpg";
@@ -130,7 +134,9 @@ const productImages: Record<number, string> = {
   38: nylonShaftSolutionImg,
   39: glanePackingSolutionImg,
   40: aluminiumTapeSolutionImg,
+  41: pneumaticsComponentSolutionImg,
 };
+
 
 
 
@@ -768,7 +774,37 @@ const allProducts: Product[] = [
       "Compliance": "Industry HVAC and insulation standards; custom grades available",
     },
   },
+  {
+    id: 41,
+    name: "Pneumatics Component Solution",
+    category: "Tools",
+    rating: 4.9,
+    description: "Complete pneumatic automation component range for industrial compressed-air systems. The solution includes ISO-standard double-acting air cylinders and compact pneumatic actuators for reliable linear motion; modular FRL (filter-regulator-lubricator) units with pressure gauges for clean, dry, pressure-stabilised air; 5/2 and 3/2 solenoid valve manifolds for precise directional control; a full range of push-to-connect and brass threaded fittings for leak-free distribution; and high-flexibility polyurethane, nylon and polyethylene tubing in multiple colors. Engineered for packaging, automation, automotive, textile and general machinery applications requiring fast actuation, low maintenance and long service life.",
+    features: [
+      "Double-acting and single-acting pneumatic cylinders in ISO and compact profiles",
+      "Modular FRL units: air filter, regulator and lubricator with pressure gauges and drain valves",
+      "Solenoid valve manifolds (5/2, 3/2) for directional control of actuators",
+      "Push-to-connect (PU) fittings, elbow/tee connectors and brass threaded adapters",
+      "High-flexibility PU, nylon and PE pneumatic tubing in blue, orange, clear and black",
+      "Corrosion-resistant aluminium cylinders and brass/steel fittings for long service life",
+      "Leak-free connections and quick assembly for reduced downtime",
+      "Suitable for automation, packaging, conveyor, textile and machine-tool applications",
+    ],
+    specifications: {
+      "Cylinder Bore": "16mm – 250mm (ISO and compact options)",
+      "Cylinder Material": "Anodised aluminium barrel, chrome-plated steel piston rod",
+      "Operating Pressure": "0.5 – 10 bar (FRL regulated)",
+      "FRL Filter Rating": "5µm / 40µm element options",
+      "Valve Types": "5/2-way, 3/2-way solenoid/pilot-operated manifolds",
+      "Fitting Types": "PU push-fit, brass threaded, elbow, tee, reducer, silencers",
+      "Tubing Sizes": "4mm, 6mm, 8mm, 10mm, 12mm OD; PU / Nylon / PE materials",
+      "Temperature Range": "-10°C to +60°C (air system dependent)",
+      "Applications": "Automation, packaging, material handling, conveyor systems, machine tools",
+      "Compliance": "ISO 6432 / ISO 15552 cylinder standards; industry-standard pneumatic interfaces",
+    },
+  },
 ];
+
 
 
 
