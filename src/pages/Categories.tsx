@@ -74,6 +74,8 @@ import cuttingDiskAsset from "@/assets/products/cutting-disk.png.asset.json";
 const cuttingDiskImg = cuttingDiskAsset.url;
 import ssPipeRodAsset from "@/assets/products/stainless-steel-pipe-rod.png.asset.json";
 const ssPipeRodImg = ssPipeRodAsset.url;
+import fencingBarbwireAsset from "@/assets/products/fencing-barbwire.png.asset.json";
+const fencingBarbwireImg = fencingBarbwireAsset.url;
 
 
 
