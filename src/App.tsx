@@ -18,6 +18,7 @@ import NotFound from "./pages/NotFound";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 import RightClickProtection from "./components/RightClickProtection";
 import ScrollToTop from "./components/ScrollToTop";
+import HoverZoomProvider from "./components/HoverZoomProvider";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +45,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
           <FloatingWhatsApp />
+          <HoverZoomProvider />
         </BrowserRouter>
       </TooltipProvider>
     </CartProvider>
