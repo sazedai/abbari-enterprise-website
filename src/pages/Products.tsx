@@ -153,7 +153,9 @@ const productImages: Record<number, string> = {
   38: nylonShaftSolutionImg,
   39: glanePackingSolutionImg,
   40: aluminiumTapeSolutionImg,
+  41: pneumaticsComponentSolutionImg,
 };
+
 
 
 
