@@ -73,6 +73,8 @@ import cuttingDiskAsset from "@/assets/products/cutting-disk.png.asset.json";
 const cuttingDiskImg = cuttingDiskAsset.url;
 import ssPipeRodAsset from "@/assets/products/stainless-steel-pipe-rod.png.asset.json";
 const ssPipeRodImg = ssPipeRodAsset.url;
+import fencingBarbwireAsset from "@/assets/products/fencing-barbwire.png.asset.json";
+const fencingBarbwireImg = fencingBarbwireAsset.url;
 import productBelts from "@/assets/product-belts.jpg";
 
 const productImages: Record<number, string> = {
@@ -110,6 +112,7 @@ const productImages: Record<number, string> = {
   32: adjustableLinkVBeltImg,
   33: cuttingDiskImg,
   34: ssPipeRodImg,
+  35: fencingBarbwireImg,
 };
 
 interface Product {
@@ -564,6 +567,34 @@ const allProducts: Product[] = [
       "Finish": "Bright polished / mill finish (SS), painted or primed (MS)",
       "Applications": "Fabrication, construction, plumbing, structural frames, food & chemical plants, welding",
       "Compliance": "ASTM A312 (SS pipe), ASTM A554 (SS tube), AWS A5.9 (308L), AWS A5.4 (316L)",
+    },
+  },
+  {
+    id: 35,
+    name: "Fencing and Barb Wire Solution",
+    category: "Tools",
+    rating: 4.9,
+    description: "A complete perimeter security programme covering fencing systems and barb wire solutions for residential, commercial, agricultural and industrial sites. The fencing range includes galvanized chain-link mesh, green PVC-coated chain-link, welded wire mesh panels and expanded metal mesh — supplied with matching posts, top-rail connections and mesh dimension options. The barb wire line-up covers heavy-zinc galvanized barb wire, PVC-coated (blue) barb wire with detailed texture protection, high-tensile galvanized-core twisted wire, aggressive sharp-barb variants and copper-time sharp-barb wire. Every product is engineered for corrosion resistance, high security, diverse mesh sizes, eco-friendly materials and full custom customization.",
+    features: [
+      "Galvanized chain-link and green PVC-coated chain-link fencing",
+      "Welded wire mesh panels and expanded metal mesh in multiple opening sizes",
+      "Matching posts, top-rail connections and hardware for quick installation",
+      "Heavy zinc-coated barb wire for long-term corrosion resistance",
+      "PVC-coated (blue) barb wire — anti-rust with high UV stability",
+      "High-tensile galvanized-core twisted wire for extra pull strength",
+      "Aggressive sharp-barb and copper-time sharp-barb configurations",
+      "Custom heights, mesh sizes, wire gauges and roll lengths on request",
+    ],
+    specifications: {
+      "Fencing Types": "Galvanized Chain-Link, Green PVC-Coated Chain-Link, Welded Wire Mesh, Expanded Metal Mesh",
+      "Barb Wire Types": "Heavy Zinc Coated, PVC-Coated (Blue), High-Tensile Galvanized Core, Copper-Time Sharp Barb",
+      "Wire Gauge": "10 SWG – 14 SWG (2.0mm – 3.5mm)",
+      "Coating": "Hot-dip Galvanized (Class A/B), PVC (Green/Blue), Zinc-Aluminium",
+      "Mesh Opening": "25mm × 25mm, 50mm × 50mm, 60mm × 60mm, 75mm × 75mm (custom on request)",
+      "Roll Length": "Barb wire: 250m / 500m per coil — Chain-link: 15m / 25m / custom",
+      "Fence Height": "1.2m, 1.5m, 1.8m, 2.1m, 2.4m (custom heights available)",
+      "Applications": "Perimeter security, boundary walls, agricultural fencing, industrial sites, warehouses, farms, government facilities",
+      "Compliance": "ASTM A121 (barb wire), ASTM A392 (galvanized chain-link), BS 4102 / IS 278",
     },
   },
 ];
