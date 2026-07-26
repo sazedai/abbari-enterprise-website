@@ -94,6 +94,8 @@ import pneumaticHosesTubingSolutionAsset from "@/assets/products/pneumatic-hoses
 const pneumaticHosesTubingSolutionImg = pneumaticHosesTubingSolutionAsset.url;
 import pneumaticComponentSolutionAsset from "@/assets/products/pneumatic-component-solution.png.asset.json";
 const pneumaticComponentSolutionImg = pneumaticComponentSolutionAsset.url;
+import pneumaticSparePartsSolutionAsset from "@/assets/products/pneumatic-spare-parts-solution.png.asset.json";
+const pneumaticSparePartsSolutionImg = pneumaticSparePartsSolutionAsset.url;
 
 
 
@@ -152,6 +154,8 @@ const allCategories: Category[] = [
   { name: "Pneumatic Pipe", count: 20, image: pneumaticPipeSolutionImg, filterCategory: "Tools" },
   { name: "Pneumatic Hoses & Tubing", count: 18, image: pneumaticHosesTubingSolutionImg, filterCategory: "Tools" },
   { name: "Pneumatic Component", count: 20, image: pneumaticComponentSolutionImg, filterCategory: "Tools" },
+  { name: "Pneumatic Spare Parts", count: 18, image: pneumaticSparePartsSolutionImg, filterCategory: "Tools" },
+
 
 
 
