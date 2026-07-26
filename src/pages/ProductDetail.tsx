@@ -600,6 +600,36 @@ const allProducts: Product[] = [
       "Compliance": "ASTM A121 (barb wire), ASTM A392 (galvanized chain-link), BS 4102 / IS 278",
     },
   },
+  {
+    id: 36,
+    name: "Gasket Sealing Sheet Solution",
+    category: "Tools",
+    rating: 4.9,
+    description: "A comprehensive modern sealing programme covering both asbestos and non-asbestos gasket sheets for flanges, pumps, valves, heat exchangers, compressors and pressure vessels. The range includes Klingerit 1000 rolls and cut sheets (asbestos-fibre reinforced with a high-performance elastomer binder), Klinger Universal and Klinger-Oilit branded jointing sheets, wiremesh-reinforced composite sheets (galvanized steel wire mesh core bonded with asbestos or non-asbestos compound) and green / red compressed-fibre jointing sheets ready for on-site gasket cutting. Every sheet is engineered for thermal resistance, chemical compatibility and sustainability, with certified performance across steam, oil, fuel, acid, alkali and general industrial media.",
+    features: [
+      "Klingerit 1000 asbestos-fibre reinforced sheets with elastomer binder",
+      "Klinger Universal and Klinger-Oilit non-asbestos jointing sheets",
+      "Wiremesh-reinforced composite sheets — galvanized steel mesh + compound core",
+      "Green (CAF) and red (compressed fibre) jointing sheets for general service",
+      "Excellent thermal resistance up to +400°C (peak) with pressure ratings to 100 bar",
+      "Chemical compatibility with steam, oil, fuel, mild acids and alkalis",
+      "Available as full rolls and pre-cut sheets — easy on-site gasket cutting",
+      "Eco-friendly non-asbestos formulations for sustainability compliance",
+    ],
+    specifications: {
+      "Types": "Klingerit 1000, Klinger Universal, Klinger-Oilit, Wiremesh-Reinforced, Green CAF, Red Compressed Fibre",
+      "Composition": "Asbestos / Non-Asbestos fibre + NBR / SBR / EPDM elastomer binder",
+      "Reinforcement": "Optional galvanized steel wire mesh core (wiremesh grade)",
+      "Sheet Size": "1500mm × 1500mm, 2000mm × 1500mm (custom on request)",
+      "Thickness": "0.5mm, 0.8mm, 1.0mm, 1.5mm, 2.0mm, 3.0mm",
+      "Roll Format": "Klingerit 1000 supplied in rolls up to 10m length",
+      "Temperature Rating": "-50°C to +400°C (peak, grade dependent)",
+      "Pressure Rating": "Up to 100 bar (grade & thickness dependent)",
+      "Media Compatibility": "Steam, water, oil, fuel, refrigerants, mild acids & alkalis, gases",
+      "Applications": "Flanges, pumps, valves, heat exchangers, compressors, pressure vessels, pipelines",
+      "Compliance": "DIN 3754, BS 7531, ASTM F104",
+    },
+  },
 ];
 
 const ProductDetail = () => {
