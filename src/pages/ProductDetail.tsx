@@ -99,6 +99,8 @@ import gtTimingBeltAsset from "@/assets/products/gt-timing-belt.png.asset.json";
 const gtTimingBeltImg = gtTimingBeltAsset.url;
 import asbestosPackingAsset from "@/assets/products/asbestos-packing-solution.png.asset.json";
 const asbestosPackingImg = asbestosPackingAsset.url;
+import harvesterVBeltAsset from "@/assets/products/harvester-v-belt.png.asset.json";
+const harvesterVBeltImg = harvesterVBeltAsset.url;
 
 
 
@@ -157,6 +159,7 @@ const productImages: Record<number, string> = {
   45: pneumaticSparePartsSolutionImg,
   46: gtTimingBeltImg,
   47: asbestosPackingImg,
+  48: harvesterVBeltImg,
 };
 
 const legacyFeaturedProductIds: Record<number, number> = {
@@ -1025,6 +1028,36 @@ const allProducts: Product[] = [
       "Forms": "Continuous coils, pre-formed die-cut ring sets, custom sizes",
       "Applications": "Pumps, valves, agitators, refineries, power plants, chemical processing, marine",
       "Includes": "Installation extractor tools, cutting guides and sizing kits",
+    },
+  },
+  {
+    id: 48,
+    name: "Harvester V-Belt Solution",
+    category: "Belts",
+    rating: 4.9,
+    description: "Heavy-duty agricultural Harvester V-belt solution engineered for combine harvesters, balers, forage machines, threshers and variable-speed drives. The range covers 3-band combo belts with high-tensile aramid cords, polychloroprene base rubber and double-woven fabric wrap; raw-edge cogged custom sets with precision cogging; laminated flat-belt cores with woven polyester cord layer and oil-resistant rubber covers; and traceable branded belts (PIX Harvester XV, Bando Total Gold, Turboflex Premium, PEK Harvester) with clear part-number and batch marking. Delivers high load resistance, dust & dirt resistance and shock-load protection across a -40°C to +110°C operating range for reliable harvest-season performance.",
+    features: [
+      "3-band combo construction with high-tensile aramid cords",
+      "Polychloroprene base rubber for heat and abrasion resistance",
+      "Double-woven fabric wrap for enhanced durability",
+      "Raw-edge cogged design with precision cogging for flexibility",
+      "Laminated flat-belt core with woven polyester cord layer",
+      "Oil-resistant rubber covers for agricultural fluid exposure",
+      "Wide temperature range -40°C to +110°C",
+      "High load resistance, dust & dirt resistance and shock-load protection",
+      "Traceable part-number and batch branding (PIX / Bando / Turboflex / PEK)",
+    ],
+    specifications: {
+      "Construction Types": "3-Band Combo, Raw-Edge Cogged, Laminated Flat Belt, Variable-Speed",
+      "Reinforcement": "High-tensile aramid cord / woven polyester cord",
+      "Base Rubber": "Polychloroprene (CR)",
+      "Cover": "Double-woven fabric wrap / oil-resistant rubber",
+      "Temperature Range": "-40°C to +110°C",
+      "Traceability": "Part number, batch code and brand marking on belt back",
+      "Featured Brands": "PIX Harvester XV, Bando Total Gold, Turboflex Premium, PEK Harvester, HM-2505, SB-54",
+      "Applications": "Combine harvesters, balers, forage machines, threshers, variable-speed drives",
+      "Key Benefits": "High load resistance, dust & dirt resistance, shock-load protection",
+      "Compliance": "Industry-standard agricultural V-belt cross sections and lengths",
     },
   },
 ];
