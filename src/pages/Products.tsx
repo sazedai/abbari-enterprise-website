@@ -101,6 +101,9 @@ import pneumaticPipeSolutionAsset from "@/assets/products/pneumatic-pipe-solutio
 const pneumaticPipeSolutionImg = pneumaticPipeSolutionAsset.url;
 import pneumaticHosesTubingSolutionAsset from "@/assets/products/pneumatic-hoses-and-tubing.png.asset.json";
 const pneumaticHosesTubingSolutionImg = pneumaticHosesTubingSolutionAsset.url;
+import pneumaticComponentSolutionAsset from "@/assets/products/pneumatic-component-solution.png.asset.json";
+const pneumaticComponentSolutionImg = pneumaticComponentSolutionAsset.url;
+
 
 
 
