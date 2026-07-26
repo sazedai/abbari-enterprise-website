@@ -153,6 +153,15 @@ const productImages: Record<number, string> = {
   45: pneumaticSparePartsSolutionImg,
 };
 
+const legacyFeaturedProductIds: Record<number, number> = {
+  101: 15,
+  102: 16,
+  103: 17,
+  104: 19,
+  105: 20,
+  106: 21,
+};
+
 
 
 
@@ -965,7 +974,9 @@ const ProductDetail = () => {
   const navigate = useNavigate();
   const { addItem } = useCart();
 
-  const product = allProducts.find((p) => p.id === parseInt(id || "0"));
+  const routeProductId = parseInt(id || "0");
+  const productId = legacyFeaturedProductIds[routeProductId] || routeProductId;
+  const product = allProducts.find((p) => p.id === productId);
 
   if (!product) {
     return (
