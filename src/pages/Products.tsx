@@ -448,8 +448,49 @@ const Products = () => {
             </div>
           </div>
 
+          {/* Variant filter chips */}
+          {availableVariants.length > 1 && (
+            <div className="mb-8">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+                Filter by variant {selectedCategory !== "All" ? `in ${selectedCategory}` : ""}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {availableVariants.map((v) => (
+                  <button
+                    key={v}
+                    onClick={() => handleVariantChange(v)}
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
+                      selectedVariant === v
+                        ? "bg-primary text-primary-foreground border-primary"
+                        : "bg-card text-muted-foreground border-border hover:border-primary/50 hover:text-foreground"
+                    }`}
+                  >
+                    {v}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Results count */}
-          <p className="text-muted-foreground mb-6">{filteredProducts.length} products found</p>
+          <div className="flex items-center justify-between mb-6">
+            <p className="text-muted-foreground">{filteredProducts.length} products found</p>
+            {(searchQuery || selectedCategory !== "All" || selectedVariant !== "All") && (
+              <button
+                onClick={() => {
+                  setSearchQuery("");
+                  setSelectedCategory("All");
+                  setSelectedVariant("All");
+                  setSortBy("featured");
+                  setSearchParams(new URLSearchParams());
+                }}
+                className="text-sm text-primary hover:underline"
+              >
+                Clear all filters
+              </button>
+            )}
+          </div>
+
 
           {/* Products grid */}
           <div className={viewMode === "grid" ? "grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" : "space-y-4"}>
