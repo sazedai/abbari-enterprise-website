@@ -6,6 +6,10 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   check-images:
     runs-on: ubuntu-latest
@@ -24,6 +28,7 @@ jobs:
           key: check-images-${{ runner.os }}-${{ hashFiles('src/**/*.asset.json') }}
           restore-keys: check-images-${{ runner.os }}-
       - name: Run image reference check (incremental on PRs)
+        id: check
         run: |
           mkdir -p reports
           if [ "${{ github.event_name }}" = "pull_request" ]; then
@@ -31,15 +36,24 @@ jobs:
             git fetch origin "${{ github.base_ref }}" --depth=50 || true
             node scripts/check-images.mjs --ci --since="$SINCE" \
               --report-json=reports/image-check.json \
-              --report-html=reports/image-check.html
+              --report-html=reports/image-check.html \
+              --pr-comment=reports/pr-comment.md
           else
             node scripts/check-images.mjs --ci \
               --report-json=reports/image-check.json \
-              --report-html=reports/image-check.html
+              --report-html=reports/image-check.html \
+              --pr-comment=reports/pr-comment.md
           fi
       - name: Upload report
         if: always()
+        id: upload
         uses: actions/upload-artifact@v4
         with:
           name: image-check-report
           path: reports/
+      - name: Post PR comment
+        if: always() && github.event_name == 'pull_request'
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: image-check
+          path: reports/pr-comment.md

@@ -1,17 +1,28 @@
 {
+  "_comment": "Config for scripts/check-images.mjs. Run `node scripts/check-images.mjs --help` for CLI flags. Every key below is optional.",
+
   "ignore": {
-    "paths": [],
-    "extensions": [],
-    "domains": [],
-    "urlPatterns": []
+    "_comment": "Matches here are silently skipped (recorded as ok/ignored).",
+    "paths":       ["src/legacy/**", "src/**/*.stories.tsx"],
+    "extensions":  [".gif"],
+    "domains":     ["analytics.example.com", "*.tracking.net"],
+    "urlPatterns": ["^https://cdn\\.example\\.com/dynamic/.*\\?token=", "\\?v=\\d+$"]
   },
+
   "warn": {
-    "domains": [],
-    "urlPatterns": []
+    "_comment": "Matches here downgrade failures to warnings (do not fail the build, still reported).",
+    "domains":     ["flaky.example.com"],
+    "urlPatterns": ["^https://experimental\\..*"],
+    "extensions":  [".svg"]
   },
-  "cacheTtlHours": 24,
-  "retries": 2,
-  "concurrencyPerHost": 4,
+
+  "cacheTtlHours":        24,
+  "retries":              2,
+  "concurrencyPerHost":   4,
   "minIntervalMsPerHost": 50,
-  "validateContentType": true
+  "validateContentType":  true,
+  "maxRedirects":         5,
+
+  "maxErrors":   0,
+  "maxErrorPct": 100
 }
