@@ -809,7 +809,43 @@ const allProducts: Product[] = [
       "Compliance": "ISO 6432 / ISO 15552 cylinder standards; industry-standard pneumatic interfaces",
     },
   },
+  {
+    id: 42,
+    name: "Pneumatic Pipe Solution",
+    category: "Tools",
+    rating: 4.9,
+    description: "Precision-engineered pneumatic pipe and tubing solution for industrial compressed-air distribution. Manufactured from high-grade polyurethane with a high-grade polyurethane outer cover, braided reinforcement layer and polyurethane inner liner. Available in a full range of diameters from 4x2.5mm up to 16x12mm, with clearly defined outer diameter, inner diameter, pressure rating and bend radius specifications. Supplied on colour-coded spools (blue, red, clear/white, black, orange) for easy circuit identification, the range includes matching push-to-connect straight, elbow and tee fittings for rapid, leak-free assembly.",
+    features: [
+      "High-grade polyurethane construction with braided reinforcement layer",
+      "Precision hose specifications: OD, ID, pressure rating and bend radius per size",
+      "Sizes from 4x2.5mm to 16x12mm for light-duty through heavy-duty circuits",
+      "Colour-coded spools for easy pneumatic circuit identification",
+      "Compatible PU push-to-connect straight, elbow and tee fittings",
+      "Excellent flexibility, abrasion resistance and kink resistance",
+      "Suitable for compressed air, automation, packaging, CNC and robotics",
+      "Long service life with reliable pressure and temperature performance",
+    ],
+    specifications: {
+      "Material": "High-grade Polyurethane (PU) with braided reinforcement",
+      "Construction": "PU outer cover + braided reinforcement layer + PU inner liner",
+      "Size Range": "4x2.5mm to 16x12mm (ID x OD combinations)",
+      "4x2.5 Spec": "OD 4mm, ID 2.5mm, Pressure 2.5 Bar, Bend Radius 2.5mm",
+      "6x4 Spec": "OD 6mm, ID 4mm, Pressure 4 Bar, Bend Radius 4mm",
+      "8x5 Spec": "OD 8mm, ID 5mm, Pressure 6 Bar, Bend Radius 5mm",
+      "10x6.5 Spec": "OD 10mm, ID 6.5mm, Pressure 6.5 Bar, Bend Radius 6.5mm",
+      "12x8 Spec": "OD 12mm, ID 8mm, Pressure 10 Bar, Bend Radius 8mm",
+      "14x10 Spec": "OD 14mm, ID 10mm, Pressure 10 Bar, Bend Radius 10mm",
+      "16x12 Spec": "OD 16mm, ID 12mm, Pressure 12 Bar, Bend Radius 12mm",
+      "Operating Pressure": "Up to 12 bar (size dependent)",
+      "Temperature Range": "-10°C to +60°C",
+      "Colours": "Blue, red, clear/white, black, orange (spool colour-coded)",
+      "Fittings": "PU push-to-connect straight, elbow, tee and reducer connectors",
+      "Applications": "Automation, packaging, CNC, robotics, machine tools, general pneumatics",
+      "Compliance": "Industry-standard pneumatic tubing and fitting interfaces",
+    },
+  },
 ];
+
 
 
 
