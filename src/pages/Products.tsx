@@ -18,7 +18,8 @@ import productInsulation from "@/assets/product-insulation.jpg";
 import productEngineering from "@/assets/product-engineering.jpg";
 
 // Individual product images
-import vBeltImg from "@/assets/products/v-belt.png";
+import vBeltAsset from "@/assets/products/v-belt.png.asset.json";
+const vBeltImg = vBeltAsset.url;
 import timingBeltAsset from "@/assets/products/timing-belt.png.asset.json";
 const timingBeltImg = timingBeltAsset.url;
 import conveyorBeltAsset from "@/assets/products/conveyor-belt.png.asset.json";
