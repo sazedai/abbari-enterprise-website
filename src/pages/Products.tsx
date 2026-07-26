@@ -258,10 +258,23 @@ const getProductImage = (product: Product): string => {
 
 const categories = ["All", "Belts", "Sheets", "Bearings", "Tools", "Insulation", "Engineering"];
 
+const VARIANT_KEYWORDS = [
+  "V-Belt", "Timing Belt", "Conveyor Belt", "PU Belt", "Adjustable Link", "Harvester", "Belt Lacing",
+  "PVC", "Rubber Sheet", "Silicone", "Teflon", "Cork", "Nylon", "Gasket",
+  "SKF", "Tapered", "Thrust", "Bearing",
+  "WD-40", "Cutting", "Stainless Steel", "Fencing", "Pneumatic", "Aluminium Tape", "Glane", "Asbestos", "GT",
+  "Rock Wool", "Glass Wool", "Bitumen", "Geotextile",
+];
+
+const matchesVariant = (name: string, variant: string) =>
+  variant === "All" || name.toLowerCase().includes(variant.toLowerCase());
+
 const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedVariant, setSelectedVariant] = useState("All");
+  const [sortBy, setSortBy] = useState<"featured" | "rating" | "name-asc" | "name-desc">("featured");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [quickViewOpen, setQuickViewOpen] = useState(false);
@@ -273,15 +286,28 @@ const Products = () => {
     if (categoryParam && categories.includes(categoryParam)) {
       setSelectedCategory(categoryParam);
     }
-  }, [searchParams]);
+    const variantParam = searchParams.get("variant");
+    if (variantParam) setSelectedVariant(variantParam);
+    const qParam = searchParams.get("q");
+    if (qParam) setSearchQuery(qParam);
+  }, []);
 
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
+    setSelectedVariant("All");
     if (category === "All") {
       searchParams.delete("category");
     } else {
       searchParams.set("category", category);
     }
+    searchParams.delete("variant");
+    setSearchParams(searchParams);
+  };
+
+  const handleVariantChange = (variant: string) => {
+    setSelectedVariant(variant);
+    if (variant === "All") searchParams.delete("variant");
+    else searchParams.set("variant", variant);
     setSearchParams(searchParams);
   };
 
@@ -301,11 +327,31 @@ const Products = () => {
     toast.success(`${product.name} added to quotation cart`);
   };
 
-  const filteredProducts = allProducts.filter((product) => {
-    const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = selectedCategory === "All" || product.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
+  // Variants available for currently selected category
+  const availableVariants = ["All", ...VARIANT_KEYWORDS.filter((kw) => {
+    const scope = selectedCategory === "All"
+      ? allProducts
+      : allProducts.filter((p) => p.category === selectedCategory);
+    return scope.some((p) => p.name.toLowerCase().includes(kw.toLowerCase()));
+  })];
+
+  const filteredProducts = allProducts
+    .filter((product) => {
+      const q = searchQuery.toLowerCase();
+      const matchesSearch =
+        product.name.toLowerCase().includes(q) ||
+        product.category.toLowerCase().includes(q) ||
+        product.description.toLowerCase().includes(q);
+      const matchesCategory = selectedCategory === "All" || product.category === selectedCategory;
+      const matchesVar = matchesVariant(product.name, selectedVariant);
+      return matchesSearch && matchesCategory && matchesVar;
+    })
+    .sort((a, b) => {
+      if (sortBy === "rating") return b.rating - a.rating;
+      if (sortBy === "name-asc") return a.name.localeCompare(b.name);
+      if (sortBy === "name-desc") return b.name.localeCompare(a.name);
+      return 0;
+    });
 
   return (
     <main className="min-h-screen bg-background">
@@ -338,11 +384,32 @@ const Products = () => {
               <input
                 type="text"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search products..."
+                onChange={(e) => {
+                  const v = e.target.value;
+                  setSearchQuery(v);
+                  if (v) searchParams.set("q", v);
+                  else searchParams.delete("q");
+                  setSearchParams(searchParams);
+                }}
+                placeholder="Search products by name, category, or description..."
+                aria-label="Search products"
                 className="w-full h-12 pl-12 pr-4 bg-card border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
               />
             </div>
+
+            {/* Sort */}
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
+              aria-label="Sort products"
+              className="h-12 px-4 bg-card border border-border rounded-xl text-foreground focus:outline-none focus:border-primary"
+            >
+              <option value="featured">Sort: Featured</option>
+              <option value="rating">Top Rated</option>
+              <option value="name-asc">Name A–Z</option>
+              <option value="name-desc">Name Z–A</option>
+            </select>
+
 
             {/* Category filters */}
             <div className="flex flex-wrap gap-2">
@@ -381,8 +448,49 @@ const Products = () => {
             </div>
           </div>
 
+          {/* Variant filter chips */}
+          {availableVariants.length > 1 && (
+            <div className="mb-8">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+                Filter by variant {selectedCategory !== "All" ? `in ${selectedCategory}` : ""}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {availableVariants.map((v) => (
+                  <button
+                    key={v}
+                    onClick={() => handleVariantChange(v)}
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-colors ${
+                      selectedVariant === v
+                        ? "bg-primary text-primary-foreground border-primary"
+                        : "bg-card text-muted-foreground border-border hover:border-primary/50 hover:text-foreground"
+                    }`}
+                  >
+                    {v}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Results count */}
-          <p className="text-muted-foreground mb-6">{filteredProducts.length} products found</p>
+          <div className="flex items-center justify-between mb-6">
+            <p className="text-muted-foreground">{filteredProducts.length} products found</p>
+            {(searchQuery || selectedCategory !== "All" || selectedVariant !== "All") && (
+              <button
+                onClick={() => {
+                  setSearchQuery("");
+                  setSelectedCategory("All");
+                  setSelectedVariant("All");
+                  setSortBy("featured");
+                  setSearchParams(new URLSearchParams());
+                }}
+                className="text-sm text-primary hover:underline"
+              >
+                Clear all filters
+              </button>
+            )}
+          </div>
+
 
           {/* Products grid */}
           <div className={viewMode === "grid" ? "grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" : "space-y-4"}>
