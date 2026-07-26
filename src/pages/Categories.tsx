@@ -151,6 +151,8 @@ const allCategories: Category[] = [
   { name: "Pneumatics Components", count: 22, image: pneumaticsComponentSolutionImg, filterCategory: "Tools" },
   { name: "Pneumatic Pipe", count: 20, image: pneumaticPipeSolutionImg, filterCategory: "Tools" },
   { name: "Pneumatic Hoses & Tubing", count: 18, image: pneumaticHosesTubingSolutionImg, filterCategory: "Tools" },
+  { name: "Pneumatic Component", count: 20, image: pneumaticComponentSolutionImg, filterCategory: "Tools" },
+
 
 
 
