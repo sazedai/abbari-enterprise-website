@@ -85,6 +85,8 @@ import ssPipeRodAsset from "@/assets/products/stainless-steel-pipe-rod.png.asset
 const ssPipeRodImg = ssPipeRodAsset.url;
 import fencingBarbwireAsset from "@/assets/products/fencing-barbwire.png.asset.json";
 const fencingBarbwireImg = fencingBarbwireAsset.url;
+import gasketSealingSheetAsset from "@/assets/products/gasket-sealing-sheet.png.asset.json";
+const gasketSealingSheetImg = gasketSealingSheetAsset.url;
 
 const categoryImages: Record<string, string> = {
   Belts: productBelts,
@@ -132,6 +134,7 @@ const productImages: Record<number, string> = {
   33: cuttingDiskImg,
   34: ssPipeRodImg,
   35: fencingBarbwireImg,
+  36: gasketSealingSheetImg,
 };
 
 interface Product {
@@ -178,6 +181,7 @@ const allProducts: Product[] = [
   { id: 33, name: "Cutting Disk Solution", category: "Tools", rating: 4.9, description: "Complete range of professional cutting and grinding discs — Nova (red) for metal/iron/stainless steel, Makita INOX (silver) for precision stainless steel cuts, segmented diamond blades for granite, ceramic and Dekton, plus wood, plastic and glass cutting blades. Fibreglass-reinforced with high-quality abrasive grit and precision hubs for safe, efficient high-speed cutting." },
   { id: 34, name: "Stainless Steel Pipe and Rod Solution", category: "Tools", rating: 4.9, description: "Comprehensive stainless steel & mild steel pipe, tube and rod range — SS round rods, square/rectangular tubing, MS structural pipes, exploded pipe fittings and matching TIG (Gemini 308L) & stick (316L) welding electrodes. High corrosion resistance, structural strength, wide diameter (2–15mm rods) and length variety (125–500mm) for fabrication, construction, plumbing and welding projects." },
   { id: 35, name: "Fencing and Barb Wire Solution", category: "Tools", rating: 4.9, description: "Advanced fencing and barb wire systems — galvanized and green PVC-coated chain-link mesh, welded wire mesh panels, post & top-rail connections, plus a full barb wire range: heavy-zinc coated, PVC-coated (blue), high-tensile galvanized core and copper-time sharp-barb variants. Engineered for corrosion resistance, high security, diverse mesh sizes and custom perimeter, agricultural and industrial protection." },
+  { id: 36, name: "Gasket Sealing Sheet Solution", category: "Tools", rating: 4.9, description: "Modern gasket sealing sheet range in asbestos and non-asbestos compositions — Klingerit 1000 rolls & sheets, Klinger Universal, Klinger-Oilit, wiremesh-reinforced sheets (galvanized steel mesh + asbestos/non-asbestos compound) and green/red compressed fibre jointing sheets. Engineered with high-performance elastomer binders for thermal resistance, chemical compatibility and sustainability across flanges, pumps, valves, heat exchangers and pressure vessels." },
 ];
 
 const getProductImage = (product: Product): string => {

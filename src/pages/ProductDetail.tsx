@@ -75,6 +75,8 @@ import ssPipeRodAsset from "@/assets/products/stainless-steel-pipe-rod.png.asset
 const ssPipeRodImg = ssPipeRodAsset.url;
 import fencingBarbwireAsset from "@/assets/products/fencing-barbwire.png.asset.json";
 const fencingBarbwireImg = fencingBarbwireAsset.url;
+import gasketSealingSheetAsset from "@/assets/products/gasket-sealing-sheet.png.asset.json";
+const gasketSealingSheetImg = gasketSealingSheetAsset.url;
 import productBelts from "@/assets/product-belts.jpg";
 
 const productImages: Record<number, string> = {
@@ -113,6 +115,7 @@ const productImages: Record<number, string> = {
   33: cuttingDiskImg,
   34: ssPipeRodImg,
   35: fencingBarbwireImg,
+  36: gasketSealingSheetImg,
 };
 
 interface Product {
