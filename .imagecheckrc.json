@@ -1,0 +1,11 @@
+{
+  "ignore": {
+    "paths": [],
+    "extensions": [],
+    "domains": []
+  },
+  "cacheTtlHours": 24,
+  "retries": 2,
+  "concurrencyPerHost": 4,
+  "minIntervalMsPerHost": 50
+}

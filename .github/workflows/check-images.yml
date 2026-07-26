@@ -1,0 +1,25 @@
+name: Image Reference Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check-images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+      - name: Cache URL check results
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.cache/check-images
+          key: check-images-${{ runner.os }}-${{ hashFiles('src/**/*.asset.json') }}
+          restore-keys: check-images-${{ runner.os }}-
+      - name: Run image reference check
+        run: node scripts/check-images.mjs --ci
