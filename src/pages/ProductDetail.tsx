@@ -71,6 +71,8 @@ import adjustableLinkVBeltAsset from "@/assets/products/adjustable-link-v-belt.p
 const adjustableLinkVBeltImg = adjustableLinkVBeltAsset.url;
 import cuttingDiskAsset from "@/assets/products/cutting-disk.png.asset.json";
 const cuttingDiskImg = cuttingDiskAsset.url;
+import ssPipeRodAsset from "@/assets/products/stainless-steel-pipe-rod.png.asset.json";
+const ssPipeRodImg = ssPipeRodAsset.url;
 import productBelts from "@/assets/product-belts.jpg";
 
 const productImages: Record<number, string> = {
@@ -107,6 +109,7 @@ const productImages: Record<number, string> = {
   31: puCordBeltImg,
   32: adjustableLinkVBeltImg,
   33: cuttingDiskImg,
+  34: ssPipeRodImg,
 };
 
 interface Product {
@@ -533,6 +536,34 @@ const allProducts: Product[] = [
       "Max Operating Speed": "Up to 13,300 RPM (depending on diameter)",
       "Applications": "Metal, Stainless Steel (INOX), Stone, Granite, Ceramic, Wood, Plastic, Glass",
       "Compliance": "EN 12413 / oSa safety standard",
+    },
+  },
+  {
+    id: 34,
+    name: "Stainless Steel Pipe and Rod Solution",
+    category: "Tools",
+    rating: 4.9,
+    description: "A complete stainless steel and mild steel pipe, tube, rod and welding-consumable programme engineered for fabrication, construction, plumbing, structural and industrial welding projects. The range includes exploded/lap pipe fittings, mild steel structural pipes (round, capped in blue/red for identification), SS tubing with multi-layer wall construction, precision SS round rods and square/rectangular hollow sections, plus matching Gemini 308L TIG filler rods and 316L stainless stick electrodes. Every item is supplied with high corrosion resistance, high structural strength and consistent metallurgy — with diameter and length variety to suit both light fabrication and heavy structural work.",
+    features: [
+      "Full material range: SS 304, SS 316L, Mild Steel (MS) — pipe, tube, rod & hollow sections",
+      "High corrosion resistance (SS) and high structural strength (MS)",
+      "Wide diameter variety — SS rods from 2mm to 15mm, pipe & tube in multiple bores",
+      "Length variety — 125mm to 500mm standard cuts, custom lengths on request",
+      "Square, rectangular and round hollow sections for structural fabrication",
+      "Exploded / lap pipe fittings for quick joining and repair work",
+      "Matching welding consumables — Gemini 308L TIG rods & 316L stick electrodes",
+      "Colour-capped ends for on-site grade & size identification",
+    ],
+    specifications: {
+      "Materials": "Stainless Steel 304 / 316L, Mild Steel (MS)",
+      "Product Types": "Round Pipe, Square Tube, Rectangular Tube, Round Rod, Exploded/Lap Fittings",
+      "SS Rod Diameter": "2mm – 15mm (standard)",
+      "SS Rod Length": "125mm – 500mm (custom on request)",
+      "Pipe / Tube Sizes": "Round & square hollow sections, multiple wall thicknesses",
+      "Welding Consumables": "Gemini 308L TIG filler rod, 316L stainless stick electrode",
+      "Finish": "Bright polished / mill finish (SS), painted or primed (MS)",
+      "Applications": "Fabrication, construction, plumbing, structural frames, food & chemical plants, welding",
+      "Compliance": "ASTM A312 (SS pipe), ASTM A554 (SS tube), AWS A5.9 (308L), AWS A5.4 (316L)",
     },
   },
 ];
