@@ -20,7 +20,7 @@ const bitumenMembraneImg = bitumenMembraneAsset.url;
 
 const products = [
   {
-    id: 101,
+    id: 15,
     name: "WD-40 Multi-Use 400ml",
     category: "Tools",
     rating: 4.9,
@@ -29,7 +29,7 @@ const products = [
     badge: "Popular",
   },
   {
-    id: 102,
+    id: 16,
     name: "Rock Wool Insulation",
     category: "Insulation",
     rating: 4.7,
@@ -38,7 +38,7 @@ const products = [
     badge: "Best Seller",
   },
   {
-    id: 103,
+    id: 17,
     name: "Glass Wool Roll",
     category: "Insulation",
     rating: 4.6,
@@ -47,7 +47,7 @@ const products = [
     badge: null,
   },
   {
-    id: 104,
+    id: 19,
     name: "Teflon Cloth Roll",
     category: "Sheets",
     rating: 4.8,
@@ -56,7 +56,7 @@ const products = [
     badge: "New",
   },
   {
-    id: 105,
+    id: 20,
     name: "Stainless Steel Net",
     category: "Engineering",
     rating: 4.7,
@@ -65,7 +65,7 @@ const products = [
     badge: null,
   },
   {
-    id: 106,
+    id: 21,
     name: "Bitumen Membrane",
     category: "Insulation",
     rating: 4.8,
