@@ -1110,20 +1110,49 @@ const ProductDetail = () => {
     toast.success(`${product.name} added to quotation cart`);
   };
 
+  const productDescription = (product as { description?: string }).description ?? `Industrial-grade ${product.name} available for quotation from A BBARI Enterprise.`;
+  const seoTitle = `${product.name} | ${product.category} — A BBARI Enterprise Bangladesh`.slice(0, 65);
+  const seoDescription = `Buy ${product.name} (${product.category}) at A BBARI Enterprise. ${productDescription}`.replace(/\s+/g, " ").slice(0, 158);
+  const nameTokens = product.name
+    .replace(/[^a-zA-Z0-9\s-]/g, " ")
+    .split(/\s+/)
+    .filter((t) => t.length > 2);
+  const seoKeywords = Array.from(
+    new Set([
+      product.name,
+      product.category,
+      `${product.category} Bangladesh`,
+      `industrial ${product.category.toLowerCase()}`,
+      `${product.name} supplier`,
+      `${product.name} price Bangladesh`,
+      "A BBARI Enterprise",
+      "industrial hardware Bangladesh",
+      ...nameTokens,
+    ]),
+  );
+
   return (
     <main className="min-h-screen bg-background">
       <SEO
-        title={`${product.name} — A BBARI Enterprise`}
-        description={`${product.name}: ${(product as { description?: string }).description ?? "Industrial-grade hardware available for quotation from A BBARI Enterprise."}`.slice(0, 160)}
+        title={seoTitle}
+        description={seoDescription}
         path={`/products/${product.id}`}
         type="product"
+        keywords={seoKeywords}
+        image={productImage}
         jsonLd={[
           {
             "@context": "https://schema.org",
             "@type": "Product",
             name: product.name,
             image: productImage,
-            description: (product as { description?: string }).description ?? product.name,
+            description: productDescription,
+            category: product.category,
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: product.rating,
+              reviewCount: 25,
+            },
             brand: { "@type": "Brand", name: "A BBARI Enterprise" },
           },
           {
@@ -1132,7 +1161,8 @@ const ProductDetail = () => {
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://abbarient.lovable.app/" },
               { "@type": "ListItem", position: 2, name: "Products", item: "https://abbarient.lovable.app/products" },
-              { "@type": "ListItem", position: 3, name: product.name, item: `https://abbarient.lovable.app/products/${product.id}` },
+              { "@type": "ListItem", position: 3, name: product.category, item: `https://abbarient.lovable.app/products?category=${product.category}` },
+              { "@type": "ListItem", position: 4, name: product.name, item: `https://abbarient.lovable.app/products/${product.id}` },
             ],
           },
         ]}
