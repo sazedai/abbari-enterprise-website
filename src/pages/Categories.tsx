@@ -78,6 +78,10 @@ import fencingBarbwireAsset from "@/assets/products/fencing-barbwire.png.asset.j
 const fencingBarbwireImg = fencingBarbwireAsset.url;
 import gasketSealingSheetAsset from "@/assets/products/gasket-sealing-sheet.png.asset.json";
 const gasketSealingSheetImg = gasketSealingSheetAsset.url;
+import siliconSpongeRubberSheetAsset from "@/assets/products/silicon-sponge-rubber-sheet.png.asset.json";
+const siliconSpongeRubberSheetImg = siliconSpongeRubberSheetAsset.url;
+
+
 
 
 
