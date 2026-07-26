@@ -162,7 +162,9 @@ const productImages: Record<number, string> = {
   40: aluminiumTapeSolutionImg,
   41: pneumaticsComponentSolutionImg,
   42: pneumaticPipeSolutionImg,
+  43: pneumaticHosesTubingSolutionImg,
 };
+
 
 
 
