@@ -384,11 +384,32 @@ const Products = () => {
               <input
                 type="text"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search products..."
+                onChange={(e) => {
+                  const v = e.target.value;
+                  setSearchQuery(v);
+                  if (v) searchParams.set("q", v);
+                  else searchParams.delete("q");
+                  setSearchParams(searchParams);
+                }}
+                placeholder="Search products by name, category, or description..."
+                aria-label="Search products"
                 className="w-full h-12 pl-12 pr-4 bg-card border border-border rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
               />
             </div>
+
+            {/* Sort */}
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
+              aria-label="Sort products"
+              className="h-12 px-4 bg-card border border-border rounded-xl text-foreground focus:outline-none focus:border-primary"
+            >
+              <option value="featured">Sort: Featured</option>
+              <option value="rating">Top Rated</option>
+              <option value="name-asc">Name A–Z</option>
+              <option value="name-desc">Name Z–A</option>
+            </select>
+
 
             {/* Category filters */}
             <div className="flex flex-wrap gap-2">
