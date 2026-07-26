@@ -99,6 +99,8 @@ import gtTimingBeltAsset from "@/assets/products/gt-timing-belt.png.asset.json";
 const gtTimingBeltImg = gtTimingBeltAsset.url;
 import asbestosPackingAsset from "@/assets/products/asbestos-packing-solution.png.asset.json";
 const asbestosPackingImg = asbestosPackingAsset.url;
+import harvesterVBeltAsset from "@/assets/products/harvester-v-belt.png.asset.json";
+const harvesterVBeltImg = harvesterVBeltAsset.url;
 
 
 
@@ -157,6 +159,7 @@ const productImages: Record<number, string> = {
   45: pneumaticSparePartsSolutionImg,
   46: gtTimingBeltImg,
   47: asbestosPackingImg,
+  48: harvesterVBeltImg,
 };
 
 const legacyFeaturedProductIds: Record<number, number> = {

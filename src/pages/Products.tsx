@@ -109,6 +109,8 @@ import gtTimingBeltAsset from "@/assets/products/gt-timing-belt.png.asset.json";
 const gtTimingBeltImg = gtTimingBeltAsset.url;
 import asbestosPackingAsset from "@/assets/products/asbestos-packing-solution.png.asset.json";
 const asbestosPackingImg = asbestosPackingAsset.url;
+import harvesterVBeltAsset from "@/assets/products/harvester-v-belt.png.asset.json";
+const harvesterVBeltImg = harvesterVBeltAsset.url;
 
 
 
@@ -176,6 +178,7 @@ const productImages: Record<number, string> = {
   45: pneumaticSparePartsSolutionImg,
   46: gtTimingBeltImg,
   47: asbestosPackingImg,
+  48: harvesterVBeltImg,
 };
 
 
@@ -240,6 +243,7 @@ const allProducts: Product[] = [
   { id: 45, name: "Pneumatic Spare Parts Solution", category: "Tools", rating: 4.9, description: "Complete pneumatic spare parts solution for maintaining, repairing and extending the life of industrial compressed-air systems and automation equipment. Includes replacement cylinders, piston seals, FRL service kits, solenoid valve coils and manifolds, filter elements, pressure regulators, lubricators, brass and nickel-plated threaded fittings, quick couplers and push-to-connect connectors. Engineered for fast turnaround, reliable interchangeability and leak-free performance across packaging, automotive, textile, CNC, material handling and general machinery applications." },
   { id: 46, name: "GT Series Timing Belt Solution", category: "Tools", rating: 4.9, description: "Precision GT-series timing belt range engineered for high-torque, high-precision robotronic and industrial drive systems. Includes GATES POWERGRIP GT2 (black neoprene, classic profile), GATES RACING T251RB (blue reinforced, reduced-stretch high-load), red double-sided belts (aesthetic double-tooth profile), 3GTM olive-tan flexible double-sided belts and full 2GT/3GT/5GT curvilinear tooth profiles. High-tensile aramid/glass reinforcement cord, durable neoprene body, wear-resistant nylon tooth cover and protective fabric backing for CNC, 3D printers, robotics, automation and precision motion control." },
   { id: 47, name: "Asbestos Packing Solution", category: "Tools", rating: 4.9, description: "Complete Glane asbestos-family gland packing range for high-temperature, high-pressure valve, pump and rotating-shaft sealing. Includes carbon & flexible graphite braided packing (excellent thermal conductivity, high-temperature resistant matrix), chemical-resistant fiberglass packing with reinforced woven braid and colour marker yarns, custom-set die-formed packing ring configurations and matching set installation tools. Engineered for pumps, valves, agitators, refineries, power plants, chemical processing and general industrial sealing where thermal stability, chemical compatibility and long service life are critical." },
+  { id: 48, name: "Harvester V-Belt Solution", category: "Belts", rating: 4.9, description: "Heavy-duty agricultural Harvester V-belt solution engineered for combine harvesters, balers, forage machines and variable-speed drives. Range includes 3-band combo belts (high-tensile aramid cords, polychloroprene base rubber, double-woven fabric wrap), raw-edge cogged custom sets with precision cogging, laminated flat-belt cores (woven polyester cord layer + oil-resistant rubber covers), traceable branded belts (PIX Harvester XV, Bando Total Gold, Turboflex Premium, PEK Harvester) with clear part-number and batch marking. Operates -40°C to +110°C with high load resistance, dust & dirt resistance and shock-load protection for demanding harvest-season performance." },
 ];
 
 
