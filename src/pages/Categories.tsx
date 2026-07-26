@@ -70,6 +70,8 @@ import puCordBeltAsset from "@/assets/products/pu-cord-belt.png.asset.json";
 const puCordBeltImg = puCordBeltAsset.url;
 import adjustableLinkVBeltAsset from "@/assets/products/adjustable-link-v-belt.png.asset.json";
 const adjustableLinkVBeltImg = adjustableLinkVBeltAsset.url;
+import cuttingDiskAsset from "@/assets/products/cutting-disk.png.asset.json";
+const cuttingDiskImg = cuttingDiskAsset.url;
 
 
 
@@ -107,6 +109,7 @@ const allCategories: Category[] = [
   { name: "Rubber Roller Coverings", count: 24, image: rubberRollerCoveringImg, filterCategory: "Engineering" },
   { name: "Hardware Tools", count: 156, image: categoryTools, filterCategory: "Tools" },
   { name: "WD-40 Products", count: 18, image: wd40Img, filterCategory: "Tools" },
+  { name: "Cutting Disks", count: 20, image: cuttingDiskImg, filterCategory: "Tools" },
   { name: "Rock Wool", count: 24, image: rockWoolImg, filterCategory: "Insulation" },
   { name: "Glass Wool", count: 22, image: glassWoolImg, filterCategory: "Insulation" },
   { name: "Stainless Steel Nets", count: 32, image: stainlessSteelNetImg, filterCategory: "Engineering" },

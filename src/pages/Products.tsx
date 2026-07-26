@@ -79,6 +79,8 @@ import puCordBeltAsset from "@/assets/products/pu-cord-belt.png.asset.json";
 const puCordBeltImg = puCordBeltAsset.url;
 import adjustableLinkVBeltAsset from "@/assets/products/adjustable-link-v-belt.png.asset.json";
 const adjustableLinkVBeltImg = adjustableLinkVBeltAsset.url;
+import cuttingDiskAsset from "@/assets/products/cutting-disk.png.asset.json";
+const cuttingDiskImg = cuttingDiskAsset.url;
 
 const categoryImages: Record<string, string> = {
   Belts: productBelts,
@@ -123,6 +125,7 @@ const productImages: Record<number, string> = {
   30: puFlatBeltImg,
   31: puCordBeltImg,
   32: adjustableLinkVBeltImg,
+  33: cuttingDiskImg,
 };
 
 interface Product {
@@ -166,6 +169,7 @@ const allProducts: Product[] = [
   { id: 30, name: "PU Flat Belt Solution", category: "Belts", rating: 4.9, description: "Next-generation polyurethane flat belting with multi-layer construction — glossy PU top cover, high-strength polyester/Kevlar reinforcement fabric, inner PU adhesion layer and specified-texture PU bottom cover. Available in forest-green, red, black, white and transparent for conveying, packaging, printing, textile and food processing lines." },
   { id: 31, name: "Advanced PU Belting Solution", category: "Belts", rating: 4.9, description: "Advanced polyurethane cord belting engineered for high-elasticity power transmission and easy on-site joining. Available as solid-core PU round cords and reinforced tensile-cord PU jacketed belts with steel or aramid cord reinforcement, inner bonding layer and outer abrasion-resistant PU jacket. Full color range (green, red, black, orange, transparent, teal) for conveying, textile, glass, ceramic and packaging drives." },
   { id: 32, name: "Adjustable Link V-Belt Solution", category: "Belts", rating: 4.9, description: "Adjustable-length link V-belt system supplied on a 20-metre spool — cut-to-length on-site with no tools, no downtime and no need to dismantle drive components. Available in Nu-T Link (orange fabric-reinforced), Studded (blue steel-stud reinforced) and Multi-Rib (red) variants for reduced vibration, industry-standard power ratings and longer belt life across HVAC, pumps, compressors, fans, machine tools and general industrial drives." },
+  { id: 33, name: "Cutting Disk Solution", category: "Tools", rating: 4.9, description: "Complete range of professional cutting and grinding discs — Nova (red) for metal/iron/stainless steel, Makita INOX (silver) for precision stainless steel cuts, segmented diamond blades for granite, ceramic and Dekton, plus wood, plastic and glass cutting blades. Fibreglass-reinforced with high-quality abrasive grit and precision hubs for safe, efficient high-speed cutting." },
 ];
 
 const getProductImage = (product: Product): string => {
