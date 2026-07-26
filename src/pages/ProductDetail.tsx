@@ -91,6 +91,9 @@ import pneumaticPipeSolutionAsset from "@/assets/products/pneumatic-pipe-solutio
 const pneumaticPipeSolutionImg = pneumaticPipeSolutionAsset.url;
 import pneumaticHosesTubingSolutionAsset from "@/assets/products/pneumatic-hoses-and-tubing.png.asset.json";
 const pneumaticHosesTubingSolutionImg = pneumaticHosesTubingSolutionAsset.url;
+import pneumaticComponentSolutionAsset from "@/assets/products/pneumatic-component-solution.png.asset.json";
+const pneumaticComponentSolutionImg = pneumaticComponentSolutionAsset.url;
+
 
 
 
@@ -144,7 +147,10 @@ const productImages: Record<number, string> = {
   41: pneumaticsComponentSolutionImg,
   42: pneumaticPipeSolutionImg,
   43: pneumaticHosesTubingSolutionImg,
+  44: pneumaticComponentSolutionImg,
 };
+
+
 
 
 
@@ -881,7 +887,39 @@ const allProducts: Product[] = [
       "Compliance": "Industry-standard pneumatic tubing and fitting interfaces",
     },
   },
+  {
+    id: 44,
+    name: "Pneumatic Component Solution",
+    category: "Tools",
+    rating: 4.9,
+    description: "Complete pneumatic component solution for industrial automation and compressed-air systems. Includes solenoid valve manifolds, modular FRL (filter-regulator-lubricator) units, ISO-standard double-acting and compact air cylinders, plus a full push-to-connect fittings grid. Engineered for reliable directional control, clean dry air preparation, precise linear motion and leak-free distribution across packaging, automotive, textile, CNC and general machinery applications.",
+    features: [
+      "Solenoid valve manifolds for 5/2-way and 3/2-way directional control",
+      "Modular FRL units with filter, regulator and lubricator functions",
+      "ISO-standard double-acting and compact pneumatic cylinders",
+      "Comprehensive push-to-connect fittings grid (straight, elbow, tee, reducer)",
+      "Brass and nickel-plated threaded connectors for rugged installations",
+      "Quick-release and swivel options for flexible routing",
+      "Reliable seals and coils for long service life",
+      "Suitable for automation, packaging, material handling and machine tools",
+    ],
+    specifications: {
+      "Valve Functions": "5/2-way, 3/2-way solenoid / pilot-operated",
+      "Valve Voltage": "12V DC, 24V DC, 110V AC, 220V AC",
+      "Cylinder Bore": "16mm – 200mm (ISO and compact options)",
+      "Cylinder Material": "Anodised aluminium barrel, chrome-plated steel piston rod",
+      "FRL Filter Rating": "5µm / 40µm element options",
+      "FRL Pressure Range": "0.5 – 10 bar",
+      "Fitting Types": "PU push-fit, brass threaded, quick couplers, elbow/tee/reducer",
+      "Fitting Sizes": "4mm, 6mm, 8mm, 10mm, 12mm OD",
+      "Operating Pressure": "Up to 10 bar",
+      "Temperature Range": "-10°C to +60°C",
+      "Applications": "Automation, packaging, textile, automotive, CNC, general machinery",
+      "Compliance": "ISO 6432 / ISO 15552 cylinder standards; industry-standard pneumatic interfaces",
+    },
+  },
 ];
+
 
 
 
