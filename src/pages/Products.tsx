@@ -125,6 +125,7 @@ const productImages: Record<number, string> = {
   30: puFlatBeltImg,
   31: puCordBeltImg,
   32: adjustableLinkVBeltImg,
+  33: cuttingDiskImg,
 };
 
 interface Product {
