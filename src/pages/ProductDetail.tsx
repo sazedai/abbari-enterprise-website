@@ -104,6 +104,8 @@ import harvesterVBeltAsset from "@/assets/products/harvester-v-belt.png.asset.js
 const harvesterVBeltImg = harvesterVBeltAsset.url;
 import differentFlangeAsset from "@/assets/products/different-flange-solution.png.asset.json";
 const differentFlangeImg = differentFlangeAsset.url;
+import linexBeltingAsset from "@/assets/products/linex-belting-solution.png.asset.json";
+const linexBeltingImg = linexBeltingAsset.url;
 
 
 
@@ -164,6 +166,7 @@ const productImages: Record<number, string> = {
   47: asbestosPackingImg,
   48: harvesterVBeltImg,
   49: differentFlangeImg,
+  50: linexBeltingImg,
 };
 
 const legacyFeaturedProductIds: Record<number, number> = {
@@ -1092,6 +1095,36 @@ const allProducts: Product[] = [
       "Surface Finish": "Serrated / smooth / stock finish per ASME B16.5",
       "Applications": "Refineries, petrochemical, power plants, water treatment, marine, oil & gas, general process piping",
       "Testing": "Hydrostatic, PMI, UT, MPI and dimensional inspection with MTC EN 10204 3.1",
+    },
+  },
+  {
+    id: 50,
+    name: "Linex Belting Solution",
+    category: "Belts",
+    rating: 4.9,
+    description: "Linex Belting Solution delivers precision, durability and custom performance for demanding industrial drives and conveyors. Engineered with advanced metallic splice technology for ultra-strong flexible joints and minimal downtime, a high-tensile polymer core that provides extreme stretch resistance and efficient power transmission, and a specialized surface grip texture that optimizes traction and prevents belt slippage. Multi-layer construction combines a durable PU top cover, high-strength reinforcement fabric and textured grip base, available in custom widths, lengths and profiles for conveying, packaging, printing, textile, food processing, robotics and general industrial applications.",
+    features: [
+      "Advanced metallic splice technology for high-strength, flexible joints",
+      "High-tensile polymer core for extreme stretch resistance",
+      "Specialized grip texture prevents belt slippage",
+      "Multi-layer reinforced construction for long service life",
+      "Custom widths, lengths and profiles made to order",
+      "Minimal downtime with on-site quick-splice installation",
+      "Suitable for conveying, packaging, printing, textile and food lines",
+      "Oil, abrasion and wear resistant surface",
+    ],
+    specifications: {
+      "Construction": "PU top cover + reinforcement fabric + textured grip base",
+      "Splice Type": "High-strength flexible metallic splice",
+      "Core": "High-tensile polymer with polyester / aramid reinforcement",
+      "Surface Finish": "Specialized anti-slip grip texture",
+      "Standard Sizes": "51½\" x 6'-11\" and custom lengths",
+      "Widths": "10mm – 2000mm (custom)",
+      "Thickness Range": "1.5mm – 8mm",
+      "Temperature Range": "-30°C to +90°C",
+      "Applications": "Conveying, packaging, printing, textile, food processing, robotics",
+      "Color Options": "White, black, green, custom",
+      "Compliance": "Industry-standard flat belt profiles and food-grade options",
     },
   },
 ];
