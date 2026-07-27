@@ -61,7 +61,8 @@ async function main() {
     const walk = async (dir) => {
       for (const e of await fs.readdir(dir, { withFileTypes: true })) {
         const p = path.join(dir, e.name);
-        if (e.isDirectory()) await walk(p);
+        // Skip generated responsive variants — managed by generate-responsive-images.mjs
+        if (e.isDirectory()) { if (e.name === "responsive") continue; await walk(p); }
         else if (/\.(png|jpe?g|webp|avif|gif|svg)$/i.test(e.name) && !referenced.has(p)) {
           orphans.push(path.relative(ROOT, p));
         }
