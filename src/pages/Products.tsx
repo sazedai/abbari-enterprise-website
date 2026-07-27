@@ -6,6 +6,7 @@ import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Search, Grid, List, Star, ShoppingCart, Eye } from "lucide-react";
 import ProductQuickView from "@/components/ProductQuickView";
+import ResponsiveProductImage from "@/components/ResponsiveProductImage";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
 
