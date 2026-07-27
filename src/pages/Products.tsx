@@ -115,6 +115,8 @@ import harvesterVBeltAsset from "@/assets/products/harvester-v-belt.png.asset.js
 const harvesterVBeltImg = harvesterVBeltAsset.url;
 import differentFlangeAsset from "@/assets/products/different-flange-solution.png.asset.json";
 const differentFlangeImg = differentFlangeAsset.url;
+import linexBeltingAsset from "@/assets/products/linex-belting-solution.png.asset.json";
+const linexBeltingImg = linexBeltingAsset.url;
 
 
 
