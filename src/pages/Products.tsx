@@ -113,6 +113,8 @@ import asbestosPackingAsset from "@/assets/products/asbestos-packing-solution.pn
 const asbestosPackingImg = asbestosPackingAsset.url;
 import harvesterVBeltAsset from "@/assets/products/harvester-v-belt.png.asset.json";
 const harvesterVBeltImg = harvesterVBeltAsset.url;
+import differentFlangeAsset from "@/assets/products/different-flange-solution.png.asset.json";
+const differentFlangeImg = differentFlangeAsset.url;
 
 
 
