@@ -6,6 +6,7 @@ import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Search, Grid, List, Star, ShoppingCart, Eye } from "lucide-react";
 import ProductQuickView from "@/components/ProductQuickView";
+import ResponsiveProductImage from "@/components/ResponsiveProductImage";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
 
@@ -508,9 +509,10 @@ const Products = () => {
                     viewMode === "list" ? "w-32 h-32 aspect-square" : "aspect-[3/4]"
                   } overflow-hidden bg-secondary relative`}
                 >
-                  <img
+                  <ResponsiveProductImage
                     src={getProductImage(product)}
                     alt={product.name}
+                    sizes={viewMode === "list" ? "128px" : "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"}
                     className="w-full h-full transition-transform duration-500 group-hover:scale-105 shadow-md object-cover select-none pointer-events-none"
                     draggable={false}
                   />

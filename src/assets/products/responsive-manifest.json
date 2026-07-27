@@ -1,0 +1,923 @@
+{
+  "adjustable-link-v-belt": {
+    "original": "/assets/products/adjustable-link-v-belt.jpg",
+    "webp": {
+      "400": "/assets/products/responsive/adjustable-link-v-belt-400.webp",
+      "800": "/assets/products/responsive/adjustable-link-v-belt-800.webp",
+      "907": "/assets/products/responsive/adjustable-link-v-belt-907.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/adjustable-link-v-belt-400.avif",
+      "800": "/assets/products/responsive/adjustable-link-v-belt-800.avif",
+      "907": "/assets/products/responsive/adjustable-link-v-belt-907.avif"
+    },
+    "widths": [
+      400,
+      800,
+      907,
+      907
+    ]
+  },
+  "aluminium-tape-solution": {
+    "original": "/assets/products/aluminium-tape-solution.jpg",
+    "webp": {
+      "400": "/assets/products/responsive/aluminium-tape-solution-400.webp",
+      "800": "/assets/products/responsive/aluminium-tape-solution-800.webp",
+      "1024": "/assets/products/responsive/aluminium-tape-solution-1024.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/aluminium-tape-solution-400.avif",
+      "800": "/assets/products/responsive/aluminium-tape-solution-800.avif",
+      "1024": "/assets/products/responsive/aluminium-tape-solution-1024.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1024,
+      1024
+    ]
+  },
+  "asbestos-packing-solution": {
+    "original": "/assets/products/asbestos-packing-solution.jpg",
+    "webp": {
+      "400": "/assets/products/responsive/asbestos-packing-solution-400.webp",
+      "800": "/assets/products/responsive/asbestos-packing-solution-800.webp",
+      "1200": "/assets/products/responsive/asbestos-packing-solution-1200.webp",
+      "1426": "/assets/products/responsive/asbestos-packing-solution-1426.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/asbestos-packing-solution-400.avif",
+      "800": "/assets/products/responsive/asbestos-packing-solution-800.avif",
+      "1200": "/assets/products/responsive/asbestos-packing-solution-1200.avif",
+      "1426": "/assets/products/responsive/asbestos-packing-solution-1426.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1200,
+      1426
+    ]
+  },
+  "belt-lacing": {
+    "original": "/assets/products/belt-lacing.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/belt-lacing-400.webp",
+      "800": "/assets/products/responsive/belt-lacing-800.webp",
+      "1200": "/assets/products/responsive/belt-lacing-1200.webp",
+      "1264": "/assets/products/responsive/belt-lacing-1264.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/belt-lacing-400.avif",
+      "800": "/assets/products/responsive/belt-lacing-800.avif",
+      "1200": "/assets/products/responsive/belt-lacing-1200.avif",
+      "1264": "/assets/products/responsive/belt-lacing-1264.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1200,
+      1264
+    ]
+  },
+  "bitumen-membrane": {
+    "original": "/assets/products/bitumen-membrane.jpg",
+    "webp": {
+      "400": "/assets/products/responsive/bitumen-membrane-400.webp",
+      "800": "/assets/products/responsive/bitumen-membrane-800.webp",
+      "1079": "/assets/products/responsive/bitumen-membrane-1079.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/bitumen-membrane-400.avif",
+      "800": "/assets/products/responsive/bitumen-membrane-800.avif",
+      "1079": "/assets/products/responsive/bitumen-membrane-1079.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1079,
+      1079
+    ]
+  },
+  "clear-pvc-sheet": {
+    "original": "/assets/products/clear-pvc-sheet.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/clear-pvc-sheet-400.webp",
+      "800": "/assets/products/responsive/clear-pvc-sheet-800.webp",
+      "1200": "/assets/products/responsive/clear-pvc-sheet-1200.webp",
+      "1408": "/assets/products/responsive/clear-pvc-sheet-1408.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/clear-pvc-sheet-400.avif",
+      "800": "/assets/products/responsive/clear-pvc-sheet-800.avif",
+      "1200": "/assets/products/responsive/clear-pvc-sheet-1200.avif",
+      "1408": "/assets/products/responsive/clear-pvc-sheet-1408.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1200,
+      1408
+    ]
+  },
+  "conveyor-belt": {
+    "original": "/assets/products/conveyor-belt.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/conveyor-belt-400.webp",
+      "800": "/assets/products/responsive/conveyor-belt-800.webp",
+      "1024": "/assets/products/responsive/conveyor-belt-1024.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/conveyor-belt-400.avif",
+      "800": "/assets/products/responsive/conveyor-belt-800.avif",
+      "1024": "/assets/products/responsive/conveyor-belt-1024.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1024,
+      1024
+    ]
+  },
+  "cork-sheet": {
+    "original": "/assets/products/cork-sheet.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/cork-sheet-400.webp",
+      "800": "/assets/products/responsive/cork-sheet-800.webp",
+      "1200": "/assets/products/responsive/cork-sheet-1200.webp",
+      "1267": "/assets/products/responsive/cork-sheet-1267.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/cork-sheet-400.avif",
+      "800": "/assets/products/responsive/cork-sheet-800.avif",
+      "1200": "/assets/products/responsive/cork-sheet-1200.avif",
+      "1267": "/assets/products/responsive/cork-sheet-1267.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1200,
+      1267
+    ]
+  },
+  "cutting-disk": {
+    "original": "/assets/products/cutting-disk.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/cutting-disk-400.webp",
+      "800": "/assets/products/responsive/cutting-disk-800.webp",
+      "1119": "/assets/products/responsive/cutting-disk-1119.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/cutting-disk-400.avif",
+      "800": "/assets/products/responsive/cutting-disk-800.avif",
+      "1119": "/assets/products/responsive/cutting-disk-1119.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1119,
+      1119
+    ]
+  },
+  "fencing-barbwire": {
+    "original": "/assets/products/fencing-barbwire.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/fencing-barbwire-400.webp",
+      "800": "/assets/products/responsive/fencing-barbwire-800.webp",
+      "1024": "/assets/products/responsive/fencing-barbwire-1024.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/fencing-barbwire-400.avif",
+      "800": "/assets/products/responsive/fencing-barbwire-800.avif",
+      "1024": "/assets/products/responsive/fencing-barbwire-1024.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1024,
+      1024
+    ]
+  },
+  "gasket-sealing-sheet": {
+    "original": "/assets/products/gasket-sealing-sheet.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/gasket-sealing-sheet-400.webp",
+      "800": "/assets/products/responsive/gasket-sealing-sheet-800.webp",
+      "921": "/assets/products/responsive/gasket-sealing-sheet-921.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/gasket-sealing-sheet-400.avif",
+      "800": "/assets/products/responsive/gasket-sealing-sheet-800.avif",
+      "921": "/assets/products/responsive/gasket-sealing-sheet-921.avif"
+    },
+    "widths": [
+      400,
+      800,
+      921,
+      921
+    ]
+  },
+  "geotextile-bag": {
+    "original": "/assets/products/geotextile-bag.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/geotextile-bag-400.webp",
+      "800": "/assets/products/responsive/geotextile-bag-800.webp",
+      "1089": "/assets/products/responsive/geotextile-bag-1089.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/geotextile-bag-400.avif",
+      "800": "/assets/products/responsive/geotextile-bag-800.avif",
+      "1089": "/assets/products/responsive/geotextile-bag-1089.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1089,
+      1089
+    ]
+  },
+  "geotextile-fabric": {
+    "original": "/assets/products/geotextile-fabric.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/geotextile-fabric-400.webp",
+      "800": "/assets/products/responsive/geotextile-fabric-800.webp",
+      "1040": "/assets/products/responsive/geotextile-fabric-1040.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/geotextile-fabric-400.avif",
+      "800": "/assets/products/responsive/geotextile-fabric-800.avif",
+      "1040": "/assets/products/responsive/geotextile-fabric-1040.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1040,
+      1040
+    ]
+  },
+  "geotextile-planter-bag": {
+    "original": "/assets/products/geotextile-planter-bag.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/geotextile-planter-bag-400.webp",
+      "800": "/assets/products/responsive/geotextile-planter-bag-800.webp",
+      "1010": "/assets/products/responsive/geotextile-planter-bag-1010.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/geotextile-planter-bag-400.avif",
+      "800": "/assets/products/responsive/geotextile-planter-bag-800.avif",
+      "1010": "/assets/products/responsive/geotextile-planter-bag-1010.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1010,
+      1010
+    ]
+  },
+  "geotextile-solutions": {
+    "original": "/assets/products/geotextile-solutions.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/geotextile-solutions-400.webp",
+      "800": "/assets/products/responsive/geotextile-solutions-800.webp",
+      "1200": "/assets/products/responsive/geotextile-solutions-1200.webp",
+      "1376": "/assets/products/responsive/geotextile-solutions-1376.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/geotextile-solutions-400.avif",
+      "800": "/assets/products/responsive/geotextile-solutions-800.avif",
+      "1200": "/assets/products/responsive/geotextile-solutions-1200.avif",
+      "1376": "/assets/products/responsive/geotextile-solutions-1376.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1200,
+      1376
+    ]
+  },
+  "glane-packing-solution": {
+    "original": "/assets/products/glane-packing-solution.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/glane-packing-solution-400.webp",
+      "800": "/assets/products/responsive/glane-packing-solution-800.webp",
+      "1195": "/assets/products/responsive/glane-packing-solution-1195.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/glane-packing-solution-400.avif",
+      "800": "/assets/products/responsive/glane-packing-solution-800.avif",
+      "1195": "/assets/products/responsive/glane-packing-solution-1195.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1195,
+      1195
+    ]
+  },
+  "glass-wool": {
+    "original": "/assets/products/glass-wool.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/glass-wool-400.webp",
+      "800": "/assets/products/responsive/glass-wool-800.webp",
+      "1024": "/assets/products/responsive/glass-wool-1024.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/glass-wool-400.avif",
+      "800": "/assets/products/responsive/glass-wool-800.avif",
+      "1024": "/assets/products/responsive/glass-wool-1024.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1024,
+      1024
+    ]
+  },
+  "gt-timing-belt": {
+    "original": "/assets/products/gt-timing-belt.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/gt-timing-belt-400.webp",
+      "800": "/assets/products/responsive/gt-timing-belt-800.webp",
+      "1200": "/assets/products/responsive/gt-timing-belt-1200.webp",
+      "1408": "/assets/products/responsive/gt-timing-belt-1408.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/gt-timing-belt-400.avif",
+      "800": "/assets/products/responsive/gt-timing-belt-800.avif",
+      "1200": "/assets/products/responsive/gt-timing-belt-1200.avif",
+      "1408": "/assets/products/responsive/gt-timing-belt-1408.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1200,
+      1408
+    ]
+  },
+  "harvester-v-belt": {
+    "original": "/assets/products/harvester-v-belt.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/harvester-v-belt-400.webp",
+      "800": "/assets/products/responsive/harvester-v-belt-800.webp",
+      "1200": "/assets/products/responsive/harvester-v-belt-1200.webp",
+      "1426": "/assets/products/responsive/harvester-v-belt-1426.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/harvester-v-belt-400.avif",
+      "800": "/assets/products/responsive/harvester-v-belt-800.avif",
+      "1200": "/assets/products/responsive/harvester-v-belt-1200.avif",
+      "1426": "/assets/products/responsive/harvester-v-belt-1426.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1200,
+      1426
+    ]
+  },
+  "nylon-shaft-solution": {
+    "original": "/assets/products/nylon-shaft-solution.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/nylon-shaft-solution-400.webp",
+      "800": "/assets/products/responsive/nylon-shaft-solution-800.webp",
+      "1024": "/assets/products/responsive/nylon-shaft-solution-1024.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/nylon-shaft-solution-400.avif",
+      "800": "/assets/products/responsive/nylon-shaft-solution-800.avif",
+      "1024": "/assets/products/responsive/nylon-shaft-solution-1024.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1024,
+      1024
+    ]
+  },
+  "nylon-shaft": {
+    "original": "/assets/products/nylon-shaft.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/nylon-shaft-400.webp",
+      "800": "/assets/products/responsive/nylon-shaft-800.webp",
+      "1024": "/assets/products/responsive/nylon-shaft-1024.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/nylon-shaft-400.avif",
+      "800": "/assets/products/responsive/nylon-shaft-800.avif",
+      "1024": "/assets/products/responsive/nylon-shaft-1024.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1024,
+      1024
+    ]
+  },
+  "pneumatic-component-solution": {
+    "original": "/assets/products/pneumatic-component-solution.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/pneumatic-component-solution-400.webp",
+      "800": "/assets/products/responsive/pneumatic-component-solution-800.webp",
+      "1024": "/assets/products/responsive/pneumatic-component-solution-1024.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/pneumatic-component-solution-400.avif",
+      "800": "/assets/products/responsive/pneumatic-component-solution-800.avif",
+      "1024": "/assets/products/responsive/pneumatic-component-solution-1024.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1024,
+      1024
+    ]
+  },
+  "pneumatic-hoses-and-tubing": {
+    "original": "/assets/products/pneumatic-hoses-and-tubing.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/pneumatic-hoses-and-tubing-400.webp",
+      "800": "/assets/products/responsive/pneumatic-hoses-and-tubing-800.webp",
+      "921": "/assets/products/responsive/pneumatic-hoses-and-tubing-921.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/pneumatic-hoses-and-tubing-400.avif",
+      "800": "/assets/products/responsive/pneumatic-hoses-and-tubing-800.avif",
+      "921": "/assets/products/responsive/pneumatic-hoses-and-tubing-921.avif"
+    },
+    "widths": [
+      400,
+      800,
+      921,
+      921
+    ]
+  },
+  "pneumatic-pipe-solution": {
+    "original": "/assets/products/pneumatic-pipe-solution.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/pneumatic-pipe-solution-400.webp",
+      "800": "/assets/products/responsive/pneumatic-pipe-solution-800.webp",
+      "921": "/assets/products/responsive/pneumatic-pipe-solution-921.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/pneumatic-pipe-solution-400.avif",
+      "800": "/assets/products/responsive/pneumatic-pipe-solution-800.avif",
+      "921": "/assets/products/responsive/pneumatic-pipe-solution-921.avif"
+    },
+    "widths": [
+      400,
+      800,
+      921,
+      921
+    ]
+  },
+  "pneumatic-spare-parts-solution": {
+    "original": "/assets/products/pneumatic-spare-parts-solution.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/pneumatic-spare-parts-solution-400.webp",
+      "800": "/assets/products/responsive/pneumatic-spare-parts-solution-800.webp",
+      "1024": "/assets/products/responsive/pneumatic-spare-parts-solution-1024.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/pneumatic-spare-parts-solution-400.avif",
+      "800": "/assets/products/responsive/pneumatic-spare-parts-solution-800.avif",
+      "1024": "/assets/products/responsive/pneumatic-spare-parts-solution-1024.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1024,
+      1024
+    ]
+  },
+  "pneumatics-component-solution": {
+    "original": "/assets/products/pneumatics-component-solution.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/pneumatics-component-solution-400.webp",
+      "800": "/assets/products/responsive/pneumatics-component-solution-800.webp",
+      "921": "/assets/products/responsive/pneumatics-component-solution-921.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/pneumatics-component-solution-400.avif",
+      "800": "/assets/products/responsive/pneumatics-component-solution-800.avif",
+      "921": "/assets/products/responsive/pneumatics-component-solution-921.avif"
+    },
+    "widths": [
+      400,
+      800,
+      921,
+      921
+    ]
+  },
+  "pu-cord-belt": {
+    "original": "/assets/products/pu-cord-belt.jpg",
+    "webp": {
+      "400": "/assets/products/responsive/pu-cord-belt-400.webp",
+      "800": "/assets/products/responsive/pu-cord-belt-800.webp",
+      "1200": "/assets/products/responsive/pu-cord-belt-1200.webp",
+      "1292": "/assets/products/responsive/pu-cord-belt-1292.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/pu-cord-belt-400.avif",
+      "800": "/assets/products/responsive/pu-cord-belt-800.avif",
+      "1200": "/assets/products/responsive/pu-cord-belt-1200.avif",
+      "1292": "/assets/products/responsive/pu-cord-belt-1292.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1200,
+      1292
+    ]
+  },
+  "pu-flat-belt": {
+    "original": "/assets/products/pu-flat-belt.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/pu-flat-belt-400.webp",
+      "800": "/assets/products/responsive/pu-flat-belt-800.webp",
+      "926": "/assets/products/responsive/pu-flat-belt-926.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/pu-flat-belt-400.avif",
+      "800": "/assets/products/responsive/pu-flat-belt-800.avif",
+      "926": "/assets/products/responsive/pu-flat-belt-926.avif"
+    },
+    "widths": [
+      400,
+      800,
+      926,
+      926
+    ]
+  },
+  "pu-v-belt": {
+    "original": "/assets/products/pu-v-belt.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/pu-v-belt-400.webp",
+      "800": "/assets/products/responsive/pu-v-belt-800.webp",
+      "1024": "/assets/products/responsive/pu-v-belt-1024.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/pu-v-belt-400.avif",
+      "800": "/assets/products/responsive/pu-v-belt-800.avif",
+      "1024": "/assets/products/responsive/pu-v-belt-1024.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1024,
+      1024
+    ]
+  },
+  "pvc-curtain": {
+    "original": "/assets/products/pvc-curtain.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/pvc-curtain-400.webp",
+      "800": "/assets/products/responsive/pvc-curtain-800.webp",
+      "921": "/assets/products/responsive/pvc-curtain-921.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/pvc-curtain-400.avif",
+      "800": "/assets/products/responsive/pvc-curtain-800.avif",
+      "921": "/assets/products/responsive/pvc-curtain-921.avif"
+    },
+    "widths": [
+      400,
+      800,
+      921,
+      921
+    ]
+  },
+  "rock-wool": {
+    "original": "/assets/products/rock-wool.png",
+    "webp": {
+      "400": "/assets/products/responsive/rock-wool-400.webp",
+      "800": "/assets/products/responsive/rock-wool-800.webp",
+      "1200": "/assets/products/responsive/rock-wool-1200.webp",
+      "1600": "/assets/products/responsive/rock-wool-1600.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/rock-wool-400.avif",
+      "800": "/assets/products/responsive/rock-wool-800.avif",
+      "1200": "/assets/products/responsive/rock-wool-1200.avif",
+      "1600": "/assets/products/responsive/rock-wool-1600.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1200,
+      1600
+    ]
+  },
+  "rubber-canvas-belt": {
+    "original": "/assets/products/rubber-canvas-belt.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/rubber-canvas-belt-400.webp",
+      "800": "/assets/products/responsive/rubber-canvas-belt-800.webp",
+      "921": "/assets/products/responsive/rubber-canvas-belt-921.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/rubber-canvas-belt-400.avif",
+      "800": "/assets/products/responsive/rubber-canvas-belt-800.avif",
+      "921": "/assets/products/responsive/rubber-canvas-belt-921.avif"
+    },
+    "widths": [
+      400,
+      800,
+      921,
+      921
+    ]
+  },
+  "rubber-cow-mat": {
+    "original": "/assets/products/rubber-cow-mat.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/rubber-cow-mat-400.webp",
+      "800": "/assets/products/responsive/rubber-cow-mat-800.webp",
+      "921": "/assets/products/responsive/rubber-cow-mat-921.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/rubber-cow-mat-400.avif",
+      "800": "/assets/products/responsive/rubber-cow-mat-800.avif",
+      "921": "/assets/products/responsive/rubber-cow-mat-921.avif"
+    },
+    "widths": [
+      400,
+      800,
+      921,
+      921
+    ]
+  },
+  "rubber-roller-covering": {
+    "original": "/assets/products/rubber-roller-covering.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/rubber-roller-covering-400.webp",
+      "800": "/assets/products/responsive/rubber-roller-covering-800.webp",
+      "1024": "/assets/products/responsive/rubber-roller-covering-1024.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/rubber-roller-covering-400.avif",
+      "800": "/assets/products/responsive/rubber-roller-covering-800.avif",
+      "1024": "/assets/products/responsive/rubber-roller-covering-1024.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1024,
+      1024
+    ]
+  },
+  "rubber-sheet": {
+    "original": "/assets/products/rubber-sheet.jpg",
+    "webp": {
+      "400": "/assets/products/responsive/rubber-sheet-400.webp",
+      "800": "/assets/products/responsive/rubber-sheet-800.webp",
+      "1200": "/assets/products/responsive/rubber-sheet-1200.webp",
+      "1408": "/assets/products/responsive/rubber-sheet-1408.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/rubber-sheet-400.avif",
+      "800": "/assets/products/responsive/rubber-sheet-800.avif",
+      "1200": "/assets/products/responsive/rubber-sheet-1200.avif",
+      "1408": "/assets/products/responsive/rubber-sheet-1408.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1200,
+      1408
+    ]
+  },
+  "silicon-sponge-rubber-sheet": {
+    "original": "/assets/products/silicon-sponge-rubber-sheet.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/silicon-sponge-rubber-sheet-400.webp",
+      "800": "/assets/products/responsive/silicon-sponge-rubber-sheet-800.webp",
+      "1070": "/assets/products/responsive/silicon-sponge-rubber-sheet-1070.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/silicon-sponge-rubber-sheet-400.avif",
+      "800": "/assets/products/responsive/silicon-sponge-rubber-sheet-800.avif",
+      "1070": "/assets/products/responsive/silicon-sponge-rubber-sheet-1070.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1070,
+      1070
+    ]
+  },
+  "silicone-sheet": {
+    "original": "/assets/products/silicone-sheet.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/silicone-sheet-400.webp",
+      "800": "/assets/products/responsive/silicone-sheet-800.webp",
+      "1200": "/assets/products/responsive/silicone-sheet-1200.webp",
+      "1256": "/assets/products/responsive/silicone-sheet-1256.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/silicone-sheet-400.avif",
+      "800": "/assets/products/responsive/silicone-sheet-800.avif",
+      "1200": "/assets/products/responsive/silicone-sheet-1200.avif",
+      "1256": "/assets/products/responsive/silicone-sheet-1256.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1200,
+      1256
+    ]
+  },
+  "skf-bearing": {
+    "original": "/assets/products/skf-bearing.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/skf-bearing-400.webp",
+      "800": "/assets/products/responsive/skf-bearing-800.webp",
+      "1200": "/assets/products/responsive/skf-bearing-1200.webp",
+      "1408": "/assets/products/responsive/skf-bearing-1408.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/skf-bearing-400.avif",
+      "800": "/assets/products/responsive/skf-bearing-800.avif",
+      "1200": "/assets/products/responsive/skf-bearing-1200.avif",
+      "1408": "/assets/products/responsive/skf-bearing-1408.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1200,
+      1408
+    ]
+  },
+  "stainless-steel-net": {
+    "original": "/assets/products/stainless-steel-net.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/stainless-steel-net-400.webp",
+      "800": "/assets/products/responsive/stainless-steel-net-800.webp",
+      "1200": "/assets/products/responsive/stainless-steel-net-1200.webp",
+      "1267": "/assets/products/responsive/stainless-steel-net-1267.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/stainless-steel-net-400.avif",
+      "800": "/assets/products/responsive/stainless-steel-net-800.avif",
+      "1200": "/assets/products/responsive/stainless-steel-net-1200.avif",
+      "1267": "/assets/products/responsive/stainless-steel-net-1267.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1200,
+      1267
+    ]
+  },
+  "stainless-steel-pipe-rod": {
+    "original": "/assets/products/stainless-steel-pipe-rod.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/stainless-steel-pipe-rod-400.webp",
+      "800": "/assets/products/responsive/stainless-steel-pipe-rod-800.webp",
+      "921": "/assets/products/responsive/stainless-steel-pipe-rod-921.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/stainless-steel-pipe-rod-400.avif",
+      "800": "/assets/products/responsive/stainless-steel-pipe-rod-800.avif",
+      "921": "/assets/products/responsive/stainless-steel-pipe-rod-921.avif"
+    },
+    "widths": [
+      400,
+      800,
+      921,
+      921
+    ]
+  },
+  "tapered-roller-bearing": {
+    "original": "/assets/products/tapered-roller-bearing.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/tapered-roller-bearing-400.webp",
+      "800": "/assets/products/responsive/tapered-roller-bearing-800.webp",
+      "1200": "/assets/products/responsive/tapered-roller-bearing-1200.webp",
+      "1299": "/assets/products/responsive/tapered-roller-bearing-1299.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/tapered-roller-bearing-400.avif",
+      "800": "/assets/products/responsive/tapered-roller-bearing-800.avif",
+      "1200": "/assets/products/responsive/tapered-roller-bearing-1200.avif",
+      "1299": "/assets/products/responsive/tapered-roller-bearing-1299.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1200,
+      1299
+    ]
+  },
+  "teflon-cloth": {
+    "original": "/assets/products/teflon-cloth.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/teflon-cloth-400.webp",
+      "800": "/assets/products/responsive/teflon-cloth-800.webp",
+      "896": "/assets/products/responsive/teflon-cloth-896.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/teflon-cloth-400.avif",
+      "800": "/assets/products/responsive/teflon-cloth-800.avif",
+      "896": "/assets/products/responsive/teflon-cloth-896.avif"
+    },
+    "widths": [
+      400,
+      800,
+      896,
+      896
+    ]
+  },
+  "teflon-sheet": {
+    "original": "/assets/products/teflon-sheet.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/teflon-sheet-400.webp",
+      "800": "/assets/products/responsive/teflon-sheet-800.webp",
+      "896": "/assets/products/responsive/teflon-sheet-896.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/teflon-sheet-400.avif",
+      "800": "/assets/products/responsive/teflon-sheet-800.avif",
+      "896": "/assets/products/responsive/teflon-sheet-896.avif"
+    },
+    "widths": [
+      400,
+      800,
+      896,
+      896
+    ]
+  },
+  "thrust-bearing": {
+    "original": "/assets/products/thrust-bearing.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/thrust-bearing-400.webp",
+      "800": "/assets/products/responsive/thrust-bearing-800.webp",
+      "832": "/assets/products/responsive/thrust-bearing-832.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/thrust-bearing-400.avif",
+      "800": "/assets/products/responsive/thrust-bearing-800.avif",
+      "832": "/assets/products/responsive/thrust-bearing-832.avif"
+    },
+    "widths": [
+      400,
+      800,
+      832,
+      832
+    ]
+  },
+  "timing-belt": {
+    "original": "/assets/products/timing-belt.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/timing-belt-400.webp",
+      "800": "/assets/products/responsive/timing-belt-800.webp",
+      "1024": "/assets/products/responsive/timing-belt-1024.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/timing-belt-400.avif",
+      "800": "/assets/products/responsive/timing-belt-800.avif",
+      "1024": "/assets/products/responsive/timing-belt-1024.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1024,
+      1024
+    ]
+  },
+  "v-belt": {
+    "original": "/assets/products/v-belt.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/v-belt-400.webp",
+      "800": "/assets/products/responsive/v-belt-800.webp",
+      "828": "/assets/products/responsive/v-belt-828.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/v-belt-400.avif",
+      "800": "/assets/products/responsive/v-belt-800.avif",
+      "828": "/assets/products/responsive/v-belt-828.avif"
+    },
+    "widths": [
+      400,
+      800,
+      828,
+      828
+    ]
+  },
+  "wd40": {
+    "original": "/assets/products/wd40.jpeg",
+    "webp": {
+      "400": "/assets/products/responsive/wd40-400.webp",
+      "800": "/assets/products/responsive/wd40-800.webp",
+      "1024": "/assets/products/responsive/wd40-1024.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/wd40-400.avif",
+      "800": "/assets/products/responsive/wd40-800.avif",
+      "1024": "/assets/products/responsive/wd40-1024.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1024,
+      1024
+    ]
+  }
+}
