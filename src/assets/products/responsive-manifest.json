@@ -919,5 +919,26 @@
       1024,
       1024
     ]
+  },
+  "different-flange-solution": {
+    "original": "/assets/products/different-flange-solution.jpg",
+    "webp": {
+      "400": "/assets/products/responsive/different-flange-solution-400.webp",
+      "800": "/assets/products/responsive/different-flange-solution-800.webp",
+      "1200": "/assets/products/responsive/different-flange-solution-1200.webp",
+      "1369": "/assets/products/responsive/different-flange-solution-1369.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/different-flange-solution-400.avif",
+      "800": "/assets/products/responsive/different-flange-solution-800.avif",
+      "1200": "/assets/products/responsive/different-flange-solution-1200.avif",
+      "1369": "/assets/products/responsive/different-flange-solution-1369.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1200,
+      1369
+    ]
   }
 }
