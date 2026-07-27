@@ -183,6 +183,7 @@ const productImages: Record<number, string> = {
   46: gtTimingBeltImg,
   47: asbestosPackingImg,
   48: harvesterVBeltImg,
+  49: differentFlangeImg,
 };
 
 
@@ -248,6 +249,7 @@ const allProducts: Product[] = [
   { id: 46, name: "GT Series Timing Belt Solution", category: "Tools", rating: 4.9, description: "Precision GT-series timing belt range engineered for high-torque, high-precision robotronic and industrial drive systems. Includes GATES POWERGRIP GT2 (black neoprene, classic profile), GATES RACING T251RB (blue reinforced, reduced-stretch high-load), red double-sided belts (aesthetic double-tooth profile), 3GTM olive-tan flexible double-sided belts and full 2GT/3GT/5GT curvilinear tooth profiles. High-tensile aramid/glass reinforcement cord, durable neoprene body, wear-resistant nylon tooth cover and protective fabric backing for CNC, 3D printers, robotics, automation and precision motion control." },
   { id: 47, name: "Asbestos Packing Solution", category: "Tools", rating: 4.9, description: "Complete Glane asbestos-family gland packing range for high-temperature, high-pressure valve, pump and rotating-shaft sealing. Includes carbon & flexible graphite braided packing (excellent thermal conductivity, high-temperature resistant matrix), chemical-resistant fiberglass packing with reinforced woven braid and colour marker yarns, custom-set die-formed packing ring configurations and matching set installation tools. Engineered for pumps, valves, agitators, refineries, power plants, chemical processing and general industrial sealing where thermal stability, chemical compatibility and long service life are critical." },
   { id: 48, name: "Harvester V-Belt Solution", category: "Belts", rating: 4.9, description: "Heavy-duty agricultural Harvester V-belt solution engineered for combine harvesters, balers, forage machines and variable-speed drives. Range includes 3-band combo belts (high-tensile aramid cords, polychloroprene base rubber, double-woven fabric wrap), raw-edge cogged custom sets with precision cogging, laminated flat-belt cores (woven polyester cord layer + oil-resistant rubber covers), traceable branded belts (PIX Harvester XV, Bando Total Gold, Turboflex Premium, PEK Harvester) with clear part-number and batch marking. Operates -40°C to +110°C with high load resistance, dust & dirt resistance and shock-load protection for demanding harvest-season performance." },
+  { id: 49, name: "Different Flange Solution", category: "Tools", rating: 4.9, description: "Complete industrial flange range for piping, process and pressure systems. Includes Weld Neck (WN) flanges for high-pressure and high-temperature butt-weld connections, Slip-On (SO) flanges for low-cost, easy-install piping, Blind (BL) flanges for closing pipe ends, Orifice flanges with pressure taps for flow measurement, Lap Joint flanges with stub ends for corrosion-resistant piping, Threaded (THD) flanges for no-weld NPT installations, and Reducing flanges for connecting different pipe diameters. Manufactured in carbon steel, stainless steel and alloy grades to ANSI/ASME B16.5 and B16.47 standards across full pressure classes." },
 ];
 
 

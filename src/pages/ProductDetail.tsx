@@ -102,6 +102,8 @@ import asbestosPackingAsset from "@/assets/products/asbestos-packing-solution.pn
 const asbestosPackingImg = asbestosPackingAsset.url;
 import harvesterVBeltAsset from "@/assets/products/harvester-v-belt.png.asset.json";
 const harvesterVBeltImg = harvesterVBeltAsset.url;
+import differentFlangeAsset from "@/assets/products/different-flange-solution.png.asset.json";
+const differentFlangeImg = differentFlangeAsset.url;
 
 
 
@@ -161,6 +163,7 @@ const productImages: Record<number, string> = {
   46: gtTimingBeltImg,
   47: asbestosPackingImg,
   48: harvesterVBeltImg,
+  49: differentFlangeImg,
 };
 
 const legacyFeaturedProductIds: Record<number, number> = {
@@ -1059,6 +1062,36 @@ const allProducts: Product[] = [
       "Applications": "Combine harvesters, balers, forage machines, threshers, variable-speed drives",
       "Key Benefits": "High load resistance, dust & dirt resistance, shock-load protection",
       "Compliance": "Industry-standard agricultural V-belt cross sections and lengths",
+    },
+  },
+  {
+    id: 49,
+    name: "Different Flange Solution",
+    category: "Tools",
+    rating: 4.9,
+    description: "Complete industrial flange solution covering the full ANSI/ASME range for piping, process and pressure systems. Includes Weld Neck (WN) flanges for high-pressure and high-temperature butt-weld connections, Slip-On (SO) flanges for low-cost and easy installation, Blind (BL) flanges for closing pipe ends, Orifice flanges with integral pressure taps for flow measurement, Lap Joint flanges with matching stub ends for corrosion-resistant piping, Threaded (THD) flanges for no-weld NPT installations, and Reducing flanges for joining different pipe diameters. Manufactured in carbon steel, stainless steel and alloy grades to ANSI/ASME B16.5 and B16.47 standards across pressure classes 150 to 2500, suitable for refineries, petrochemical, power generation, water treatment, marine and general process industries.",
+    features: [
+      "Weld Neck (WN) flanges for high-pressure / high-temperature butt-weld service",
+      "Slip-On (SO) flanges for low-cost, easy-install piping",
+      "Blind (BL) flanges for pressure-tight closure of pipe ends",
+      "Orifice flanges with pressure taps for flow measurement",
+      "Lap Joint flanges with stub ends for corrosion-resistant piping",
+      "Threaded (THD) flanges for no-weld NPT installations",
+      "Reducing flanges for connecting different pipe diameters",
+      "Full ANSI/ASME B16.5 and B16.47 compliance",
+      "Available in carbon steel, stainless steel and special alloy grades",
+    ],
+    specifications: {
+      "Types": "Weld Neck, Slip-On, Blind, Orifice, Lap Joint, Threaded, Reducing",
+      "Standards": "ANSI/ASME B16.5, B16.47, DIN, EN 1092-1, JIS B2220",
+      "Pressure Classes": "150#, 300#, 600#, 900#, 1500#, 2500#",
+      "Size Range": "1/2\" to 60\" (DN15 – DN1500)",
+      "Materials": "Carbon Steel (A105), Stainless Steel (SS304 / SS316 / SS316L), Alloy Steel (F11, F22, F91), Duplex",
+      "Facing Types": "Raised Face (RF), Flat Face (FF), Ring-Type Joint (RTJ), Tongue & Groove",
+      "Temperature Range": "-46°C to +540°C (material dependent)",
+      "Surface Finish": "Serrated / smooth / stock finish per ASME B16.5",
+      "Applications": "Refineries, petrochemical, power plants, water treatment, marine, oil & gas, general process piping",
+      "Testing": "Hydrostatic, PMI, UT, MPI and dimensional inspection with MTC EN 10204 3.1",
     },
   },
 ];
