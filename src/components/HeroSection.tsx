@@ -27,6 +27,9 @@ const HeroSection = () => {
 
   const goTo = (i: number) => setCurrent((i + heroSlides.length) % heroSlides.length);
 
+  return (
+
+
 
     <section className="relative min-h-screen flex items-center overflow-hidden pt-32">
       {/* Background glow effects */}
