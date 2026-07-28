@@ -1,12 +1,36 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, Shield, Truck } from "lucide-react";
+import { ArrowRight, Zap, Shield, Truck, ChevronLeft, ChevronRight } from "lucide-react";
+import heroIndustrial from "@/assets/hero-industrial.jpg";
 import heroCalipers from "@/assets/hero/hero-calipers.jpg.asset.json";
 import heroTablet from "@/assets/hero/hero-tablet.jpg.asset.json";
 import heroCrate from "@/assets/hero/hero-crate.jpg.asset.json";
 
+const heroSlides = [
+  { src: heroIndustrial, alt: "Abbari Enterprise industrial hardware showcase" },
+  { src: heroCalipers.url, alt: "Precision measurement with digital calipers on industrial hardware" },
+  { src: heroTablet.url, alt: "Engineering CAD schematics on a tablet in the workshop" },
+  { src: heroCrate.url, alt: "Secured industrial shipping crate ready for dispatch" },
+];
+
+
 const HeroSection = () => {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCurrent((c) => (c + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(id);
+  }, []);
+
+  const goTo = (i: number) => setCurrent((i + heroSlides.length) % heroSlides.length);
+
   return (
+
+
+
     <section className="relative min-h-screen flex items-center overflow-hidden pt-32">
       {/* Background glow effects */}
       <div className="absolute inset-0 bg-gradient-glow opacity-50" />
@@ -67,32 +91,51 @@ const HeroSection = () => {
 
           {/* Right content - Hero image */}
           <div className="relative scale-[1.05] origin-center">
-            <div className="grid grid-cols-2 grid-rows-2 gap-3 h-[520px]">
-              <div className="relative row-span-2 rounded-3xl overflow-hidden shadow-card border border-border group cursor-pointer">
+            <div className="relative h-[520px] rounded-3xl overflow-hidden shadow-card border border-border group">
+              {heroSlides.map((slide, i) => (
                 <img
-                  src={heroCalipers.url}
-                  alt="Precision measurement with digital calipers on industrial hardware"
-                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                  key={slide.src}
+                  src={slide.src}
+                  alt={slide.alt}
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
+                    i === current ? "opacity-100" : "opacity-0"
+                  }`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
-              </div>
-              <div className="relative rounded-3xl overflow-hidden shadow-card border border-border group cursor-pointer">
-                <img
-                  src={heroTablet.url}
-                  alt="Engineering CAD schematics on a tablet in the workshop"
-                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
-              </div>
-              <div className="relative rounded-3xl overflow-hidden shadow-card border border-border group cursor-pointer">
-                <img
-                  src={heroCrate.url}
-                  alt="Secured industrial shipping crate ready for dispatch"
-                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+              ))}
+              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent pointer-events-none" />
+
+              <button
+                type="button"
+                aria-label="Previous slide"
+                onClick={() => goTo(current - 1)}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/70 hover:bg-background text-foreground flex items-center justify-center backdrop-blur border border-border transition-colors"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                type="button"
+                aria-label="Next slide"
+                onClick={() => goTo(current + 1)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/70 hover:bg-background text-foreground flex items-center justify-center backdrop-blur border border-border transition-colors"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                {heroSlides.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    aria-label={`Go to slide ${i + 1}`}
+                    onClick={() => goTo(i)}
+                    className={`h-2 rounded-full transition-all ${
+                      i === current ? "w-6 bg-primary" : "w-2 bg-background/60 hover:bg-background"
+                    }`}
+                  />
+                ))}
               </div>
             </div>
+
             
             {/* Floating badges */}
             <div className="hidden lg:block absolute -left-4 top-1/4 bg-card p-4 rounded-xl shadow-card border border-border animate-float">
