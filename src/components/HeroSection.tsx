@@ -16,7 +16,18 @@ const heroSlides = [
 
 
 const HeroSection = () => {
-  return (
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCurrent((c) => (c + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(id);
+  }, []);
+
+  const goTo = (i: number) => setCurrent((i + heroSlides.length) % heroSlides.length);
+
+
     <section className="relative min-h-screen flex items-center overflow-hidden pt-32">
       {/* Background glow effects */}
       <div className="absolute inset-0 bg-gradient-glow opacity-50" />
