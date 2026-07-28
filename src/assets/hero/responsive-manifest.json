@@ -1,0 +1,74 @@
+{
+  "hero-calipers": {
+    "original": "/assets/hero/hero-calipers.jpg",
+    "webp": {
+      "640": "/assets/hero/responsive/hero-calipers-640.webp",
+      "1024": "/assets/hero/responsive/hero-calipers-1024.webp"
+    },
+    "avif": {
+      "640": "/assets/hero/responsive/hero-calipers-640.avif",
+      "1024": "/assets/hero/responsive/hero-calipers-1024.avif"
+    },
+    "widths": [
+      640,
+      1024,
+      1024,
+      1024
+    ]
+  },
+  "hero-crate": {
+    "original": "/assets/hero/hero-crate.jpg",
+    "webp": {
+      "640": "/assets/hero/responsive/hero-crate-640.webp",
+      "993": "/assets/hero/responsive/hero-crate-993.webp"
+    },
+    "avif": {
+      "640": "/assets/hero/responsive/hero-crate-640.avif",
+      "993": "/assets/hero/responsive/hero-crate-993.avif"
+    },
+    "widths": [
+      640,
+      993,
+      993,
+      993
+    ]
+  },
+  "hero-industrial": {
+    "original": "/assets/hero/hero-industrial.jpg",
+    "webp": {
+      "640": "/assets/hero/responsive/hero-industrial-640.webp",
+      "1024": "/assets/hero/responsive/hero-industrial-1024.webp",
+      "1280": "/assets/hero/responsive/hero-industrial-1280.webp",
+      "1600": "/assets/hero/responsive/hero-industrial-1600.webp"
+    },
+    "avif": {
+      "640": "/assets/hero/responsive/hero-industrial-640.avif",
+      "1024": "/assets/hero/responsive/hero-industrial-1024.avif",
+      "1280": "/assets/hero/responsive/hero-industrial-1280.avif",
+      "1600": "/assets/hero/responsive/hero-industrial-1600.avif"
+    },
+    "widths": [
+      640,
+      1024,
+      1280,
+      1600
+    ]
+  },
+  "hero-tablet": {
+    "original": "/assets/hero/hero-tablet.jpg",
+    "webp": {
+      "640": "/assets/hero/responsive/hero-tablet-640.webp",
+      "1024": "/assets/hero/responsive/hero-tablet-1024.webp"
+    },
+    "avif": {
+      "640": "/assets/hero/responsive/hero-tablet-640.avif",
+      "1024": "/assets/hero/responsive/hero-tablet-1024.avif"
+    },
+    "widths": [
+      640,
+      1024,
+      1024,
+      1024
+    ]
+  }
+}
