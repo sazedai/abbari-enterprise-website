@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Shield, Truck } from "lucide-react";
-import heroImage from "@/assets/hero-industrial.jpg";
+import heroCalipers from "@/assets/hero/hero-calipers.jpg.asset.json";
+import heroTablet from "@/assets/hero/hero-tablet.jpg.asset.json";
+import heroCrate from "@/assets/hero/hero-crate.jpg.asset.json";
 
 const HeroSection = () => {
   return (
@@ -64,14 +66,32 @@ const HeroSection = () => {
           </div>
 
           {/* Right content - Hero image */}
-          <div className="relative scale-[1.15] origin-center">
-            <div className="relative z-10 rounded-3xl overflow-hidden shadow-card border border-border group cursor-pointer">
-              <img
-                src={heroImage}
-                alt="Industrial hardware collection featuring belts, bearings, and tools"
-                className="w-full h-auto object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+          <div className="relative scale-[1.05] origin-center">
+            <div className="grid grid-cols-2 grid-rows-2 gap-3 h-[520px]">
+              <div className="relative row-span-2 rounded-3xl overflow-hidden shadow-card border border-border group cursor-pointer">
+                <img
+                  src={heroCalipers.url}
+                  alt="Precision measurement with digital calipers on industrial hardware"
+                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+              </div>
+              <div className="relative rounded-3xl overflow-hidden shadow-card border border-border group cursor-pointer">
+                <img
+                  src={heroTablet.url}
+                  alt="Engineering CAD schematics on a tablet in the workshop"
+                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+              </div>
+              <div className="relative rounded-3xl overflow-hidden shadow-card border border-border group cursor-pointer">
+                <img
+                  src={heroCrate.url}
+                  alt="Secured industrial shipping crate ready for dispatch"
+                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+              </div>
             </div>
             
             {/* Floating badges */}
