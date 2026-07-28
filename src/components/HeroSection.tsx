@@ -180,7 +180,7 @@ const HeroSection = () => {
                 </div>
                 <div>
                   <p className="font-semibold text-foreground">Quality Assured</p>
-                  <p className="text-xs text-muted-foreground">ISO 9001 Certified</p>
+                  <p className="text-xs text-muted-foreground">Rigorous Standards</p>
                 </div>
               </div>
             </div>

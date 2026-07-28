@@ -57,7 +57,7 @@ const CTASection = () => {
 
           {/* Trust badges */}
           <div className="mt-12 flex flex-wrap justify-center gap-8">
-            {["ISO 9001 Certified", "Secure Payments", "Trusted by 2000+ Companies"].map((badge) => (
+            {["Rigorous Standards", "Secure Payments", "Trusted by 2000+ Companies"].map((badge) => (
               <div key={badge} className="flex items-center gap-2 text-muted-foreground">
                 <div className="w-2 h-2 rounded-full bg-primary" />
                 <span className="text-sm">{badge}</span>
