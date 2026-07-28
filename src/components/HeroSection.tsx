@@ -2,18 +2,27 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Shield, Truck, ChevronLeft, ChevronRight } from "lucide-react";
-import heroIndustrial from "@/assets/hero-industrial.jpg";
-import heroCalipers from "@/assets/hero/hero-calipers.jpg.asset.json";
-import heroTablet from "@/assets/hero/hero-tablet.jpg.asset.json";
-import heroCrate from "@/assets/hero/hero-crate.jpg.asset.json";
+import heroManifest from "@/assets/hero/responsive-manifest.json";
 
-const heroSlides = [
-  { src: heroIndustrial, alt: "Abbari Enterprise industrial hardware showcase" },
-  { src: heroCalipers.url, alt: "Precision measurement with digital calipers on industrial hardware" },
-  { src: heroTablet.url, alt: "Engineering CAD schematics on a tablet in the workshop" },
-  { src: heroCrate.url, alt: "Secured industrial shipping crate ready for dispatch" },
+type HeroEntry = {
+  original: string;
+  webp: Record<string, string>;
+  avif: Record<string, string>;
+  widths: number[];
+};
+const manifest = heroManifest as Record<string, HeroEntry>;
+
+const heroSlides: { base: string; alt: string }[] = [
+  { base: "hero-industrial", alt: "Abbari Enterprise industrial hardware showcase" },
+  { base: "hero-calipers", alt: "Precision measurement with digital calipers on industrial hardware" },
+  { base: "hero-tablet", alt: "Engineering CAD schematics on a tablet in the workshop" },
+  { base: "hero-crate", alt: "Secured industrial shipping crate ready for dispatch" },
 ];
 
+const sizesAttr = "(max-width: 1024px) 100vw, 50vw";
+
+const toSrcSet = (map: Record<string, string>) =>
+  Object.entries(map).map(([w, url]) => `${url} ${w}w`).join(", ");
 
 const HeroSection = () => {
   const [current, setCurrent] = useState(0);
@@ -25,12 +34,25 @@ const HeroSection = () => {
     return () => clearInterval(id);
   }, []);
 
+  // Preload the next slide's AVIF at a mid width so transitions feel instant.
+  useEffect(() => {
+    const next = heroSlides[(current + 1) % heroSlides.length];
+    const entry = manifest[next.base];
+    if (!entry) return;
+    const url = entry.avif[1024] || entry.webp[1024] || entry.original;
+    const link = document.createElement("link");
+    link.rel = "preload";
+    link.as = "image";
+    link.href = url;
+    document.head.appendChild(link);
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, [current]);
+
   const goTo = (i: number) => setCurrent((i + heroSlides.length) % heroSlides.length);
 
   return (
-
-
-
     <section className="relative min-h-screen flex items-center overflow-hidden pt-32">
       {/* Background glow effects */}
       <div className="absolute inset-0 bg-gradient-glow opacity-50" />
@@ -92,16 +114,30 @@ const HeroSection = () => {
           {/* Right content - Hero image */}
           <div className="relative scale-[1.05] origin-center">
             <div className="relative h-[520px] rounded-3xl overflow-hidden shadow-card border border-border group">
-              {heroSlides.map((slide, i) => (
-                <img
-                  key={slide.src}
-                  src={slide.src}
-                  alt={slide.alt}
-                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
-                    i === current ? "opacity-100" : "opacity-0"
-                  }`}
-                />
-              ))}
+              {heroSlides.map((slide, i) => {
+                const entry = manifest[slide.base];
+                const isLCP = i === 0;
+                const isActive = i === current;
+                const commonImg = {
+                  alt: slide.alt,
+                  className: `absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
+                    isActive ? "opacity-100" : "opacity-0"
+                  }`,
+                  loading: isLCP ? ("eager" as const) : ("lazy" as const),
+                  decoding: "async" as const,
+                  fetchPriority: isLCP ? ("high" as const) : ("low" as const),
+                };
+                if (!entry) {
+                  return <img key={slide.base} src={`/assets/hero/${slide.base}.jpg`} {...commonImg} />;
+                }
+                return (
+                  <picture key={slide.base}>
+                    <source type="image/avif" srcSet={toSrcSet(entry.avif)} sizes={sizesAttr} />
+                    <source type="image/webp" srcSet={toSrcSet(entry.webp)} sizes={sizesAttr} />
+                    <img src={entry.original} {...commonImg} />
+                  </picture>
+                );
+              })}
               <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent pointer-events-none" />
 
               <button
@@ -136,7 +172,6 @@ const HeroSection = () => {
               </div>
             </div>
 
-            
             {/* Floating badges */}
             <div className="hidden lg:block absolute -left-4 top-1/4 bg-card p-4 rounded-xl shadow-card border border-border animate-float">
               <div className="flex items-center gap-3">
