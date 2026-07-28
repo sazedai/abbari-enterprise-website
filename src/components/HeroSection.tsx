@@ -1,9 +1,19 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, Shield, Truck } from "lucide-react";
+import { ArrowRight, Zap, Shield, Truck, ChevronLeft, ChevronRight } from "lucide-react";
+import heroIndustrial from "@/assets/hero-industrial.jpg";
 import heroCalipers from "@/assets/hero/hero-calipers.jpg.asset.json";
 import heroTablet from "@/assets/hero/hero-tablet.jpg.asset.json";
 import heroCrate from "@/assets/hero/hero-crate.jpg.asset.json";
+
+const heroSlides = [
+  { src: heroIndustrial, alt: "Abbari Enterprise industrial hardware showcase" },
+  { src: heroCalipers.url, alt: "Precision measurement with digital calipers on industrial hardware" },
+  { src: heroTablet.url, alt: "Engineering CAD schematics on a tablet in the workshop" },
+  { src: heroCrate.url, alt: "Secured industrial shipping crate ready for dispatch" },
+];
+
 
 const HeroSection = () => {
   return (
