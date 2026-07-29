@@ -1190,6 +1190,24 @@ const ProductDetail = () => {
   const productId = legacyFeaturedProductIds[routeProductId] || routeProductId;
   const product = allProducts.find((p) => p.id === productId);
 
+  const productImage = product ? (productImages[product.id] || productBelts) : productBelts;
+  const gallery = product ? (productGallery[product.id] ?? [productImage]) : [productImage];
+  const [activeImage, setActiveImage] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [zoom, setZoom] = useState(1);
+  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const [dragging, setDragging] = useState<{ x: number; y: number } | null>(null);
+
+  const openLightbox = () => { setZoom(1); setPan({ x: 0, y: 0 }); setLightboxOpen(true); };
+  const closeLightbox = () => setLightboxOpen(false);
+  const zoomIn = () => setZoom((z) => Math.min(5, +(z + 0.5).toFixed(2)));
+  const zoomOut = () => setZoom((z) => Math.max(1, +(z - 0.5).toFixed(2)));
+  const resetZoom = () => { setZoom(1); setPan({ x: 0, y: 0 }); };
+  const onWheel = (e: React.WheelEvent) => {
+    e.preventDefault();
+    setZoom((z) => Math.max(1, Math.min(5, +(z + (e.deltaY < 0 ? 0.25 : -0.25)).toFixed(2))));
+  };
+
   if (!product) {
     return (
       <main className="min-h-screen bg-background">
@@ -1211,23 +1229,6 @@ const ProductDetail = () => {
     );
   }
 
-  const productImage = productImages[product.id] || productBelts;
-  const gallery = productGallery[product.id] ?? [productImage];
-  const [activeImage, setActiveImage] = useState(0);
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [zoom, setZoom] = useState(1);
-  const [pan, setPan] = useState({ x: 0, y: 0 });
-  const [dragging, setDragging] = useState<{ x: number; y: number } | null>(null);
-
-  const openLightbox = () => { setZoom(1); setPan({ x: 0, y: 0 }); setLightboxOpen(true); };
-  const closeLightbox = () => setLightboxOpen(false);
-  const zoomIn = () => setZoom((z) => Math.min(5, +(z + 0.5).toFixed(2)));
-  const zoomOut = () => setZoom((z) => Math.max(1, +(z - 0.5).toFixed(2)));
-  const resetZoom = () => { setZoom(1); setPan({ x: 0, y: 0 }); };
-  const onWheel = (e: React.WheelEvent) => {
-    e.preventDefault();
-    setZoom((z) => Math.max(1, Math.min(5, +(z + (e.deltaY < 0 ? 0.25 : -0.25)).toFixed(2))));
-  };
 
   const handleAddToCart = () => {
     addItem({
