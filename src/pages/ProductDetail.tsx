@@ -1,9 +1,10 @@
+import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Star, ShoppingCart, Package, Shield, Truck, CheckCircle } from "lucide-react";
+import { ArrowLeft, Star, ShoppingCart, Package, Shield, Truck, CheckCircle, X, ZoomIn, ZoomOut, RotateCcw } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
 
