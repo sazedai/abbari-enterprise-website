@@ -277,6 +277,7 @@ const VARIANT_KEYWORDS = [
   "PVC", "Rubber Sheet", "Silicone", "Teflon", "Cork", "Nylon", "Gasket",
   "SKF", "Tapered", "Thrust", "Bearing",
   "WD-40", "Cutting", "Stainless Steel", "Fencing", "Pneumatic", "Aluminium Tape", "Glane", "Asbestos", "GT",
+  "Spray Paint", "Flange",
   "Rock Wool", "Glass Wool", "Bitumen", "Geotextile",
 ];
 

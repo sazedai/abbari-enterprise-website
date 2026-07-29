@@ -1,9 +1,10 @@
+import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Star, ShoppingCart, Package, Shield, Truck, CheckCircle } from "lucide-react";
+import { ArrowLeft, Star, ShoppingCart, Package, Shield, Truck, CheckCircle, X, ZoomIn, ZoomOut, RotateCcw } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { toast } from "sonner";
 
@@ -170,6 +171,15 @@ const productImages: Record<number, string> = {
   49: differentFlangeImg,
   50: linexBeltingImg,
   51: industrialSprayPaintImg,
+};
+
+const productGallery: Record<number, string[]> = {
+  51: [
+    industrialSprayPaintImg,
+    "/assets/products/industrial-spray-paint-detail-nozzle.png",
+    "/assets/products/industrial-spray-paint-detail-cans.png",
+    "/assets/products/industrial-spray-paint-detail-range.png",
+  ],
 };
 
 const legacyFeaturedProductIds: Record<number, number> = {
@@ -1180,6 +1190,24 @@ const ProductDetail = () => {
   const productId = legacyFeaturedProductIds[routeProductId] || routeProductId;
   const product = allProducts.find((p) => p.id === productId);
 
+  const productImage = product ? (productImages[product.id] || productBelts) : productBelts;
+  const gallery = product ? (productGallery[product.id] ?? [productImage]) : [productImage];
+  const [activeImage, setActiveImage] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [zoom, setZoom] = useState(1);
+  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const [dragging, setDragging] = useState<{ x: number; y: number } | null>(null);
+
+  const openLightbox = () => { setZoom(1); setPan({ x: 0, y: 0 }); setLightboxOpen(true); };
+  const closeLightbox = () => setLightboxOpen(false);
+  const zoomIn = () => setZoom((z) => Math.min(5, +(z + 0.5).toFixed(2)));
+  const zoomOut = () => setZoom((z) => Math.max(1, +(z - 0.5).toFixed(2)));
+  const resetZoom = () => { setZoom(1); setPan({ x: 0, y: 0 }); };
+  const onWheel = (e: React.WheelEvent) => {
+    e.preventDefault();
+    setZoom((z) => Math.max(1, Math.min(5, +(z + (e.deltaY < 0 ? 0.25 : -0.25)).toFixed(2))));
+  };
+
   if (!product) {
     return (
       <main className="min-h-screen bg-background">
@@ -1201,7 +1229,6 @@ const ProductDetail = () => {
     );
   }
 
-  const productImage = productImages[product.id] || productBelts;
 
   const handleAddToCart = () => {
     addItem({
@@ -1288,19 +1315,93 @@ const ProductDetail = () => {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Product Image */}
             <div className="relative">
-              <div className="aspect-square rounded-2xl overflow-hidden bg-card border border-border">
+              <button
+                type="button"
+                onClick={openLightbox}
+                aria-label="Open image lightbox"
+                className="group aspect-square w-full rounded-2xl overflow-hidden bg-card border border-border relative block"
+              >
                 <img
-                  src={productImage}
+                  src={gallery[activeImage]}
                   alt={product.name}
-                  className="w-full h-full object-cover select-none pointer-events-none"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   draggable={false}
                 />
                 <div className="absolute inset-0 bg-foreground/5" />
-              </div>
+                <div className="absolute bottom-3 right-3 bg-background/80 backdrop-blur-sm border border-border rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <ZoomIn className="w-4 h-4 text-foreground" />
+                </div>
+              </button>
               <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
                 {product.category}
               </div>
+              {gallery.length > 1 && (
+                <div className="mt-4 grid grid-cols-4 gap-3">
+                  {gallery.map((src, i) => (
+                    <button
+                      key={src}
+                      type="button"
+                      onClick={() => setActiveImage(i)}
+                      aria-label={`View image ${i + 1}`}
+                      className={`aspect-square rounded-lg overflow-hidden border-2 transition-all ${
+                        activeImage === i ? "border-primary shadow-glow" : "border-border hover:border-primary/50"
+                      }`}
+                    >
+                      <img src={src} alt={`${product.name} view ${i + 1}`} className="w-full h-full object-cover" draggable={false} />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
+
+            {lightboxOpen && (
+              <div
+                className="fixed inset-0 z-[100] bg-background/95 backdrop-blur-md flex items-center justify-center"
+                onClick={closeLightbox}
+              >
+                <div className="absolute top-4 right-4 flex items-center gap-2 z-10" onClick={(e) => e.stopPropagation()}>
+                  <Button variant="outline" size="icon" onClick={zoomOut} aria-label="Zoom out"><ZoomOut className="w-4 h-4" /></Button>
+                  <span className="text-sm text-foreground w-14 text-center tabular-nums">{Math.round(zoom * 100)}%</span>
+                  <Button variant="outline" size="icon" onClick={zoomIn} aria-label="Zoom in"><ZoomIn className="w-4 h-4" /></Button>
+                  <Button variant="outline" size="icon" onClick={resetZoom} aria-label="Reset zoom"><RotateCcw className="w-4 h-4" /></Button>
+                  <Button variant="outline" size="icon" onClick={closeLightbox} aria-label="Close"><X className="w-4 h-4" /></Button>
+                </div>
+                <div
+                  className="max-w-[90vw] max-h-[85vh] overflow-hidden"
+                  onClick={(e) => e.stopPropagation()}
+                  onWheel={onWheel}
+                  onMouseDown={(e) => setDragging({ x: e.clientX - pan.x, y: e.clientY - pan.y })}
+                  onMouseMove={(e) => dragging && setPan({ x: e.clientX - dragging.x, y: e.clientY - dragging.y })}
+                  onMouseUp={() => setDragging(null)}
+                  onMouseLeave={() => setDragging(null)}
+                  style={{ cursor: zoom > 1 ? (dragging ? "grabbing" : "grab") : "zoom-in" }}
+                >
+                  <img
+                    src={gallery[activeImage]}
+                    alt={product.name}
+                    draggable={false}
+                    className="max-w-[90vw] max-h-[85vh] object-contain select-none transition-transform duration-100"
+                    style={{ transform: `translate(${pan.x}px, ${pan.y}px) scale(${zoom})` }}
+                  />
+                </div>
+                {gallery.length > 1 && (
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2" onClick={(e) => e.stopPropagation()}>
+                    {gallery.map((src, i) => (
+                      <button
+                        key={src}
+                        type="button"
+                        onClick={() => { setActiveImage(i); resetZoom(); }}
+                        className={`w-14 h-14 rounded-md overflow-hidden border-2 ${activeImage === i ? "border-primary" : "border-border/60"}`}
+                        aria-label={`Lightbox image ${i + 1}`}
+                      >
+                        <img src={src} alt="" className="w-full h-full object-cover" draggable={false} />
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+
 
             {/* Product Info */}
             <div className="space-y-6">
