@@ -117,6 +117,8 @@ import differentFlangeAsset from "@/assets/products/different-flange-solution.pn
 const differentFlangeImg = differentFlangeAsset.url;
 import linexBeltingAsset from "@/assets/products/linex-belting-solution.png.asset.json";
 const linexBeltingImg = linexBeltingAsset.url;
+import industrialSprayPaintAsset from "@/assets/products/industrial-spray-paint-solution.png.asset.json";
+const industrialSprayPaintImg = industrialSprayPaintAsset.url;
 
 
 
@@ -187,6 +189,7 @@ const productImages: Record<number, string> = {
   48: harvesterVBeltImg,
   49: differentFlangeImg,
   50: linexBeltingImg,
+  51: industrialSprayPaintImg,
 };
 
 
@@ -254,6 +257,7 @@ const allProducts: Product[] = [
   { id: 48, name: "Harvester V-Belt Solution", category: "Belts", rating: 4.9, description: "Heavy-duty agricultural Harvester V-belt solution engineered for combine harvesters, balers, forage machines and variable-speed drives. Range includes 3-band combo belts (high-tensile aramid cords, polychloroprene base rubber, double-woven fabric wrap), raw-edge cogged custom sets with precision cogging, laminated flat-belt cores (woven polyester cord layer + oil-resistant rubber covers), traceable branded belts (PIX Harvester XV, Bando Total Gold, Turboflex Premium, PEK Harvester) with clear part-number and batch marking. Operates -40°C to +110°C with high load resistance, dust & dirt resistance and shock-load protection for demanding harvest-season performance." },
   { id: 49, name: "Different Flange Solution", category: "Tools", rating: 4.9, description: "Complete industrial flange range for piping, process and pressure systems. Includes Weld Neck (WN) flanges for high-pressure and high-temperature butt-weld connections, Slip-On (SO) flanges for low-cost, easy-install piping, Blind (BL) flanges for closing pipe ends, Orifice flanges with pressure taps for flow measurement, Lap Joint flanges with stub ends for corrosion-resistant piping, Threaded (THD) flanges for no-weld NPT installations, and Reducing flanges for connecting different pipe diameters. Manufactured in carbon steel, stainless steel and alloy grades to ANSI/ASME B16.5 and B16.47 standards across full pressure classes." },
   { id: 50, name: "Linex Belting Solution", category: "Belts", rating: 4.9, description: "Precision-engineered Linex belting range featuring advanced metallic splice technology for high-strength, flexible joints and minimal downtime, a high-tensile polymer core for extreme stretch resistance and reliable power transmission, and a specialized grip texture that optimizes traction and prevents belt slippage. Multi-layer construction with reinforced fabric interlayers, available in custom widths, lengths and profiles for conveying, packaging, printing, textile, food processing and general industrial drives." },
+  { id: 51, name: "Industrial Spray Paint Solution", category: "Tools", rating: 4.9, description: "Advanced industrial spray paint range engineered with precision nozzle valves, stainless-steel ball agitators, ergonomic actuator buttons, pressure-rated aerosol cans and durable polymer coatings. Includes Acrylic Lacquer for high-gloss commercial machinery finishes, Metal-Effect chrome & KT gold for architectural accents, Hi-Temp for engines and exhausts, Fluorescent for high-visibility marking, and All-Purpose fast-drying coating for maintenance and repairs." },
 ];
 
 
