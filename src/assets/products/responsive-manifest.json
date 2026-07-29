@@ -178,6 +178,27 @@
       1119
     ]
   },
+  "different-flange-solution": {
+    "original": "/assets/products/different-flange-solution.jpg",
+    "webp": {
+      "400": "/assets/products/responsive/different-flange-solution-400.webp",
+      "800": "/assets/products/responsive/different-flange-solution-800.webp",
+      "1200": "/assets/products/responsive/different-flange-solution-1200.webp",
+      "1369": "/assets/products/responsive/different-flange-solution-1369.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/different-flange-solution-400.avif",
+      "800": "/assets/products/responsive/different-flange-solution-800.avif",
+      "1200": "/assets/products/responsive/different-flange-solution-1200.avif",
+      "1369": "/assets/products/responsive/different-flange-solution-1369.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1200,
+      1369
+    ]
+  },
   "fencing-barbwire": {
     "original": "/assets/products/fencing-barbwire.jpeg",
     "webp": {
@@ -372,6 +393,48 @@
       800,
       1200,
       1426
+    ]
+  },
+  "industrial-spray-paint-solution": {
+    "original": "/assets/products/industrial-spray-paint-solution.png",
+    "webp": {
+      "400": "/assets/products/responsive/industrial-spray-paint-solution-400.webp",
+      "800": "/assets/products/responsive/industrial-spray-paint-solution-800.webp",
+      "1200": "/assets/products/responsive/industrial-spray-paint-solution-1200.webp",
+      "1444": "/assets/products/responsive/industrial-spray-paint-solution-1444.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/industrial-spray-paint-solution-400.avif",
+      "800": "/assets/products/responsive/industrial-spray-paint-solution-800.avif",
+      "1200": "/assets/products/responsive/industrial-spray-paint-solution-1200.avif",
+      "1444": "/assets/products/responsive/industrial-spray-paint-solution-1444.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1200,
+      1444
+    ]
+  },
+  "linex-belting-solution": {
+    "original": "/assets/products/linex-belting-solution.png",
+    "webp": {
+      "400": "/assets/products/responsive/linex-belting-solution-400.webp",
+      "800": "/assets/products/responsive/linex-belting-solution-800.webp",
+      "1200": "/assets/products/responsive/linex-belting-solution-1200.webp",
+      "1600": "/assets/products/responsive/linex-belting-solution-1600.webp"
+    },
+    "avif": {
+      "400": "/assets/products/responsive/linex-belting-solution-400.avif",
+      "800": "/assets/products/responsive/linex-belting-solution-800.avif",
+      "1200": "/assets/products/responsive/linex-belting-solution-1200.avif",
+      "1600": "/assets/products/responsive/linex-belting-solution-1600.avif"
+    },
+    "widths": [
+      400,
+      800,
+      1200,
+      1600
     ]
   },
   "nylon-shaft-solution": {
@@ -918,27 +981,6 @@
       800,
       1024,
       1024
-    ]
-  },
-  "different-flange-solution": {
-    "original": "/assets/products/different-flange-solution.jpg",
-    "webp": {
-      "400": "/assets/products/responsive/different-flange-solution-400.webp",
-      "800": "/assets/products/responsive/different-flange-solution-800.webp",
-      "1200": "/assets/products/responsive/different-flange-solution-1200.webp",
-      "1369": "/assets/products/responsive/different-flange-solution-1369.webp"
-    },
-    "avif": {
-      "400": "/assets/products/responsive/different-flange-solution-400.avif",
-      "800": "/assets/products/responsive/different-flange-solution-800.avif",
-      "1200": "/assets/products/responsive/different-flange-solution-1200.avif",
-      "1369": "/assets/products/responsive/different-flange-solution-1369.avif"
-    },
-    "widths": [
-      400,
-      800,
-      1200,
-      1369
     ]
   }
 }
