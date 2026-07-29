@@ -173,6 +173,15 @@ const productImages: Record<number, string> = {
   51: industrialSprayPaintImg,
 };
 
+const productGallery: Record<number, string[]> = {
+  51: [
+    industrialSprayPaintImg,
+    "/assets/products/industrial-spray-paint-detail-nozzle.png",
+    "/assets/products/industrial-spray-paint-detail-cans.png",
+    "/assets/products/industrial-spray-paint-detail-range.png",
+  ],
+};
+
 const legacyFeaturedProductIds: Record<number, number> = {
   101: 15,
   102: 16,
