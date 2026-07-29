@@ -106,6 +106,8 @@ import differentFlangeAsset from "@/assets/products/different-flange-solution.pn
 const differentFlangeImg = differentFlangeAsset.url;
 import linexBeltingAsset from "@/assets/products/linex-belting-solution.png.asset.json";
 const linexBeltingImg = linexBeltingAsset.url;
+import industrialSprayPaintAsset from "@/assets/products/industrial-spray-paint-solution.png.asset.json";
+const industrialSprayPaintImg = industrialSprayPaintAsset.url;
 
 
 
@@ -167,6 +169,7 @@ const productImages: Record<number, string> = {
   48: harvesterVBeltImg,
   49: differentFlangeImg,
   50: linexBeltingImg,
+  51: industrialSprayPaintImg,
 };
 
 const legacyFeaturedProductIds: Record<number, number> = {
@@ -1125,6 +1128,39 @@ const allProducts: Product[] = [
       "Applications": "Conveying, packaging, printing, textile, food processing, robotics",
       "Color Options": "White, black, green, custom",
       "Compliance": "Industry-standard flat belt profiles and food-grade options",
+    },
+  },
+  {
+    id: 51,
+    name: "Industrial Spray Paint Solution",
+    category: "Tools",
+    rating: 4.9,
+    description: "Advanced Industrial Spray Paint Solution engineered for precision, durability and diverse industrial finishing needs. The range combines stainless-steel ball agitators for superior mixing, precision nozzle valves for controlled application, ergonomic actuator buttons for reduced operator fatigue, pressure-rated aerosol cans for safe storage and durable polymer coatings for can protection. Complete finish portfolio includes Acrylic Lacquer for high-gloss commercial machinery and rail components, Metal-Effect chrome and KT gold for architectural accents, Hi-Temp for engines, exhausts and cookware, Fluorescent for high-visibility marking and safety signage, and All-Purpose fast-drying industrial coating for maintenance, repairs and general fabrication.",
+    features: [
+      "Stainless-steel ball agitators for superior pigment mixing",
+      "Precision nozzle valve for controlled, even fan spray",
+      "Ergonomic actuator button reduces operator fatigue on long jobs",
+      "Pressure-rated aerosol can construction for safe transport & storage",
+      "Durable polymer external coating protects the can from corrosion",
+      "Acrylic Lacquer variant — durable high-gloss finish for machinery & rail components",
+      "Metal-Effect chrome & KT gold for architectural and decorative accents",
+      "Hi-Temp variant withstands high heat for engines, exhausts and cookware",
+      "Fluorescent variant for high-visibility marking, safety and signage",
+      "All-Purpose fast-drying coating for maintenance, touch-ups and repairs",
+    ],
+    specifications: {
+      "Variants": "Acrylic Lacquer, Metal-Effect (Chrome / KT Gold), Hi-Temp, Fluorescent, All-Purpose Industrial",
+      "Can Volume": "150ml, 300ml, 400ml, 450ml (variant dependent)",
+      "Propellant": "Non-CFC hydrocarbon (LPG blend)",
+      "Nozzle": "Precision fan-spray nozzle, ergonomic actuator button",
+      "Agitator": "Dual stainless-steel mixing balls",
+      "Drying Time": "Touch-dry 5–10 min, fully cured in 24 hrs",
+      "Coverage": "Approx. 1.5–2.0 m² per 400ml can (single coat)",
+      "Temperature Resistance": "Standard up to 90°C; Hi-Temp up to 650°C",
+      "Finish Options": "High-gloss, matte, satin, metallic chrome, KT gold, fluorescent",
+      "Substrates": "Metal, wood, plastic, ceramic, glass, masonry (primer recommended)",
+      "Compliance": "REACH, RoHS, EN 71-3 (variant dependent); pressure-rated per ADR/IMDG",
+      "Applications": "Machinery, automotive, marine, HVAC, signage, architectural accents, maintenance & repair",
     },
   },
 ];
