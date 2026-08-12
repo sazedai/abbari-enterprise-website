@@ -23,12 +23,15 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border">
       {/* Top bar */}
       <div className="bg-primary/10 py-2">
-        <div className="container mx-auto px-4 flex justify-between items-center text-sm">
-          <div className="flex items-center gap-2">
+        <div className="container mx-auto px-4 grid grid-cols-3 items-center text-sm">
+          <div className="flex items-center gap-2 justify-start">
             <Phone className="w-4 h-4 text-[#39FF14]" />
             <span className="text-[#39FF14] font-medium">+880 1711 596721</span>
           </div>
-          <div className="hidden md:flex items-center gap-4">
+          <div className="text-[#39FF14] font-bengali font-medium text-xs sm:text-sm md:text-base text-center leading-none">
+            এ বারী এন্টারপ্রাইজ
+          </div>
+          <div className="hidden md:flex items-center gap-4 justify-end">
             <Link to="/admin" className="text-muted-foreground hover:text-primary transition-colors">
               Admin Portal
             </Link>
