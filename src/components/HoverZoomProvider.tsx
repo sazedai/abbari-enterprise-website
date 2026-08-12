@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState, useCallback, WheelEvent, PointerEvent } from "react";
+import { LIGHTBOX_EVENT, type LightboxDetail } from "@/lib/lightbox";
 
 const MIN_SIZE = 60; // ignore tiny icons/logos
 
 const HoverZoomProvider = () => {
-  const [src, setSrc] = useState<string | null>(null);
+  const [images, setImages] = useState<string[] | null>(null);
+  const [index, setIndex] = useState(0);
   const [alt, setAlt] = useState<string>("");
   const [scale, setScale] = useState(1);
   const [tx, setTx] = useState(0);
@@ -11,8 +13,22 @@ const HoverZoomProvider = () => {
   const draggingRef = useRef(false);
   const lastPtRef = useRef<{ x: number; y: number } | null>(null);
 
+  const src = images ? images[index] : null;
+
+  const resetView = useCallback(() => {
+    setScale(1);
+    setTx(0);
+    setTy(0);
+  }, []);
+
   const close = useCallback(() => {
-    setSrc(null);
+    setImages(null);
+    setIndex(0);
+    resetView();
+  }, [resetView]);
+
+  const goTo = useCallback((i: number) => {
+    setIndex(i);
     setScale(1);
     setTx(0);
     setTy(0);
@@ -37,13 +53,27 @@ const HoverZoomProvider = () => {
       e.preventDefault();
       e.stopPropagation();
       const img = target as HTMLImageElement;
-      setSrc(img.currentSrc || img.src);
+      setImages([img.currentSrc || img.src]);
+      setIndex(0);
       setAlt(img.alt || "");
     };
 
+    const onOpen = (e: Event) => {
+      const detail = (e as CustomEvent<LightboxDetail>).detail;
+      if (!detail?.images?.length) return;
+      setImages(detail.images);
+      setIndex(detail.index ?? 0);
+      setAlt(detail.alt ?? "");
+      setScale(1);
+      setTx(0);
+      setTy(0);
+    };
+
     document.addEventListener("click", onClick, true);
+    window.addEventListener(LIGHTBOX_EVENT, onOpen as EventListener);
     return () => {
       document.removeEventListener("click", onClick, true);
+      window.removeEventListener(LIGHTBOX_EVENT, onOpen as EventListener);
     };
   }, []);
 
@@ -51,6 +81,8 @@ const HoverZoomProvider = () => {
     if (!src) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
+      if (e.key === "ArrowRight") setIndex((i) => (images ? (i + 1) % images.length : i));
+      if (e.key === "ArrowLeft") setIndex((i) => (images ? (i - 1 + images.length) % images.length : i));
     };
     window.addEventListener("keydown", onKey);
     const prevOverflow = document.body.style.overflow;
@@ -59,7 +91,7 @@ const HoverZoomProvider = () => {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = prevOverflow;
     };
-  }, [src, close]);
+  }, [src, images, close]);
 
   const zoomBy = (delta: number) => {
     setScale((s) => {
@@ -73,7 +105,6 @@ const HoverZoomProvider = () => {
   };
 
   const onWheel = (e: WheelEvent<HTMLDivElement>) => {
-    e.preventDefault();
     zoomBy(e.deltaY > 0 ? -0.2 : 0.2);
   };
 
@@ -99,7 +130,7 @@ const HoverZoomProvider = () => {
     } catch {}
   };
 
-  if (!src) return null;
+  if (!src || !images) return null;
 
   return (
     <div
@@ -134,11 +165,31 @@ const HoverZoomProvider = () => {
           className="h-9 w-9 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors flex items-center justify-center text-foreground"
         >+</button>
         <button
-          onClick={() => { setScale(1); setTx(0); setTy(0); }}
+          onClick={resetView}
           aria-label="Reset zoom"
           className="h-9 px-3 rounded-full hover:bg-primary hover:text-primary-foreground transition-colors text-sm text-foreground"
         >Reset</button>
       </div>
+
+      {/* Prev / next */}
+      {images.length > 1 && (
+        <>
+          <button
+            onClick={() => goTo((index - 1 + images.length) % images.length)}
+            aria-label="Previous image"
+            className="absolute left-5 top-1/2 -translate-y-1/2 h-11 w-11 rounded-full bg-card/90 border border-border text-foreground hover:bg-primary hover:text-primary-foreground transition-colors flex items-center justify-center shadow-lg z-10"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button
+            onClick={() => goTo((index + 1) % images.length)}
+            aria-label="Next image"
+            className="absolute right-5 top-1/2 -translate-y-1/2 h-11 w-11 rounded-full bg-card/90 border border-border text-foreground hover:bg-primary hover:text-primary-foreground transition-colors flex items-center justify-center shadow-lg z-10"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </>
+      )}
 
       <div
         className="w-full h-full flex items-center justify-center overflow-hidden select-none"
@@ -160,6 +211,24 @@ const HoverZoomProvider = () => {
           }}
         />
       </div>
+
+      {/* Thumbnails */}
+      {images.length > 1 && (
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-card/90 border border-border rounded-2xl p-2 shadow-lg z-10">
+          {images.map((img, i) => (
+            <button
+              key={img + i}
+              onClick={() => goTo(i)}
+              aria-label={`View image ${i + 1}`}
+              className={`h-14 w-14 rounded-lg overflow-hidden border-2 transition-colors ${
+                i === index ? "border-primary" : "border-transparent hover:border-primary/50"
+              }`}
+            >
+              <img src={img} alt="" data-no-zoom className="w-full h-full object-cover" />
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

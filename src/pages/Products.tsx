@@ -4,7 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
-import { Search, Grid, List, Star, ShoppingCart, Eye } from "lucide-react";
+import { Search, Grid, List, Star, ShoppingCart, Eye, ZoomIn } from "lucide-react";
+import { openLightbox, productGalleryExtras } from "@/lib/lightbox";
 import ProductQuickView from "@/components/ProductQuickView";
 import ResponsiveProductImage from "@/components/ResponsiveProductImage";
 import { useCart } from "@/contexts/CartContext";
@@ -531,13 +532,30 @@ const Products = () => {
                   />
                   {/* Dark overlay */}
                   <div className="absolute inset-0 bg-foreground/10" />
-                  <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors flex items-center justify-center">
+                  <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/20 transition-colors flex items-center justify-center gap-3">
                     <div className="opacity-0 group-hover:opacity-100 transition-opacity">
                       <div className="bg-background/90 backdrop-blur-sm rounded-full p-3">
                         <Eye className="w-5 h-5 text-foreground" />
                       </div>
                     </div>
+                    <button
+                      type="button"
+                      aria-label={`Zoom ${product.name} image`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const main = getProductImage(product);
+                        openLightbox({
+                          images: [main, ...(productGalleryExtras[product.id] ?? [])],
+                          alt: product.name,
+                        });
+                      }}
+                      className="opacity-0 group-hover:opacity-100 transition-opacity bg-background/90 backdrop-blur-sm rounded-full p-3 hover:bg-primary hover:text-primary-foreground"
+                    >
+                      <ZoomIn className="w-5 h-5" />
+                    </button>
                   </div>
+
                 </div>
                 <div className="p-4 flex-1">
                   <span className="text-xs text-primary font-medium uppercase">{product.category}</span>
