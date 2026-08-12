@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
         display: ['Bebas Neue', 'sans-serif'],
+        bengali: ['Noto Sans Bengali', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
