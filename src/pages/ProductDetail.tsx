@@ -3,6 +3,8 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import ProductQuestionForm from "@/components/ProductQuestionForm";
+
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Star, ShoppingCart, Package, Shield, Truck, CheckCircle, X, ZoomIn, ZoomOut, RotateCcw } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
