@@ -127,7 +127,7 @@ const Footer = () => {
                 <Phone className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <div className="text-muted-foreground">
                   <p>+880 1711 596721</p>
-                  <p>+880 1410 596721</p>
+                  <p>+880 1611 596721</p>
                 </div>
               </li>
               <li className="flex items-center gap-3">
