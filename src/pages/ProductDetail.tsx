@@ -1479,6 +1479,9 @@ const ProductDetail = () => {
             </div>
           </div>
 
+          {/* Ask a question */}
+          <ProductQuestionForm productName={product.name} productId={product.id} />
+
           {/* Back button */}
           <div className="mt-12">
             <Button variant="ghost" onClick={() => navigate(-1)}>
@@ -1486,6 +1489,7 @@ const ProductDetail = () => {
               Back to Products
             </Button>
           </div>
+
         </div>
       </section>
 
