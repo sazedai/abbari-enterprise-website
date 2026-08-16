@@ -39,7 +39,7 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    { icon: Phone, title: "Phone", value: "+880 1711 596721", subtext: "+880 1410 596721" },
+    { icon: Phone, title: "Phone", value: "+880 1711 596721", subtext: "+880 1611 596721" },
     { icon: Mail, title: "Email", value: "info@abbarienterprise.com", subtext: "24/7 Support" },
     { icon: MapPin, title: "Address", value: "78/8, Nawabpur Road", subtext: "Dhaka Market, Dhaka 1100, Bangladesh" },
     { icon: Clock, title: "Business Hours", value: "Sat - Thu: 9am - 8pm", subtext: "Fri: Closed" },
